@@ -29,7 +29,8 @@ const state = {
     wasPlaying: false,
     pages: [],
     chapterNav: [],
-    resumeAvailable: false
+    resumeAvailable: false,
+    suppressChapterAutoScroll: false
 };
 
 const elements = {};
@@ -45,6 +46,39 @@ function clampPage(pageNumber) {
 
 function normalizeChapterTitle(text) {
     return text.replace(/\s+/g, " ").trim();
+}
+
+function getFigurePlaceholder(node) {
+    const src = node.getAttribute("src") || "";
+    const alt = node.getAttribute("alt") || "";
+    const candidate = alt || decodeFigureLabel(src) || "image";
+    const cleanCandidate = normalizeChapterTitle(candidate.replace(/^!+\[?|\]?$/g, ""));
+    return `(Figure: ${cleanCandidate || "image"})`;
+}
+
+function decodeFigureLabel(value) {
+    const candidate = (value || "").split("/").pop() || value || "";
+    try {
+        return decodeURIComponent(candidate);
+    } catch (_error) {
+        return candidate;
+    }
+}
+
+function sanitizeBookHtml(html) {
+    const parser = document.createElement("div");
+    parser.innerHTML = html;
+
+    Array.from(parser.querySelectorAll("img")).forEach((image) => {
+        const placeholder = document.createElement("p");
+        placeholder.textContent = getFigurePlaceholder(image);
+        image.replaceWith(placeholder);
+    });
+
+    return parser.innerHTML.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_match, alt, src) => {
+        const raw = normalizeChapterTitle(alt) || decodeFigureLabel(src) || "image";
+        return `<p>(Figure: ${raw})</p>`;
+    });
 }
 
 function chapterDisplayLabel(page) {
@@ -248,6 +282,13 @@ function renderChapterNav() {
             </button>
         `;
     }).join("");
+
+    if (!state.suppressChapterAutoScroll) {
+        const activeButton = elements.chapterNav.querySelector(".chapter-link.active");
+        if (activeButton) {
+            activeButton.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
+    }
 }
 
 function updateAudioButtons(activeKey) {
@@ -345,6 +386,7 @@ function goToPage(pageIndex, options = {}) {
     if (clamped === state.currentPage && !options.forceAudioReload) {
         return;
     }
+    state.suppressChapterAutoScroll = options.navigationSource === "sidebar";
     renderPage(clamped, options);
 }
 
@@ -366,10 +408,10 @@ function handleKeyNavigation(event) {
 
     if (event.key === "ArrowRight") {
         event.preventDefault();
-        goToPage(state.currentPage + 1);
+        goToPage(state.currentPage + 1, { navigationSource: "keyboard" });
     } else if (event.key === "ArrowLeft") {
         event.preventDefault();
-        goToPage(state.currentPage - 1);
+        goToPage(state.currentPage - 1, { navigationSource: "keyboard" });
     }
 }
 
@@ -459,8 +501,8 @@ async function sendMessage() {
 }
 
 function bindEvents() {
-    elements.prevPageBtn.addEventListener("click", () => goToPage(state.currentPage - 1));
-    elements.nextPageBtn.addEventListener("click", () => goToPage(state.currentPage + 1));
+    elements.prevPageBtn.addEventListener("click", () => goToPage(state.currentPage - 1, { navigationSource: "page-button" }));
+    elements.nextPageBtn.addEventListener("click", () => goToPage(state.currentPage + 1, { navigationSource: "page-button" }));
     elements.pageJumpSelect.addEventListener("change", (event) => goToPage(Number(event.target.value)));
 
     elements.chapterNav.addEventListener("click", (event) => {
@@ -468,7 +510,7 @@ function bindEvents() {
         if (!target) {
             return;
         }
-        goToPage(Number(target.dataset.pageIndex));
+        goToPage(Number(target.dataset.pageIndex), { navigationSource: "sidebar" });
     });
 
     document.querySelectorAll(".chapter-btn").forEach((button) => {
@@ -531,7 +573,7 @@ async function initReader() {
     if (!bookHtml) {
         throw new Error("BOOK_HTML was not available on window");
     }
-    state.pages = assignAudioToPages(buildPagesFromHtml(bookHtml));
+    state.pages = assignAudioToPages(buildPagesFromHtml(sanitizeBookHtml(bookHtml)));
 
     if (!state.pages.length) {
         throw new Error("No pages were generated from book content");

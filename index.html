@@ -623,10 +623,11 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                 savedTrackId: savedState.audioTrackId || null,
                 pendingSeek: null,
                 autoplayAfterLoad: false,
-                scrollRaf: null
+                scrollRaf: null,
+                suppressChapterAutoScroll: false
             };
 
-            ui.content.innerHTML = window.BOOK_HTML;
+            ui.content.innerHTML = sanitizeBookHtml(window.BOOK_HTML);
             const blocks = Array.from(ui.content.children);
             if (!blocks.length) {
                 ui.content.innerHTML = '<p style="color: #b42318;">Error: Book content could not be paginated.</p>';
@@ -673,17 +674,17 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
             }));
 
             renderChapterNav(ui, state.chapters, function(page) {
-                goToPage(page, true);
+                goToPage(page, true, { source: 'sidebar' });
             });
             renderPageOptions(ui, state.pages);
             renderAudioOptions(ui, audioTracks);
 
             ui.prevPage.addEventListener('click', function() {
-                goToPage(state.currentPage - 1, true);
+                goToPage(state.currentPage - 1, true, { source: 'page-button' });
             });
 
             ui.nextPage.addEventListener('click', function() {
-                goToPage(state.currentPage + 1, true);
+                goToPage(state.currentPage + 1, true, { source: 'page-button' });
             });
 
             ui.pageSelect.addEventListener('change', function(event) {
@@ -701,11 +702,11 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                 }
                 if (event.key === 'ArrowRight') {
                     event.preventDefault();
-                    goToPage(state.currentPage + 1, true);
+                    goToPage(state.currentPage + 1, true, { source: 'keyboard' });
                 }
                 if (event.key === 'ArrowLeft') {
                     event.preventDefault();
-                    goToPage(state.currentPage - 1, true);
+                    goToPage(state.currentPage - 1, true, { source: 'keyboard' });
                 }
             });
 
@@ -944,6 +945,7 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
             function goToPage(pageNumber, smooth, options) {
                 const page = clampPage(pageNumber, state.pages.length);
                 const forceRefresh = options && options.forceRefresh;
+                state.suppressChapterAutoScroll = options && options.source === 'sidebar';
                 if (forceRefresh || page !== state.currentPage) {
                     setCurrentPage(page);
                 }
@@ -994,6 +996,13 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                         button.dataset.title === activeEntry.title;
                     button.classList.toggle('active', Boolean(active));
                 });
+
+                if (!state.suppressChapterAutoScroll) {
+                    const activeButton = ui.chapterNav.querySelector('.chapter-link.active');
+                    if (activeButton) {
+                        activeButton.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }
+                }
             }
 
             function syncAudioToPage() {
@@ -1122,6 +1131,46 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
         function countWords(text) {
             const trimmed = text.trim();
             return trimmed ? trimmed.split(/\s+/).length : 0;
+        }
+
+        function sanitizeBookHtml(html) {
+            const container = document.createElement('div');
+            container.innerHTML = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, function(_match, alt, src) {
+                const label = normalizeFigureLabel(alt || src);
+                return '<p>(Figure: ' + escapeHtml(label) + ')</p>';
+            });
+
+            Array.from(container.querySelectorAll('img')).forEach(function(image) {
+                const placeholder = document.createElement('p');
+                const src = image.getAttribute('src') || '';
+                const alt = image.getAttribute('alt') || '';
+                placeholder.textContent = '(Figure: ' + normalizeFigureLabel(alt || src) + ')';
+                image.replaceWith(placeholder);
+            });
+
+            return container.innerHTML;
+        }
+
+        function normalizeFigureLabel(value) {
+            const compact = String(value || '').trim();
+            if (!compact) {
+                return 'image';
+            }
+            const lastSegment = compact.split('/').pop() || compact;
+            try {
+                return decodeURIComponent(lastSegment || 'image');
+            } catch (error) {
+                return lastSegment || 'image';
+            }
+        }
+
+        function escapeHtml(value) {
+            return String(value)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
         }
 
         function clampPage(pageNumber, totalPages) {
