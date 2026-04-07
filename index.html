@@ -1122,7 +1122,7 @@ function cacheElements() {
     elements.sendBtn = document.getElementById("sendBtn");
 }
 
-async function initReader() {
+async function setTimeout(initReader, 100) {
     cacheElements();
     loadState();
 
@@ -1150,7 +1150,7 @@ async function initReader() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    initReader().catch((error) => {
+    setTimeout(initReader, 100).catch((error) => {
         console.error("Reader initialization failed", error);
         cacheElements();
         showReaderError("The reader could not initialize. Check book-content.js and reader.js.");
