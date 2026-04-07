@@ -90,8 +90,11 @@
             position: sticky;
             top: 0.75rem;
             align-self: start;
+            height: calc(100vh - 1.5rem);
+            height: calc(100dvh - 1.5rem);
             max-height: calc(100vh - 1.5rem);
             max-height: calc(100dvh - 1.5rem);
+            min-height: 0;
         }
 
         .sidebar-card,
@@ -106,10 +109,12 @@
         .sidebar-card {
             height: 100%;
             max-height: 100%;
+            min-height: 0;
             padding: 1.25rem;
             border-radius: 1.5rem;
             display: flex;
             flex-direction: column;
+            overflow: hidden;
         }
 
         .eyebrow {
@@ -160,9 +165,11 @@
         .chapter-nav {
             display: grid;
             gap: 0.45rem;
-            flex: 1;
+            flex: 1 1 auto;
             min-height: 0;
+            max-height: 100%;
             overflow-y: auto;
+            overscroll-behavior: contain;
             padding-right: 0.25rem;
         }
 
@@ -173,6 +180,28 @@
             text-align: left;
             border-radius: 1rem;
             background: transparent;
+        }
+
+        .chapter-link--section {
+            font-weight: 700;
+        }
+
+        .chapter-link--chapter {
+            margin-left: 0.9rem;
+            width: calc(100% - 0.9rem);
+            color: var(--muted);
+        }
+
+        .chapter-link-label {
+            display: block;
+            line-height: 1.35;
+        }
+
+        .chapter-link small {
+            display: block;
+            margin-top: 0.2rem;
+            color: inherit;
+            opacity: 0.75;
         }
 
         .chapter-link.active {
@@ -270,22 +299,17 @@
         .audio-panel {
             border-top: 1px solid var(--line);
             padding-top: 0.65rem;
-            display: grid;
-            gap: 0.45rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
         }
 
-        .audio-header {
+        .audio-row {
             display: flex;
-            justify-content: space-between;
+            flex-wrap: nowrap;
             gap: 0.75rem;
             align-items: center;
-            margin-bottom: 0;
-        }
-
-        .audio-header strong {
-            display: block;
-            font-size: 0.95rem;
-            line-height: 1.2;
+            min-width: 0;
         }
 
         .audio-status {
@@ -293,18 +317,50 @@
             font-size: 0.8rem;
         }
 
+        .audio-track-picker {
+            flex: 0 1 16rem;
+            min-width: 7rem;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.72);
+            overflow: hidden;
+        }
+
+        .audio-track-picker select {
+            width: 100%;
+            border: 0;
+            background: transparent;
+            padding: 0.45rem 0.85rem;
+            font-weight: 600;
+            color: var(--ink);
+        }
+
         .audio-time {
-            min-width: 6.5rem;
+            flex: 0 0 auto;
             text-align: right;
             color: var(--muted);
             font-variant-numeric: tabular-nums;
             font-size: 0.8rem;
+            white-space: nowrap;
         }
 
         .audio-progress {
-            width: 100%;
+            flex: 1 1 auto;
+            min-width: 0;
             accent-color: var(--accent);
             height: 0.8rem;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
 
         .book-surface {
@@ -426,7 +482,6 @@
             }
 
             .page-nav,
-            .audio-header,
             .audio-controls {
                 flex-direction: column;
                 align-items: stretch;
@@ -444,9 +499,16 @@
                 width: 100%;
             }
 
+            .audio-row {
+                gap: 0.5rem;
+            }
+
+            .audio-track-picker {
+                flex-basis: 9rem;
+            }
+
             .audio-time {
-                min-width: 0;
-                text-align: left;
+                font-size: 0.75rem;
             }
         }
     </style>
@@ -487,22 +549,17 @@
                 </div>
 
                 <div class="audio-panel">
-                    <div class="audio-header">
-                        <div>
-                            <p class="eyebrow">Audiobook</p>
-                            <strong id="audioChapterTitle">Loading audio…</strong>
-                            <span id="audioStatus" class="audio-status">Preparing chapter sync</span>
-                        </div>
-                        <div id="audioTime" class="audio-time">0:00 / 0:00</div>
-                    </div>
-                    <div class="audio-controls">
+                    <p class="eyebrow">Audiobook</p>
+                    <div class="audio-row">
                         <button id="playPauseBtn" type="button" aria-label="Play or pause audio">Play</button>
-                        <label class="pill-label" for="audioTrackSelect">
-                            Chapter
+                        <label class="audio-track-picker" for="audioTrackSelect">
+                            <span class="sr-only">Chapter</span>
                             <select id="audioTrackSelect" aria-label="Select audio chapter"></select>
                         </label>
+                        <input id="audioProgress" class="audio-progress" type="range" min="0" max="100" value="0" step="0.1" aria-label="Audio progress">
+                        <div id="audioTime" class="audio-time">0:00 / 0:00</div>
                     </div>
-                    <input id="audioProgress" class="audio-progress" type="range" min="0" max="100" value="0" step="0.1" aria-label="Audio progress">
+                    <span id="audioStatus" class="audio-status sr-only" aria-live="polite">Preparing chapter sync</span>
                     <audio id="audioElement" preload="metadata"></audio>
                 </div>
             </section>
@@ -552,7 +609,6 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                 playPauseBtn: document.getElementById('playPauseBtn'),
                 audioProgress: document.getElementById('audioProgress'),
                 audioTime: document.getElementById('audioTime'),
-                audioChapterTitle: document.getElementById('audioChapterTitle'),
                 audioStatus: document.getElementById('audioStatus')
             };
 
@@ -779,12 +835,12 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
             }
 
             function buildChapters(allBlocks, pages) {
-                const excluded = new Set(['2025 Edition', 'Contents']);
+                const excluded = new Set(['2025 Edition', 'Contents', 'By William McBride']);
                 const headings = [];
                 let slugCount = 0;
 
                 allBlocks.forEach(function(block, index) {
-                    if (block.tagName !== 'H3') {
+                    if (block.tagName !== 'H2' && block.tagName !== 'H3') {
                         return;
                     }
                     const title = block.textContent.trim();
@@ -797,15 +853,22 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                     headings.push({
                         title: title,
                         element: block,
-                        page: page
+                        page: page,
+                        level: Number(block.tagName.slice(1)),
+                        isMajor: block.tagName === 'H2'
                     });
                 });
 
                 pages.forEach(function(page) {
-                    const activeChapter = headings.reduce(function(match, chapter) {
-                        return chapter.page <= page.number ? chapter : match;
-                    }, headings[0] || null);
-                    page.chapterTitle = activeChapter ? activeChapter.title : 'Front Matter';
+                    const headingsBeforePage = headings.filter(function(chapter) {
+                        return chapter.page <= page.number;
+                    });
+                    const activeHeading = headingsBeforePage[headingsBeforePage.length - 1] || null;
+                    const activeSection = headingsBeforePage.slice().reverse().find(function(chapter) {
+                        return chapter.level === 2;
+                    }) || null;
+                    page.sectionTitle = activeSection ? activeSection.title : 'Front Matter';
+                    page.chapterTitle = activeHeading ? activeHeading.title : page.sectionTitle;
                 });
 
                 return headings;
@@ -816,9 +879,16 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                 chapters.forEach(function(chapter) {
                     const button = document.createElement('button');
                     button.type = 'button';
-                    button.className = 'chapter-link';
-                    button.textContent = chapter.title;
+                    button.className = 'chapter-link ' + (chapter.isMajor ? 'chapter-link--section' : 'chapter-link--chapter');
                     button.dataset.page = String(chapter.page);
+                    button.dataset.title = chapter.title;
+                    const label = document.createElement('span');
+                    label.className = 'chapter-link-label';
+                    label.textContent = chapter.title;
+                    const meta = document.createElement('small');
+                    meta.textContent = 'Starts on page ' + chapter.page;
+                    button.appendChild(label);
+                    button.appendChild(meta);
                     button.addEventListener('click', function() {
                         onClick(chapter.page);
                     });
@@ -914,13 +984,14 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                 ui.prevPage.disabled = state.currentPage <= 1;
                 ui.nextPage.disabled = state.currentPage >= total;
                 ui.readerProgressBar.style.width = total <= 1 ? '100%' : (((state.currentPage - 1) / (total - 1)) * 100).toFixed(2) + '%';
+                const activeEntry = state.chapters.reduce(function(match, chapter) {
+                    return chapter.page <= state.currentPage ? chapter : match;
+                }, state.chapters[0] || null);
 
                 Array.from(ui.chapterNav.children).forEach(function(button) {
-                    const pageValue = Number(button.dataset.page);
-                    const chapter = state.chapters.find(function(item) {
-                        return item.page === pageValue;
-                    });
-                    const active = chapter && state.pages[state.currentPage - 1].chapterTitle === chapter.title;
+                    const active = activeEntry &&
+                        Number(button.dataset.page) === activeEntry.page &&
+                        button.dataset.title === activeEntry.title;
                     button.classList.toggle('active', Boolean(active));
                 });
             }
@@ -951,7 +1022,6 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                 const sameTrack = state.currentTrackId === track.id && ui.audioElement.src.indexOf(track.src) !== -1;
                 state.currentTrackId = track.id;
                 ui.audioTrackSelect.value = track.id;
-                ui.audioChapterTitle.textContent = track.title;
                 updateAudioStatus(
                     fromSelection
                         ? 'Manual chapter selection.'
