@@ -136,9 +136,7 @@ function main() {
     const pages = assignAudioToPages(buildPages(buildBlocks(bookHtml)));
     const audioFiles = [
         "audiobook/01-preface.mp3",
-        "audiobook/02-prologue-part-1.mp3",
-        "audiobook/02-prologue-part-2.mp3",
-        "audiobook/02-prologue-part-3.mp3"
+        "audiobook/02-prologue-full.mp3"
     ];
 
     const summary = {

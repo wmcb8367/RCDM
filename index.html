@@ -576,9 +576,7 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
         const WORDS_PER_PAGE = 500;
         const AUDIO_TRACKS = [
             { id: 'preface', title: 'Preface', src: 'audiobook/01-preface.mp3' },
-            { id: 'prologue-part-1', title: 'Prologue Part 1', src: 'audiobook/02-prologue-part-1.mp3' },
-            { id: 'prologue-part-2', title: 'Prologue Part 2', src: 'audiobook/02-prologue-part-2.mp3' },
-            { id: 'prologue-part-3', title: 'Prologue Part 3', src: 'audiobook/02-prologue-part-3.mp3' }
+            { id: 'prologue', title: 'Prologue', src: 'audiobook/02-prologue-full.mp3' }
         ];
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -923,7 +921,6 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                 const prologuePage = chapterStartsWith(chapters, 'Prologue') || Math.min(totalPages, prefacePage + 1);
                 const introductionPage = chapterPage(chapters, 'Introduction') || (totalPages + 1);
                 const prologueEnd = Math.max(prologuePage, introductionPage - 1);
-                const prologueLength = Math.max(1, prologueEnd - prologuePage + 1);
 
                 return AUDIO_TRACKS.map(function(track) {
                     return Object.assign({}, track);
@@ -932,12 +929,8 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                         track.startPage = prefacePage;
                         track.endPage = Math.max(prefacePage, prologuePage - 1);
                     } else {
-                        const partIndex = Number(track.id.slice(-1)) - 1;
-                        track.startPage = prologuePage + Math.floor((prologueLength * partIndex) / 3);
-                        track.endPage = prologuePage + Math.floor((prologueLength * (partIndex + 1)) / 3) - 1;
-                        if (partIndex === 2) {
-                            track.endPage = prologueEnd;
-                        }
+                        track.startPage = prologuePage;
+                        track.endPage = prologueEnd;
                     }
                     return track;
                 });
