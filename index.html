@@ -673,7 +673,7 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
             }));
 
             renderChapterNav(ui, state.chapters, function(page) {
-                goToPage(page, true, { source: 'sidebar' });
+                goToPage(page, true, { source: 'sidebar', syncAudio: true });
             });
             renderPageOptions(ui, state.pages);
             renderAudioOptions(ui, audioTracks);
@@ -727,7 +727,12 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
             });
 
             ui.audioTrackSelect.addEventListener('change', function(event) {
-                loadTrack(event.target.value, false, true);
+                const selectedTrack = trackLookup[event.target.value];
+                if (!selectedTrack) {
+                    return;
+                }
+                loadTrack(selectedTrack.id, false, true);
+                goToPage(selectedTrack.startPage, true, { source: 'audio-select', skipAudioSync: true });
             });
 
             ui.playPauseBtn.addEventListener('click', function() {
@@ -941,7 +946,9 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                 const forceRefresh = options && options.forceRefresh;
                 state.suppressChapterAutoScroll = options && options.source === 'sidebar';
                 if (forceRefresh || page !== state.currentPage) {
-                    setCurrentPage(page);
+                    setCurrentPage(page, options);
+                } else if (options && options.syncAudio && !options.skipAudioSync) {
+                    syncAudioToPage();
                 }
                 jumpToPage(page, smooth);
             }
@@ -960,11 +967,13 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                 });
             }
 
-            function setCurrentPage(pageNumber) {
+            function setCurrentPage(pageNumber, options) {
                 const page = clampPage(pageNumber, state.pages.length);
                 state.currentPage = page;
                 updatePageUI();
-                syncAudioToPage();
+                if (!(options && options.skipAudioSync)) {
+                    syncAudioToPage();
+                }
                 saveState();
             }
 
@@ -1006,6 +1015,7 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
             function syncAudioToPage() {
                 const mappedTrack = findTrackForPage(audioTracks, state.currentPage);
                 if (!mappedTrack) {
+                    ui.audioTrackSelect.value = '';
                     updateAudioStatus('No synced audio for this page. Available chapters cover the Preface and Prologue.');
                     return;
                 }
@@ -1013,6 +1023,7 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                     loadTrack(mappedTrack.id, false, false);
                     return;
                 }
+                ui.audioTrackSelect.value = mappedTrack.id;
                 updateAudioStatus('Synced to pages ' + mappedTrack.startPage + '-' + mappedTrack.endPage + '.');
             }
 
