@@ -1646,25 +1646,10 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
         const WORDS_PER_PAGE = 500;
         const OLLAMA_URL = 'http://localhost:11434/api/chat';
         const OLLAMA_MODEL = 'llama3.1:8b';
+        // Audio tracks mapped to book chapters by title
+        // Add tracks one at a time as audio files are ready
         const AUDIO_TRACKS = [
-            { id: 'preface', title: 'Preface', src: 'audiobook/01-preface.mp3' },
-            { id: 'prologue', title: 'Prologue (Full)', src: 'audiobook/02-prologue-full.mp3' },
-            { id: 'prologue-1', title: 'Prologue Part 1', src: 'audiobook/02-prologue-part-1.mp3' },
-            { id: 'prologue-2', title: 'Prologue Part 2', src: 'audiobook/02-prologue-part-2.mp3' },
-            { id: 'prologue-3', title: 'Prologue Part 3', src: 'audiobook/02-prologue-part-3.mp3' },
-            { id: 'introduction', title: 'Introduction (Full)', src: 'audiobook/03-introduction-full.mp3' },
-            { id: 'introduction-1', title: 'Introduction Part 1', src: 'audiobook/03-introduction-part-1.mp3' },
-            { id: 'introduction-2', title: 'Introduction Part 2', src: 'audiobook/03-introduction-part-2.mp3' },
-            { id: 'introduction-3', title: 'Introduction Part 3', src: 'audiobook/03-introduction-part-3.mp3' },
-            { id: 'tactics', title: 'Tactics (Full)', src: 'audiobook/04-tactics-full.mp3' },
-            { id: 'tactics-1', title: 'Tactics Part 1', src: 'audiobook/04-tactics-part-1.mp3' },
-            { id: 'tactics-2', title: 'Tactics Part 2', src: 'audiobook/04-tactics-part-2.mp3' },
-            { id: 'tactics-3', title: 'Tactics Part 3', src: 'audiobook/04-tactics-part-3.mp3' },
-            { id: 'tactics-4', title: 'Tactics Part 4', src: 'audiobook/04-tactics-part-4.mp3' },
-            { id: 'conclusion', title: 'Conclusion', src: 'audiobook/05-conclusion-full.mp3' },
-            { id: 'introduction-to-rcdm', title: 'Intro to RCDM', src: 'audiobook/06-introduction-to-rcdm.mp3' },
-            { id: 'three-building-blocks', title: 'Three Building Blocks', src: 'audiobook/07-three-building-blocks.mp3' },
-            { id: 'building-a-process', title: 'Building A Process', src: 'audiobook/08-building-a-process.mp3' }
+            { id: 'preface', title: 'Preface', src: 'audiobook/01-preface.mp3' }
         ];
 
         const SPLASH_STORAGE_KEY = 'race-course-reader-splash-v2';
@@ -2232,12 +2217,30 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
             function buildAudioTrackMap(chapters, totalPages) {
                 const endPage = Math.max(1, totalPages);
                 
-                // Simple approach: all tracks are available, page sync is optional
-                return AUDIO_TRACKS.map(function(track, index) {
+                // Map audio tracks to chapters by matching title
+                return AUDIO_TRACKS.map(function(track, trackIndex) {
                     var t = Object.assign({}, track);
-                    // Default page range - spread evenly or just use index
-                    t.startPage = 1;
-                    t.endPage = endPage;
+                    
+                    // Find chapter that matches this audio track title
+                    var matchingChapterIndex = chapters.findIndex(function(ch) {
+                        return ch.title.toLowerCase() === track.title.toLowerCase();
+                    });
+                    
+                    if (matchingChapterIndex !== -1) {
+                        var matchingChapter = chapters[matchingChapterIndex];
+                        t.startPage = matchingChapter.page;
+                        t.chapterIndex = matchingChapterIndex;
+                        
+                        // End page is the start of next chapter, or end of book
+                        var nextChapter = chapters[matchingChapterIndex + 1];
+                        t.endPage = nextChapter ? nextChapter.page - 1 : endPage;
+                    } else {
+                        // No matching chapter - track covers entire book
+                        t.startPage = 1;
+                        t.endPage = endPage;
+                        t.chapterIndex = -1;
+                    }
+                    
                     return t;
                 });
             }
