@@ -2043,39 +2043,50 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
         function calculateWordsPerPage(surface) {
             /* Measure how many words fit in the visible book surface */
             var contentArea = surface.querySelector('#content') || surface;
+            var surfaceStyle = getComputedStyle(surface);
             var availableHeight = surface.clientHeight
-                - parseFloat(getComputedStyle(surface).paddingTop)
-                - parseFloat(getComputedStyle(surface).paddingBottom);
-            if (availableHeight < 100) availableHeight = 400; /* fallback */
+                - parseFloat(surfaceStyle.paddingTop)
+                - parseFloat(surfaceStyle.paddingBottom);
+            if (availableHeight < 100) availableHeight = 500; /* fallback */
 
-            /* Create a hidden measurement container matching the content style */
+            /* Create measurement container matching real content layout */
             var measure = document.createElement('div');
-            measure.style.cssText = 'position:absolute;visibility:hidden;width:' + contentArea.clientWidth + 'px;max-width:860px;font:inherit;line-height:inherit;padding:0;margin:0;';
-            measure.style.fontFamily = getComputedStyle(contentArea).fontFamily;
-            measure.style.fontSize = getComputedStyle(contentArea).fontSize;
-            measure.style.lineHeight = getComputedStyle(contentArea).lineHeight;
+            var contentStyle = getComputedStyle(contentArea);
+            measure.style.cssText = 'position:absolute;visibility:hidden;pointer-events:none;'
+                + 'width:' + Math.min(contentArea.clientWidth || 600, 860) + 'px;'
+                + 'max-width:860px;'
+                + 'font-family:' + contentStyle.fontFamily + ';'
+                + 'font-size:' + contentStyle.fontSize + ';'
+                + 'line-height:' + contentStyle.lineHeight + ';';
             document.body.appendChild(measure);
 
-            /* Fill with words until it exceeds the available height */
-            var words = 0;
-            var testWords = [];
-            var sampleWord = 'strategy ';
-            while (words < 800) {
-                testWords.push(sampleWord);
-                words++;
-                if (words % 20 === 0) {
-                    measure.innerHTML = '<p>' + testWords.join('') + '</p>';
-                    if (measure.scrollHeight > availableHeight) {
-                        break;
-                    }
+            /* Build realistic paragraphs (~60 words each, like the actual book) */
+            var wordsPerParagraph = 60;
+            var sampleSentence = 'The tactical decision making process has been a long road trying to take a sometimes mystical topic and understand it in a way that can be articulated improved upon taught and ultimately applied successfully on the race course in conditions ranging from light air to heavy breeze ';
+            var totalWords = 0;
+            var paragraphCount = 0;
+
+            while (totalWords < 1200) {
+                var p = document.createElement('p');
+                p.style.margin = '1em 0';
+                p.textContent = sampleSentence;
+                measure.appendChild(p);
+                totalWords += wordsPerParagraph;
+                paragraphCount++;
+
+                if (measure.scrollHeight > availableHeight) {
+                    /* This paragraph pushed us over — remove it */
+                    measure.removeChild(p);
+                    totalWords -= wordsPerParagraph;
+                    break;
                 }
             }
 
-            /* Back off a bit for headings, images, margins */
-            var fitted = Math.max(80, Math.floor(words * 0.75));
+            /* Small buffer for headings that may appear on a page */
+            var fitted = Math.max(120, Math.floor(totalWords * 0.9));
             document.body.removeChild(measure);
 
-            console.log('[pagination] availableHeight:', availableHeight, 'rawFit:', words, 'adjusted:', fitted);
+            console.log('[pagination] availableHeight:', availableHeight, 'paragraphs:', paragraphCount, 'rawWords:', totalWords, 'adjusted:', fitted);
             return fitted;
         }
         const OLLAMA_URL = 'http://localhost:11434/api/chat';
