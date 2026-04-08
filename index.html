@@ -1449,8 +1449,9 @@
                 display: none;
             }
 
+            /* Hide the book progress bar on mobile — audio scrubber replaces it */
             .reader-progress {
-                margin: -0.2rem 0 0.1rem;
+                display: none;
             }
 
             /* --- Mini audio player --- */
@@ -1458,6 +1459,17 @@
                 gap: 0.55rem;
                 padding-top: 0;
                 border-top: 0;
+                display: flex;
+                flex-direction: column;
+            }
+
+            /* Move audio scrubber above mini-player row */
+            .audio-panel > .audio-row--progress {
+                order: -2;
+            }
+
+            .audio-panel > .audio-mini-row {
+                order: -1;
             }
 
             .audio-mini-row {
