@@ -1225,11 +1225,68 @@
             }
         }
 
+        /* Page edge navigation buttons */
+        .page-edge-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2rem;
+            height: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid var(--line);
+            border-radius: 0.5rem;
+            color: var(--muted);
+            font-size: 1.4rem;
+            font-family: system-ui, sans-serif;
+            cursor: pointer;
+            z-index: 5;
+            opacity: 0;
+            transition: opacity 200ms ease, background 140ms ease;
+            padding: 0;
+        }
+
+        .book-surface {
+            position: relative;
+        }
+
+        .book-surface:hover .page-edge-btn,
+        .page-edge-btn:focus-visible {
+            opacity: 1;
+        }
+
+        .page-edge-btn:hover {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--ink);
+        }
+
+        .page-edge-btn:disabled {
+            opacity: 0 !important;
+            pointer-events: none;
+        }
+
+        .page-edge-prev {
+            left: 0.4rem;
+        }
+
+        .page-edge-next {
+            right: 0.4rem;
+        }
+
         /* Hide mobile-only elements on desktop */
         .mobile-toolbar-button,
         .mobile-drawer-backdrop,
         .audio-mini-row {
             display: none;
+        }
+
+        /* Hide edge buttons on mobile — swipe/tap handles navigation */
+        @media (max-width: 960px) {
+            .page-edge-btn {
+                display: none !important;
+            }
         }
 
         @media (hover: hover) and (pointer: fine) {
@@ -1900,6 +1957,8 @@
             </section>
 
             <article class="book-surface">
+                <button id="pagePrevEdge" class="page-edge-btn page-edge-prev" type="button" aria-label="Previous page">&lsaquo;</button>
+                <button id="pageNextEdge" class="page-edge-btn page-edge-next" type="button" aria-label="Next page">&rsaquo;</button>
                 <div id="content">Loading...</div>
                 <footer class="reader-footer">
                     <div class="reader-footer-progress">
@@ -2137,6 +2196,20 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
             ui.nextPage.addEventListener('click', function() {
                 goToPage(state.currentPage + 1, true, { source: 'page-button' });
             });
+
+            /* Edge navigation buttons */
+            var pagePrevEdge = document.getElementById('pagePrevEdge');
+            var pageNextEdge = document.getElementById('pageNextEdge');
+            if (pagePrevEdge) {
+                pagePrevEdge.addEventListener('click', function() {
+                    goToPage(state.currentPage - 1, false, { source: 'edge-button' });
+                });
+            }
+            if (pageNextEdge) {
+                pageNextEdge.addEventListener('click', function() {
+                    goToPage(state.currentPage + 1, false, { source: 'edge-button' });
+                });
+            }
 
             ui.pageSelect.addEventListener('change', function(event) {
                 goToPage(Number(event.target.value), true);
@@ -2655,6 +2728,10 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                 ui.pageSelect.value = String(state.currentPage);
                 ui.prevPage.disabled = state.currentPage <= 1;
                 ui.nextPage.disabled = state.currentPage >= total;
+                var prevEdge = document.getElementById('pagePrevEdge');
+                var nextEdge = document.getElementById('pageNextEdge');
+                if (prevEdge) prevEdge.disabled = state.currentPage <= 1;
+                if (nextEdge) nextEdge.disabled = state.currentPage >= total;
                 var progressPct = total <= 1 ? '100%' : (((state.currentPage - 1) / (total - 1)) * 100).toFixed(2) + '%';
                 ui.readerProgressBar.style.width = progressPct;
                 if (ui.footerProgressBar) ui.footerProgressBar.style.width = progressPct;
