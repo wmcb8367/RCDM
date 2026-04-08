@@ -428,13 +428,44 @@
         .chat-bubble {
             display: inline-flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
             min-height: 3.2rem;
             padding: 0.8rem 1rem;
             border-radius: 1.1rem;
             color: var(--ink);
             font-weight: 600;
             text-align: left;
+            gap: 0.75rem;
+            max-width: 100%;
+        }
+
+        .chat-bubble-copy {
+            display: grid;
+            gap: 0.1rem;
+        }
+
+        .chat-bubble-label {
+            font-size: 0.76rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .chat-bubble-text {
+            line-height: 1.35;
+        }
+
+        .chat-bubble-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 999px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-size: 1rem;
+            flex: 0 0 auto;
         }
 
         .chat-bubble[hidden],
@@ -446,6 +477,58 @@
             width: min(24rem, calc(100vw - 1.5rem));
             border-radius: 1.4rem;
             padding: 1rem;
+        }
+
+        .chat-dock.is-expanded .chat-bubble {
+            min-height: 4.2rem;
+            padding: 1rem 1.1rem;
+            border-color: rgba(11, 114, 133, 0.28);
+            box-shadow: 0 0 0 0 rgba(11, 114, 133, 0.35), var(--shadow);
+            animation: chat-pulse 1.5s ease-in-out 3;
+        }
+
+        .chat-dock.is-expanded .chat-window {
+            border-color: rgba(11, 114, 133, 0.3);
+            box-shadow: 0 0 0 0.2rem rgba(11, 114, 133, 0.1), var(--shadow);
+        }
+
+        .chat-suggestions {
+            display: grid;
+            gap: 0.5rem;
+            margin-bottom: 0.85rem;
+        }
+
+        .chat-suggestions[hidden] {
+            display: none;
+        }
+
+        .chat-suggestions-label {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.82rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .chat-suggestion-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+        }
+
+        .chat-suggestion {
+            border-radius: 999px;
+            padding: 0.48rem 0.8rem;
+            background: rgba(11, 114, 133, 0.08);
+            border-color: rgba(11, 114, 133, 0.18);
+            font-size: 0.88rem;
+            line-height: 1.35;
+            text-align: left;
+        }
+
+        .chat-suggestion:hover,
+        .chat-suggestion:focus-visible {
+            background: rgba(11, 114, 133, 0.14);
         }
 
         .chat-window-header {
@@ -521,6 +604,21 @@
 
         .chat-input-row button {
             padding: 0.72rem 0.95rem;
+        }
+
+        @keyframes chat-pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(11, 114, 133, 0.35), var(--shadow);
+            }
+            50% {
+                transform: scale(1.02);
+                box-shadow: 0 0 0 0.75rem rgba(11, 114, 133, 0), var(--shadow);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(11, 114, 133, 0), var(--shadow);
+            }
         }
 
         @media (max-width: 960px) {
@@ -702,8 +800,14 @@
         </main>
     </div>
 
-    <div class="chat-dock">
-        <button id="chatBubble" class="chat-bubble" type="button" hidden>Any questions about this chapter?</button>
+    <div id="chatDock" class="chat-dock">
+        <button id="chatBubble" class="chat-bubble" type="button" aria-expanded="false" aria-controls="chatWindow">
+            <span class="chat-bubble-copy">
+                <span class="chat-bubble-label">Chapter Assistant</span>
+                <span id="chatBubbleText" class="chat-bubble-text">Ask about this chapter anytime</span>
+            </span>
+            <span class="chat-bubble-icon" aria-hidden="true">?</span>
+        </button>
         <section id="chatWindow" class="chat-window" aria-label="Chapter assistant" hidden>
             <div class="chat-window-header">
                 <div>
@@ -712,6 +816,10 @@
                     <p id="chatPrompt" class="chat-window-prompt">I can answer questions using the current chapter and related sections from the book.</p>
                 </div>
                 <button id="chatClose" class="chat-close" type="button" aria-label="Close assistant">Close</button>
+            </div>
+            <div id="chatSuggestions" class="chat-suggestions" hidden>
+                <p class="chat-suggestions-label">Suggested Questions</p>
+                <div id="chatSuggestionList" class="chat-suggestion-list"></div>
             </div>
             <div id="chatMessages" class="chat-messages" aria-live="polite"></div>
             <div class="chat-input-row">
@@ -777,10 +885,14 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                 audioProgress: document.getElementById('audioProgress'),
                 audioTime: document.getElementById('audioTime'),
                 audioStatus: document.getElementById('audioStatus'),
+                chatDock: document.getElementById('chatDock'),
                 chatBubble: document.getElementById('chatBubble'),
+                chatBubbleText: document.getElementById('chatBubbleText'),
                 chatWindow: document.getElementById('chatWindow'),
                 chatTitle: document.getElementById('chatTitle'),
                 chatPrompt: document.getElementById('chatPrompt'),
+                chatSuggestions: document.getElementById('chatSuggestions'),
+                chatSuggestionList: document.getElementById('chatSuggestionList'),
                 chatMessages: document.getElementById('chatMessages'),
                 chatInput: document.getElementById('chatInput'),
                 chatSend: document.getElementById('chatSend'),
@@ -803,7 +915,10 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                 programmaticScrollUntil: 0,
                 autoScrollStoppedByUser: false,
                 lastAudioDrivenPage: null,
-                chatCheckIns: {}
+                chatCheckIns: {},
+                chatExpandedChapters: {},
+                activeSuggestedQuestions: [],
+                chatWindowOpen: false
             };
 
             ui.content.innerHTML = sanitizeBookHtml(window.BOOK_HTML);
@@ -880,13 +995,11 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
             });
 
             ui.chatBubble.addEventListener('click', function() {
-                ui.chatWindow.hidden = false;
-                ui.chatBubble.hidden = true;
-                ui.chatInput.focus();
+                setChatWindowOpen(!state.chatWindowOpen, { focusInput: true });
             });
 
             ui.chatClose.addEventListener('click', function() {
-                ui.chatWindow.hidden = true;
+                setChatWindowOpen(false);
                 updateChatPrompt();
             });
 
@@ -1007,6 +1120,7 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
             ui.audioElement.addEventListener('ended', function() {
                 syncPageToAudioProgress(false);
                 promptChapterChat(chapterForPage(state.chapters, state.currentPage), true);
+                emphasizeChatForChapter(chapterForPage(state.chapters, state.currentPage), true);
                 updateAudioUI();
             });
 
@@ -1155,6 +1269,8 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                         })
                         .filter(Boolean)
                         .join('\n\n');
+                    chapter.keyConcepts = extractKeyConcepts(chapter.title, chapter.contextText);
+                    chapter.suggestedQuestions = generateSuggestedQuestions(chapter.title, chapter.keyConcepts);
                 });
             }
 
@@ -1410,33 +1526,37 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
             function updateChatPrompt() {
                 const chapter = chapterForPage(state.chapters, state.currentPage);
                 if (!chapter) {
-                    ui.chatBubble.hidden = true;
-                    ui.chatWindow.hidden = true;
+                    state.activeSuggestedQuestions = [];
+                    ui.chatTitle.textContent = 'Ask about this chapter';
+                    ui.chatPrompt.textContent = 'I can answer questions using the current chapter and related sections from the book.';
+                    ui.chatBubbleText.textContent = 'Ask about this chapter anytime';
+                    renderSuggestedQuestions([]);
+                    setChatWindowOpen(false);
+                    setChatExpanded(false);
                     return;
                 }
-                const message = 'Any questions about ' + chapter.title + '?';
+                const endOfChapter = state.currentPage >= chapter.endPage;
+                const message = endOfChapter
+                    ? 'You finished ' + chapter.title + '. Ask a follow-up anytime.'
+                    : 'Ask about ' + chapter.title + ' anytime.';
                 ui.chatTitle.textContent = chapter.title;
                 ui.chatPrompt.textContent = message;
-                ui.chatBubble.textContent = message;
+                ui.chatBubbleText.textContent = message;
+                state.activeSuggestedQuestions = chapter.suggestedQuestions || [];
+                renderSuggestedQuestions(state.activeSuggestedQuestions);
 
-                const shouldShowPrompt = state.currentPage >= chapter.endPage;
-                if (!shouldShowPrompt) {
-                    ui.chatBubble.hidden = true;
-                    if (ui.chatWindow.hidden) {
-                        return;
-                    }
-                } else if (ui.chatWindow.hidden) {
-                    ui.chatBubble.hidden = false;
+                if (endOfChapter) {
+                    promptChapterChat(chapter, true);
+                    emphasizeChatForChapter(chapter, true);
+                } else {
+                    setChatExpanded(false);
                 }
-
-                promptChapterChat(chapter, false);
             }
 
             function promptChapterChat(chapter, openWindow) {
                 if (!chapter || state.chatCheckIns[chapter.title]) {
                     if (openWindow) {
-                        ui.chatWindow.hidden = false;
-                        ui.chatBubble.hidden = true;
+                        setChatWindowOpen(true);
                     }
                     return;
                 }
@@ -1446,8 +1566,7 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                 );
                 state.chatCheckIns[chapter.title] = true;
                 if (openWindow) {
-                    ui.chatWindow.hidden = false;
-                    ui.chatBubble.hidden = true;
+                    setChatWindowOpen(true);
                 }
             }
 
@@ -1460,17 +1579,67 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                 return item;
             }
 
-            async function sendChatMessage() {
-                const question = ui.chatInput.value.trim();
+            function setChatWindowOpen(open, options) {
+                state.chatWindowOpen = Boolean(open);
+                ui.chatWindow.hidden = !state.chatWindowOpen;
+                ui.chatBubble.setAttribute('aria-expanded', state.chatWindowOpen ? 'true' : 'false');
+                if (state.chatWindowOpen && options && options.focusInput) {
+                    ui.chatInput.focus();
+                }
+            }
+
+            function setChatExpanded(expanded) {
+                ui.chatDock.classList.toggle('is-expanded', Boolean(expanded));
+            }
+
+            function renderSuggestedQuestions(questions) {
+                ui.chatSuggestionList.innerHTML = '';
+                const items = Array.isArray(questions) ? questions.slice(0, 5) : [];
+                ui.chatSuggestions.hidden = items.length === 0;
+                items.forEach(function(question) {
+                    const button = document.createElement('button');
+                    button.type = 'button';
+                    button.className = 'chat-suggestion';
+                    button.textContent = question;
+                    button.addEventListener('click', function() {
+                        sendChatMessage(question);
+                    });
+                    ui.chatSuggestionList.appendChild(button);
+                });
+            }
+
+            function emphasizeChatForChapter(chapter, openWindow) {
+                if (!chapter || state.chatExpandedChapters[chapter.title]) {
+                    if (openWindow) {
+                        setChatWindowOpen(true);
+                    }
+                    return;
+                }
+                state.chatExpandedChapters[chapter.title] = true;
+                setChatExpanded(true);
+                if (openWindow) {
+                    setChatWindowOpen(true);
+                }
+                window.setTimeout(function() {
+                    setChatExpanded(false);
+                }, 4800);
+            }
+
+            async function sendChatMessage(prefilledQuestion) {
+                const question = typeof prefilledQuestion === 'string'
+                    ? prefilledQuestion.trim()
+                    : ui.chatInput.value.trim();
                 const chapter = chapterForPage(state.chapters, state.currentPage);
                 if (!question || !chapter) {
                     return;
                 }
 
-                ui.chatWindow.hidden = false;
-                ui.chatBubble.hidden = true;
+                setChatWindowOpen(true);
+                setChatExpanded(false);
                 appendChatMessage('user', escapeHtml(question));
-                ui.chatInput.value = '';
+                if (!prefilledQuestion) {
+                    ui.chatInput.value = '';
+                }
                 const pending = appendChatMessage('assistant', 'Thinking...');
 
                 try {
@@ -1575,6 +1744,70 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
             function excerptForPrompt(title, text, maxLength) {
                 const excerpt = String(text || '').slice(0, maxLength);
                 return title + ':\n' + excerpt;
+            }
+
+            function extractKeyConcepts(title, contextText) {
+                const titleTerms = tokenizeForSearch(title);
+                const stopWords = new Set([
+                    'about', 'after', 'again', 'against', 'almost', 'along', 'also', 'always', 'among',
+                    'another', 'around', 'because', 'before', 'being', 'between', 'build', 'chapter',
+                    'coach', 'course', 'decision', 'during', 'every', 'first', 'from', 'going', 'great',
+                    'guide', 'important', 'into', 'itself', 'just', 'making', 'might', 'other', 'over',
+                    'part', 'race', 'reader', 'really', 'section', 'should', 'since', 'still', 'their',
+                    'there', 'these', 'thing', 'think', 'those', 'through', 'under', 'using', 'very',
+                    'what', 'when', 'where', 'which', 'while', 'will', 'with', 'would'
+                ]);
+                const scores = {};
+
+                tokenizeForSearch(contextText).forEach(function(term) {
+                    if (stopWords.has(term)) {
+                        return;
+                    }
+                    scores[term] = (scores[term] || 0) + 1;
+                });
+
+                titleTerms.forEach(function(term) {
+                    if (!stopWords.has(term)) {
+                        scores[term] = (scores[term] || 0) + 4;
+                    }
+                });
+
+                return Object.keys(scores)
+                    .sort(function(left, right) {
+                        return scores[right] - scores[left];
+                    })
+                    .slice(0, 4)
+                    .map(function(term) {
+                        return formatConceptLabel(term);
+                    });
+            }
+
+            function generateSuggestedQuestions(chapterTitle, keyConcepts) {
+                const concepts = Array.isArray(keyConcepts) ? keyConcepts.filter(Boolean) : [];
+                const questions = [
+                    'What are the key takeaways from ' + chapterTitle + '?'
+                ];
+
+                if (concepts[0]) {
+                    questions.push('How do I apply ' + concepts[0] + ' in racing?');
+                }
+                if (concepts[1]) {
+                    questions.push('Can you explain ' + concepts[1] + ' more?');
+                }
+                if (concepts[2]) {
+                    questions.push('What mistakes should I avoid with ' + concepts[2] + '?');
+                }
+                if (concepts[0]) {
+                    questions.push('How does ' + concepts[0] + ' connect to the rest of the book?');
+                }
+
+                return Array.from(new Set(questions)).slice(0, 5);
+            }
+
+            function formatConceptLabel(value) {
+                return String(value || '').replace(/\b[a-z]/g, function(letter) {
+                    return letter.toUpperCase();
+                });
             }
 
             function saveState() {
