@@ -1610,7 +1610,17 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
             }
             const surfaceRect = surface.getBoundingClientRect();
             const elementRect = element.getBoundingClientRect();
-            const targetTop = surface.scrollTop + (elementRect.top - surfaceRect.top) - 8;
+            const computedStyle = window.getComputedStyle(element);
+            const scrollMarginTop = parseFloat(computedStyle.scrollMarginTop || '0') || 0;
+            const targetTop = surface.scrollTop + (elementRect.top - surfaceRect.top) - scrollMarginTop - 8;
+            console.debug('scrollElementIntoSurface', {
+                tag: element.tagName,
+                id: element.id || null,
+                text: (element.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 120),
+                scrollMarginTop: scrollMarginTop,
+                targetTop: Math.max(0, targetTop),
+                smooth: Boolean(smooth)
+            });
             state.programmaticScrollUntil = Date.now() + (smooth ? 800 : 160);
             surface.scrollTo({
                 top: Math.max(0, targetTop),
@@ -1684,16 +1694,26 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
             }, chapters[0] || null);
         }
 
+        function normalizeChapterKey(value) {
+            return String(value || '')
+                .toLowerCase()
+                .replace(/[^a-z0-9]+/g, ' ')
+                .replace(/\s+/g, ' ')
+                .trim();
+        }
+
         function chapterPage(chapters, title) {
+            const targetKey = normalizeChapterKey(title);
             const chapter = chapters.find(function(item) {
-                return item.title === title;
+                return normalizeChapterKey(item.title) === targetKey;
             });
             return chapter ? chapter.page : null;
         }
 
         function chapterStartsWith(chapters, prefix) {
+            const prefixKey = normalizeChapterKey(prefix);
             const chapter = chapters.find(function(item) {
-                return item.title.indexOf(prefix) === 0;
+                return normalizeChapterKey(item.title).indexOf(prefixKey) === 0;
             });
             return chapter ? chapter.page : null;
         }
@@ -1723,7 +1743,100 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                 image.setAttribute('loading', 'lazy');
             });
 
+            Array.from(container.querySelectorAll('p')).forEach(function(paragraph) {
+                normalizeMarkdownBlock(paragraph);
+            });
+
+            applyInlineMarkdown(container);
+
             return container.innerHTML;
+        }
+
+        function normalizeMarkdownBlock(paragraph) {
+            if (!paragraph || paragraph.children.length > 0) {
+                return;
+            }
+
+            const trimmed = (paragraph.textContent || '').trim();
+            if (!trimmed) {
+                return;
+            }
+
+            const headingMatch = trimmed.match(/^(#{1,6})\s+(.+)$/);
+            if (headingMatch) {
+                const heading = document.createElement('h' + Math.min(6, headingMatch[1].length));
+                heading.textContent = headingMatch[2].trim();
+                paragraph.replaceWith(heading);
+                return;
+            }
+
+            const compact = trimmed.replace(/\s+/g, '');
+            if (/^[\\\/]*([*_ -])\1{2,}$/.test(compact)) {
+                paragraph.replaceWith(document.createElement('hr'));
+            }
+        }
+
+        function applyInlineMarkdown(container) {
+            const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT, {
+                acceptNode: function(node) {
+                    if (!node.nodeValue || !/[*_\\]/.test(node.nodeValue)) {
+                        return NodeFilter.FILTER_REJECT;
+                    }
+                    const parent = node.parentElement;
+                    if (!parent || /^(SCRIPT|STYLE|TEXTAREA|STRONG|EM)$/i.test(parent.tagName)) {
+                        return NodeFilter.FILTER_REJECT;
+                    }
+                    return NodeFilter.FILTER_ACCEPT;
+                }
+            });
+
+            const textNodes = [];
+            let currentNode = walker.nextNode();
+            while (currentNode) {
+                textNodes.push(currentNode);
+                currentNode = walker.nextNode();
+            }
+
+            textNodes.forEach(function(node) {
+                const fragment = parseInlineMarkdown(node.nodeValue);
+                if (fragment) {
+                    node.parentNode.replaceChild(fragment, node);
+                }
+            });
+        }
+
+        function parseInlineMarkdown(text) {
+            if (!text || !/[*_\\]/.test(text)) {
+                return null;
+            }
+
+            const placeholders = {
+                backslash: '\uE000',
+                asterisk: '\uE001',
+                underscore: '\uE002'
+            };
+            const escapedSource = escapeHtml(text);
+            const rendered = escapedSource
+                .replace(/\\\\/g, placeholders.backslash)
+                .replace(/\\\*/g, placeholders.asterisk)
+                .replace(/\\_/g, placeholders.underscore)
+                .replace(/\*\*([^*][\s\S]*?[^*])\*\*/g, '<strong>$1</strong>')
+                .replace(/\*\*([^*])\*\*/g, '<strong>$1</strong>')
+                .replace(/(^|[^*])\*([^*\n][\s\S]*?[^*\n])\*(?!\*)/g, '$1<em>$2</em>')
+                .replace(/(^|[^*])\*([^*\n])\*(?!\*)/g, '$1<em>$2</em>')
+                .replace(/(^|[^\\\w])_([^_\n][\s\S]*?[^_\n])_(?!\w)/g, '$1<em>$2</em>')
+                .replace(/(^|[^\\\w])_([^_\n])_(?!\w)/g, '$1<em>$2</em>')
+                .replace(new RegExp(placeholders.asterisk, 'g'), '*')
+                .replace(new RegExp(placeholders.underscore, 'g'), '_')
+                .replace(new RegExp(placeholders.backslash, 'g'), '\\');
+
+            if (rendered === escapedSource) {
+                return null;
+            }
+
+            const template = document.createElement('template');
+            template.innerHTML = rendered;
+            return template.content;
         }
 
         function resolveFigureAsset(src, alt) {
