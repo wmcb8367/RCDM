@@ -390,25 +390,26 @@
             gap: 0.5rem;
         }
 
+        /* Desktop-only hides — DO NOT use !important, mobile media queries need to override */
         .page-nav {
-            display: none !important;
+            display: none;
         }
 
         .page-actions {
-            display: none !important;
+            display: none;
         }
 
         .page-actions button {
-            display: none !important;
+            display: none;
         }
 
         .page-status {
-            display: none !important;
+            display: none;
         }
 
         /* Hide audio skip buttons on desktop — chapter dropdown handles track selection */
         .audio-skip-btn {
-            display: none !important;
+            display: none;
         }
 
         /* Reader footer with progress */
@@ -2043,7 +2044,7 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
             var isSmallMobile = window.matchMedia('(max-width: 640px)').matches;
             var chromeHeight;
             if (isSmallMobile) {
-                chromeHeight = 280; /* Safari bars ~94 + toolbar ~120 + safe areas ~34 + padding ~32 */
+                chromeHeight = 240; /* Safari bars ~50 + toolbar ~100 + safe areas ~34 + padding ~32 + bottom nav ~24 */
             } else if (isMobile) {
                 chromeHeight = 220; /* tablet: smaller browser chrome */
             } else {
