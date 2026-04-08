@@ -1236,66 +1236,54 @@
             }
         }
 
-        /* Page edge navigation buttons */
-        .page-edge-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 2rem;
-            height: 4rem;
+        /* Page edge navigation — always visible, subtle, at bottom of reader */
+        .page-edge-nav {
             display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.4rem 0.5rem;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 5;
+        }
+
+        .page-edge-btn {
+            width: 2.5rem;
+            height: 2.5rem;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.7);
             border: 1px solid var(--line);
-            border-radius: 0.5rem;
+            border-radius: 50%;
             color: var(--muted);
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-family: system-ui, sans-serif;
             cursor: pointer;
-            z-index: 5;
-            opacity: 0;
-            transition: opacity 200ms ease, background 140ms ease;
             padding: 0;
-        }
-
-        .book-surface {
-            position: relative;
-        }
-
-        .book-surface:hover .page-edge-btn,
-        .page-edge-btn:focus-visible {
-            opacity: 1;
+            transition: background 140ms ease, color 140ms ease;
         }
 
         .page-edge-btn:hover {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             color: var(--ink);
         }
 
         .page-edge-btn:disabled {
-            opacity: 0 !important;
+            opacity: 0.3;
             pointer-events: none;
-        }
-
-        .page-edge-prev {
-            left: 0.4rem;
-        }
-
-        .page-edge-next {
-            right: 0.4rem;
         }
 
         .page-edge-indicator {
-            position: absolute;
-            bottom: 0.75rem;
-            left: 50%;
-            transform: translateX(-50%);
             font-size: 0.82rem;
             color: var(--muted);
             font-variant-numeric: tabular-nums;
-            pointer-events: none;
-            z-index: 5;
+        }
+
+        .book-surface {
+            position: relative;
         }
 
         /* Hide mobile-only elements on desktop */
@@ -1982,10 +1970,12 @@
             </section>
 
             <article class="book-surface">
-                <button id="pagePrevEdge" class="page-edge-btn page-edge-prev" type="button" aria-label="Previous page">&lsaquo;</button>
-                <button id="pageNextEdge" class="page-edge-btn page-edge-next" type="button" aria-label="Next page">&rsaquo;</button>
-                <span id="pageEdgeIndicator" class="page-edge-indicator"></span>
                 <div id="content">Loading...</div>
+                <nav class="page-edge-nav">
+                    <button id="pagePrevEdge" class="page-edge-btn" type="button" aria-label="Previous page">&lsaquo;</button>
+                    <span id="pageEdgeIndicator" class="page-edge-indicator"></span>
+                    <button id="pageNextEdge" class="page-edge-btn" type="button" aria-label="Next page">&rsaquo;</button>
+                </nav>
                 <footer class="reader-footer">
                     <div class="reader-footer-progress">
                         <div id="footerProgressBar" class="footer-progress-bar"></div>
