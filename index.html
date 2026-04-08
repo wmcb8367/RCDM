@@ -2780,7 +2780,8 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                 for (var i = page.startIndex; i <= page.endIndex; i++) {
                     if (blocks[i]) blocks[i].style.display = '';
                 }
-                /* Scroll surface to top */
+                /* Scroll both content and surface to top */
+                ui.content.scrollTop = 0;
                 ui.bookSurface.scrollTop = 0;
             }
 
