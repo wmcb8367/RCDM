@@ -2295,15 +2295,23 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                 if (ui.footerProgressBar) ui.footerProgressBar.style.width = progressPct;
                 if (ui.footerPageIndicator) ui.footerPageIndicator.textContent = state.currentPage + '/' + total;
                 const activeEntry = chapterForPage(state.chapters, state.currentPage);
+                
+                // Debug: log chapter matching
+                console.log('updatePageUI: currentPage=' + state.currentPage + ', activeEntry=', activeEntry ? activeEntry.title + ' (page ' + activeEntry.page + ')' : 'null');
 
                 if (ui.footerChapter) {
                     ui.footerChapter.textContent = activeEntry ? activeEntry.title : 'Reading';
                 }
 
-                Array.from(ui.chapterNav.children).forEach(function(button) {
+                Array.from(ui.chapterNav.children).forEach(function(button, idx) {
+                    const btnPage = Number(button.dataset.page);
+                    const btnTitle = button.dataset.title;
                     const active = activeEntry &&
-                        Number(button.dataset.page) === activeEntry.page &&
-                        button.dataset.title === activeEntry.title;
+                        btnPage === activeEntry.page &&
+                        btnTitle === activeEntry.title;
+                    if (idx === 0) {
+                        console.log('First button: page=' + btnPage + ', title=' + btnTitle + ', activeEntry.page=' + (activeEntry ? activeEntry.page : 'null') + ', match=' + active);
+                    }
                     button.classList.toggle('active', Boolean(active));
                 });
 
