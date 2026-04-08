@@ -992,8 +992,15 @@
 
         .chat-close {
             padding: 0.52rem 0.82rem;
+            min-height: 44px;
+            min-width: 44px;
             background: rgba(255, 255, 255, 0.62);
             box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            position: relative;
+            z-index: 50;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
         }
 
         .chat-messages {
@@ -2225,12 +2232,20 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                 setChatWindowOpen(!state.chatWindowOpen, { focusInput: true });
             });
 
-            ui.chatClose.addEventListener('click', function() {
+            ui.chatClose.addEventListener('click', function(e) {
+                e.stopPropagation();
                 setChatWindowOpen(false);
                 updateChatPrompt();
             });
 
             ui.chatSend.addEventListener('click', sendChatMessage);
+
+            /* Prevent chat window clicks from triggering page-flip tap zones */
+            var chatDockEl = document.getElementById('chatDock');
+            if (chatDockEl) {
+                chatDockEl.addEventListener('click', function(e) { e.stopPropagation(); });
+                chatDockEl.addEventListener('touchend', function(e) { e.stopPropagation(); });
+            }
 
             ui.chatInput.addEventListener('keydown', function(event) {
                 if (event.key === 'Enter') {
