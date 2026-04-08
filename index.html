@@ -3089,9 +3089,41 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
         }
 
         function chapterForPage(chapters, pageNumber) {
-            return chapters.reduce(function(match, chapter) {
-                return chapter.page <= pageNumber ? chapter : match;
-            }, chapters[0] || null);
+            // Find all chapters that could apply to this page
+            var candidates = chapters.filter(function(ch) {
+                return ch.page <= pageNumber;
+            });
+            if (candidates.length === 0) return chapters[0] || null;
+            
+            // If multiple chapters on same page, find the one closest to viewport top
+            var lastCandidate = candidates[candidates.length - 1];
+            var samePageChapters = candidates.filter(function(ch) {
+                return ch.page === lastCandidate.page;
+            });
+            
+            if (samePageChapters.length === 1) {
+                return lastCandidate;
+            }
+            
+            // Multiple chapters on same page - find which element is most visible
+            var bestMatch = samePageChapters[0];
+            var bestScore = Infinity;
+            samePageChapters.forEach(function(ch) {
+                if (ch.element) {
+                    var rect = ch.element.getBoundingClientRect();
+                    // Score based on how close the element top is to viewport top
+                    // Prefer elements that have scrolled past but are still visible
+                    var score = Math.abs(rect.top - 100);
+                    if (rect.top < 200 && rect.top > -rect.height) {
+                        score = Math.abs(rect.top); // Prioritize visible headings near top
+                    }
+                    if (score < bestScore) {
+                        bestScore = score;
+                        bestMatch = ch;
+                    }
+                }
+            });
+            return bestMatch;
         }
 
         function normalizeChapterKey(value) {
