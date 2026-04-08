@@ -9,6 +9,7 @@
             --bg: #f4efe4;
             --panel: rgba(255, 252, 245, 0.92);
             --panel-strong: #fffaf1;
+            --panel-soft: rgba(255, 250, 241, 0.74);
             --ink: #1f2a2e;
             --muted: #5a6a70;
             --line: rgba(31, 42, 46, 0.14);
@@ -36,6 +37,10 @@
             background:
                 radial-gradient(circle at top left, rgba(11, 114, 133, 0.12), transparent 24rem),
                 linear-gradient(180deg, #f8f3e9 0%, var(--bg) 40%, #efe7d6 100%);
+        }
+
+        body.splash-active {
+            overflow: hidden;
         }
 
         button,
@@ -84,6 +89,96 @@
             display: grid;
             grid-template-columns: minmax(220px, 290px) minmax(0, 1fr);
             gap: 1.25rem;
+        }
+
+        .cover-splash {
+            position: fixed;
+            inset: 0;
+            z-index: 120;
+            display: grid;
+            place-items: center;
+            padding: 1.5rem;
+            background:
+                radial-gradient(circle at top, rgba(11, 114, 133, 0.12), transparent 30rem),
+                linear-gradient(180deg, rgba(248, 243, 233, 0.98) 0%, rgba(244, 239, 228, 0.98) 55%, rgba(239, 231, 214, 0.98) 100%);
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 500ms ease, visibility 500ms ease;
+        }
+
+        .cover-splash[hidden] {
+            display: none;
+        }
+
+        .cover-splash.is-fading {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .cover-splash-card {
+            width: min(100%, 24rem);
+            padding: clamp(1rem, 3vw, 1.4rem);
+            border-radius: 1.8rem;
+            background: var(--panel-soft);
+            border: 1px solid rgba(255, 255, 255, 0.72);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(18px);
+            text-align: center;
+        }
+
+        .cover-splash-frame {
+            width: min(100%, 19rem);
+            aspect-ratio: 2 / 3;
+            margin: 0 auto;
+            border-radius: 1.35rem;
+            overflow: hidden;
+            background:
+                linear-gradient(160deg, rgba(11, 114, 133, 0.16), rgba(11, 114, 133, 0.03)),
+                linear-gradient(180deg, #f7f1e4 0%, #efe7d6 100%);
+            border: 1px solid rgba(31, 42, 46, 0.1);
+            box-shadow: 0 18px 36px rgba(36, 48, 53, 0.16);
+            display: grid;
+            place-items: center;
+        }
+
+        .cover-splash-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .cover-splash-copy {
+            display: grid;
+            gap: 0.7rem;
+            padding: clamp(1.6rem, 4vw, 2rem);
+        }
+
+        .cover-splash-copy .eyebrow {
+            margin-bottom: 0;
+        }
+
+        .cover-splash-title {
+            margin: 0;
+            font-size: clamp(1.7rem, 4vw, 2.4rem);
+            line-height: 1.08;
+            color: var(--ink);
+        }
+
+        .cover-splash-author {
+            margin: 0;
+            color: var(--muted);
+            font-style: italic;
+            font-size: clamp(1rem, 2.4vw, 1.15rem);
+        }
+
+        .cover-splash-note {
+            margin: 1rem 0 0;
+            font-size: 0.84rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--muted);
         }
 
         .sidebar {
@@ -382,6 +477,22 @@
             line-height: 1.25;
         }
 
+        #content h3.chapter-break-heading {
+            position: relative;
+            margin-top: 3.75rem;
+            padding-top: 1.35rem;
+        }
+
+        #content h3.chapter-break-heading::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: min(7.5rem, 28%);
+            height: 1px;
+            background: linear-gradient(90deg, rgba(11, 114, 133, 0.34), rgba(11, 114, 133, 0.08));
+        }
+
         #content p {
             margin: 1em 0;
         }
@@ -667,6 +778,10 @@
             .chapter-link {
                 white-space: nowrap;
             }
+
+            .cover-splash-card {
+                width: min(100%, 21rem);
+            }
         }
 
         @media (max-width: 640px) {
@@ -740,10 +855,35 @@
             .chat-input-row {
                 flex-direction: column;
             }
+
+            .cover-splash {
+                padding: 1rem;
+            }
+
+            .cover-splash-card {
+                border-radius: 1.4rem;
+            }
+
+            .cover-splash-frame {
+                width: min(100%, 16rem);
+            }
         }
     </style>
 </head>
-<body>
+<body data-cover-url="" data-book-title="Race Course Decision Making" data-book-author="William McBride">
+    <div id="coverSplash" class="cover-splash" aria-hidden="true" hidden>
+        <div class="cover-splash-card">
+            <div id="coverSplashFrame" class="cover-splash-frame">
+                <div class="cover-splash-copy">
+                    <p class="eyebrow">Interactive Reader</p>
+                    <h1 id="coverSplashTitle" class="cover-splash-title">Race Course Decision Making</h1>
+                    <p id="coverSplashAuthor" class="cover-splash-author">By William McBride</p>
+                </div>
+            </div>
+            <p class="cover-splash-note">Opening book</p>
+        </div>
+    </div>
+
     <div class="app-shell">
         <aside class="sidebar">
             <div class="sidebar-card">
@@ -855,14 +995,21 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
             }
         ];
 
+        const SPLASH_STORAGE_KEY = 'race-course-reader-splash-v1';
+        const SPLASH_DISPLAY_MS = 1000;
+        const SPLASH_FADE_MS = 500;
+
         document.addEventListener('DOMContentLoaded', function() {
             const content = document.getElementById('content');
+            const splashController = setupCoverSplash();
             if (typeof window.BOOK_HTML !== 'string' || window.BOOK_HTML.length <= 100) {
                 content.innerHTML = '<p style="color: #b42318;">Error: Book content not loaded.</p>';
+                splashController.finish();
                 return;
             }
 
             initializeReader();
+            splashController.finish();
         });
 
         function initializeReader() {
@@ -1199,6 +1346,9 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                     }
                     slugCount += 1;
                     block.id = slugify(title) + '-' + slugCount;
+                    if (block.tagName === 'H3') {
+                        block.classList.add('chapter-break-heading');
+                    }
                     const page = pageForBlock(index, pages);
                     headings.push({
                         title: title,
@@ -1831,6 +1981,73 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
             } catch (error) {
                 return {};
             }
+        }
+
+        function setupCoverSplash() {
+            const splash = document.getElementById('coverSplash');
+            const frame = document.getElementById('coverSplashFrame');
+            const title = document.getElementById('coverSplashTitle');
+            const author = document.getElementById('coverSplashAuthor');
+            const body = document.body;
+            let removed = false;
+
+            if (!splash || !frame || !title || !author || !body) {
+                return { finish: function() {} };
+            }
+
+            const coverUrl = (body.dataset.coverUrl || '').trim();
+            const bookTitle = (body.dataset.bookTitle || title.textContent || 'Race Course Decision Making').trim();
+            const bookAuthor = (body.dataset.bookAuthor || author.textContent.replace(/^By\s+/i, '') || 'William McBride').trim();
+            const shouldSkip = readSplashPreference();
+
+            title.textContent = bookTitle;
+            author.textContent = 'By ' + bookAuthor;
+
+            if (coverUrl) {
+                const image = document.createElement('img');
+                image.src = coverUrl;
+                image.alt = bookTitle + ' cover';
+                frame.replaceChildren(image);
+            }
+
+            if (shouldSkip) {
+                splash.hidden = true;
+                return { finish: function() {} };
+            }
+
+            splash.hidden = false;
+            body.classList.add('splash-active');
+
+            return {
+                finish: function() {
+                    if (removed) {
+                        return;
+                    }
+                    removed = true;
+                    window.setTimeout(function() {
+                        splash.classList.add('is-fading');
+                        window.setTimeout(function() {
+                            splash.hidden = true;
+                            body.classList.remove('splash-active');
+                            writeSplashPreference();
+                        }, SPLASH_FADE_MS);
+                    }, SPLASH_DISPLAY_MS);
+                }
+            };
+        }
+
+        function readSplashPreference() {
+            try {
+                return localStorage.getItem(SPLASH_STORAGE_KEY) === 'seen';
+            } catch (error) {
+                return false;
+            }
+        }
+
+        function writeSplashPreference() {
+            try {
+                localStorage.setItem(SPLASH_STORAGE_KEY, 'seen');
+            } catch (error) {}
         }
 
         function isProgrammaticScrollActive(state) {
