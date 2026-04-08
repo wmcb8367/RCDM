@@ -2041,52 +2041,31 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
         const DEFAULT_WORDS_PER_PAGE = 250;
 
         function calculateWordsPerPage(surface) {
-            /* Measure how many words fit in the visible book surface */
-            var contentArea = surface.querySelector('#content') || surface;
-            var surfaceStyle = getComputedStyle(surface);
-            var availableHeight = surface.clientHeight
-                - parseFloat(surfaceStyle.paddingTop)
-                - parseFloat(surfaceStyle.paddingBottom);
-            if (availableHeight < 100) availableHeight = 500; /* fallback */
+            /* Use viewport height to estimate available reading area */
+            var viewportH = window.innerHeight || document.documentElement.clientHeight || 800;
+            /* Subtract estimated toolbar + padding (~120px desktop, ~180px mobile) */
+            var isMobile = window.matchMedia('(max-width: 960px)').matches;
+            var chromeHeight = isMobile ? 200 : 140;
+            var availableHeight = Math.max(300, viewportH - chromeHeight);
 
-            /* Create measurement container matching real content layout */
-            var measure = document.createElement('div');
-            var contentStyle = getComputedStyle(contentArea);
-            measure.style.cssText = 'position:absolute;visibility:hidden;pointer-events:none;'
-                + 'width:' + Math.min(contentArea.clientWidth || 600, 860) + 'px;'
-                + 'max-width:860px;'
-                + 'font-family:' + contentStyle.fontFamily + ';'
-                + 'font-size:' + contentStyle.fontSize + ';'
-                + 'line-height:' + contentStyle.lineHeight + ';';
-            document.body.appendChild(measure);
+            /* Estimate line height from body styles */
+            var bodyStyle = getComputedStyle(document.body);
+            var fontSize = parseFloat(bodyStyle.fontSize) || 16;
+            var lineHeight = parseFloat(bodyStyle.lineHeight);
+            if (isNaN(lineHeight)) lineHeight = fontSize * 1.8;
 
-            /* Build realistic paragraphs (~60 words each, like the actual book) */
-            var wordsPerParagraph = 60;
-            var sampleSentence = 'The tactical decision making process has been a long road trying to take a sometimes mystical topic and understand it in a way that can be articulated improved upon taught and ultimately applied successfully on the race course in conditions ranging from light air to heavy breeze ';
-            var totalWords = 0;
-            var paragraphCount = 0;
+            /* Lines that fit, with paragraph margin (~1em gap between paragraphs) */
+            var linesPerPage = Math.floor(availableHeight / lineHeight);
+            /* Average ~10-12 words per line for Georgia serif at typical widths */
+            var wordsPerLine = 11;
+            var rawWords = linesPerPage * wordsPerLine;
 
-            while (totalWords < 1200) {
-                var p = document.createElement('p');
-                p.style.margin = '1em 0';
-                p.textContent = sampleSentence;
-                measure.appendChild(p);
-                totalWords += wordsPerParagraph;
-                paragraphCount++;
+            /* 85% to leave room for headings and spacing */
+            var fitted = Math.max(150, Math.floor(rawWords * 0.85));
 
-                if (measure.scrollHeight > availableHeight) {
-                    /* This paragraph pushed us over — remove it */
-                    measure.removeChild(p);
-                    totalWords -= wordsPerParagraph;
-                    break;
-                }
-            }
-
-            /* Small buffer for headings that may appear on a page */
-            var fitted = Math.max(120, Math.floor(totalWords * 0.9));
-            document.body.removeChild(measure);
-
-            console.log('[pagination] availableHeight:', availableHeight, 'paragraphs:', paragraphCount, 'rawWords:', totalWords, 'adjusted:', fitted);
+            console.log('[pagination] viewportH:', viewportH, 'availableH:', availableHeight,
+                'lineH:', lineHeight.toFixed(1), 'lines:', linesPerPage,
+                'rawWords:', rawWords, 'fitted:', fitted);
             return fitted;
         }
         const OLLAMA_URL = 'http://localhost:11434/api/chat';
