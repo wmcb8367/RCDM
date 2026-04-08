@@ -1561,22 +1561,23 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
         const OLLAMA_MODEL = 'llama3.1:8b';
         const AUDIO_TRACKS = [
             { id: 'preface', title: 'Preface', src: 'audiobook/01-preface.mp3' },
-            { id: 'prologue', title: 'Prologue', src: 'audiobook/02-prologue-full.mp3' },
-            {
-                id: 'introduction-to-rcdm',
-                title: 'Introduction To Race Course Decision Making',
-                src: 'audiobook/06-introduction-to-rcdm.mp3'
-            },
-            {
-                id: 'three-building-blocks',
-                title: 'The Three Building Blocks',
-                src: 'audiobook/07-three-building-blocks.mp3'
-            },
-            {
-                id: 'building-a-process',
-                title: 'Building A Process For Learning',
-                src: 'audiobook/08-building-a-process.mp3'
-            }
+            { id: 'prologue', title: 'Prologue (Full)', src: 'audiobook/02-prologue-full.mp3' },
+            { id: 'prologue-1', title: 'Prologue Part 1', src: 'audiobook/02-prologue-part-1.mp3' },
+            { id: 'prologue-2', title: 'Prologue Part 2', src: 'audiobook/02-prologue-part-2.mp3' },
+            { id: 'prologue-3', title: 'Prologue Part 3', src: 'audiobook/02-prologue-part-3.mp3' },
+            { id: 'introduction', title: 'Introduction (Full)', src: 'audiobook/03-introduction-full.mp3' },
+            { id: 'introduction-1', title: 'Introduction Part 1', src: 'audiobook/03-introduction-part-1.mp3' },
+            { id: 'introduction-2', title: 'Introduction Part 2', src: 'audiobook/03-introduction-part-2.mp3' },
+            { id: 'introduction-3', title: 'Introduction Part 3', src: 'audiobook/03-introduction-part-3.mp3' },
+            { id: 'tactics', title: 'Tactics (Full)', src: 'audiobook/04-tactics-full.mp3' },
+            { id: 'tactics-1', title: 'Tactics Part 1', src: 'audiobook/04-tactics-part-1.mp3' },
+            { id: 'tactics-2', title: 'Tactics Part 2', src: 'audiobook/04-tactics-part-2.mp3' },
+            { id: 'tactics-3', title: 'Tactics Part 3', src: 'audiobook/04-tactics-part-3.mp3' },
+            { id: 'tactics-4', title: 'Tactics Part 4', src: 'audiobook/04-tactics-part-4.mp3' },
+            { id: 'conclusion', title: 'Conclusion', src: 'audiobook/05-conclusion-full.mp3' },
+            { id: 'introduction-to-rcdm', title: 'Intro to RCDM', src: 'audiobook/06-introduction-to-rcdm.mp3' },
+            { id: 'three-building-blocks', title: 'Three Building Blocks', src: 'audiobook/07-three-building-blocks.mp3' },
+            { id: 'building-a-process', title: 'Building A Process', src: 'audiobook/08-building-a-process.mp3' }
         ];
 
         const SPLASH_STORAGE_KEY = 'race-course-reader-splash-v1';
@@ -2139,50 +2140,15 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
             }
 
             function buildAudioTrackMap(chapters, totalPages) {
-                const prefacePage = chapterPage(chapters, 'Preface') || 1;
-                const prologuePage = chapterStartsWith(chapters, 'Prologue') || Math.min(totalPages, prefacePage + 1);
-                const introductionToRcdmPage = resolveChapterPage(
-                    chapters,
-                    'Introduction To Race Course Decision Making'
-                ) || (totalPages + 1);
-                const threeBuildingBlocksPage = resolveChapterPage(
-                    chapters,
-                    'The Three Building Blocks',
-                    true
-                ) || (totalPages + 1);
-                const buildingAProcessPage = resolveChapterPage(
-                    chapters,
-                    'Building A Process For Learning',
-                    true
-                ) || (totalPages + 1);
-                const raceCoursePhilosophyPage = resolveChapterPage(
-                    chapters,
-                    'What Is Race Course Philosophy?'
-                ) || (totalPages + 1);
                 const endPage = Math.max(1, totalPages);
-
-                return AUDIO_TRACKS.map(function(track) {
-                    return Object.assign({}, track);
-                }).map(function(track) {
-                    if (track.id === 'preface') {
-                        track.startPage = prefacePage;
-                        track.endPage = Math.max(prefacePage, prologuePage - 1);
-                    } else if (track.id === 'prologue') {
-                        track.startPage = prologuePage;
-                        track.endPage = Math.max(prologuePage, introductionToRcdmPage - 1);
-                    } else if (track.id === 'introduction-to-rcdm') {
-                        track.startPage = introductionToRcdmPage;
-                        track.endPage = Math.max(introductionToRcdmPage, threeBuildingBlocksPage - 1);
-                    } else if (track.id === 'three-building-blocks') {
-                        track.startPage = threeBuildingBlocksPage;
-                        track.endPage = Math.max(threeBuildingBlocksPage, buildingAProcessPage - 1);
-                    } else if (track.id === 'building-a-process') {
-                        track.startPage = buildingAProcessPage;
-                        track.endPage = Math.max(buildingAProcessPage, raceCoursePhilosophyPage - 1);
-                    }
-                    track.startPage = clampPage(track.startPage, endPage);
-                    track.endPage = clampPage(track.endPage, endPage);
-                    return track;
+                
+                // Simple approach: all tracks are available, page sync is optional
+                return AUDIO_TRACKS.map(function(track, index) {
+                    var t = Object.assign({}, track);
+                    // Default page range - spread evenly or just use index
+                    t.startPage = 1;
+                    t.endPage = endPage;
+                    return t;
                 });
             }
 
