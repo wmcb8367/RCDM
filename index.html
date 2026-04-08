@@ -1533,6 +1533,11 @@
                 display: none !important;
             }
 
+            /* Hide mini play button when expanded (full controls have their own) */
+            .audio-panel.audio-panel--expanded .audio-mini-play {
+                display: none !important;
+            }
+
             /* Show everything when expanded */
             .audio-panel.audio-panel--expanded > .eyebrow {
                 display: block !important;
@@ -1635,10 +1640,7 @@
             /* --- Hide new elements on desktop (inert) --- */
             .audio-expand-toggle {
                 border-radius: 50%;
-            }
-
-            .audio-expand-toggle[aria-expanded="true"] {
-                transform: rotate(180deg);
+                transition: none;
             }
         }
 
