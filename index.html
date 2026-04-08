@@ -1567,15 +1567,9 @@
                 display: block !important;
             }
 
-            /* Hide full progress row when collapsed — mobile scrubber clone replaces it */
-            .audio-panel:not(.audio-panel--expanded) > .audio-row--progress {
+            /* Hide audio progress row entirely on mobile — mobile scrubber clone replaces it */
+            .audio-panel > .audio-row--progress {
                 display: none !important;
-            }
-
-            .audio-panel.audio-panel--expanded > .audio-row--progress {
-                display: grid;
-                grid-template-columns: minmax(0, 1fr);
-                gap: 0.45rem;
             }
 
             /* --- Full-height book surface --- */
@@ -1737,24 +1731,7 @@
                 width: auto;
             }
 
-            .audio-panel.audio-panel--expanded .audio-row--progress {
-                flex-direction: column;
-                align-items: stretch;
-            }
 
-            .audio-panel.audio-panel--expanded .audio-progress {
-                width: 100%;
-            }
-
-            .audio-panel.audio-panel--expanded .audio-track-picker {
-                flex: 1 1 100%;
-            }
-
-            .audio-panel.audio-panel--expanded .audio-time {
-                width: 100%;
-                text-align: left;
-                font-size: 0.82rem;
-            }
 
             /* Chat dock full-width on small screens */
             .chat-dock {
