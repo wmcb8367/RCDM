@@ -2038,26 +2038,25 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
         function calculateWordsPerPage(surface) {
             /* Use viewport height to estimate available reading area */
             var viewportH = window.innerHeight || document.documentElement.clientHeight || 800;
-            /* Subtract toolbar + padding (measured: ~80px desktop, ~160px mobile) */
+            /* Subtract toolbar + page-nav bar + padding */
             var isMobile = window.matchMedia('(max-width: 960px)').matches;
-            var chromeHeight = isMobile ? 160 : 80;
+            var chromeHeight = isMobile ? 160 : 50;
             var availableHeight = Math.max(300, viewportH - chromeHeight);
 
-            /* Line height: body has line-height 1.8 with ~16px font = ~28.8px */
+            /* Line height from computed styles */
             var bodyStyle = getComputedStyle(document.body);
             var fontSize = parseFloat(bodyStyle.fontSize) || 16;
             var lineHeight = parseFloat(bodyStyle.lineHeight);
             if (isNaN(lineHeight)) lineHeight = fontSize * 1.8;
 
-            /* Lines that fit — paragraphs have ~1em margin so effective line cost is slightly more */
-            var effectiveLineHeight = lineHeight * 1.1; /* account for paragraph margins */
-            var linesPerPage = Math.floor(availableHeight / effectiveLineHeight);
-            /* Average ~12 words per line for Georgia serif at 860px max-width */
-            var wordsPerLine = 12;
+            /* Lines that fit — minimal margin overhead */
+            var linesPerPage = Math.floor(availableHeight / lineHeight);
+            /* ~13 words per line for Georgia serif at 860px content width */
+            var wordsPerLine = 13;
             var rawWords = linesPerPage * wordsPerLine;
 
-            /* 90% capacity — small buffer for occasional headings */
-            var fitted = Math.max(200, Math.floor(rawWords * 0.9));
+            /* 95% capacity — tiny buffer */
+            var fitted = Math.max(250, Math.floor(rawWords * 0.95));
 
             console.log('[pagination] viewportH:', viewportH, 'availableH:', availableHeight,
                 'lineH:', lineHeight.toFixed(1), 'lines:', linesPerPage,
@@ -3098,9 +3097,9 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                 renderSuggestedQuestions(state.activeSuggestedQuestions);
 
                 if (endOfChapter) {
-                    var mobileCheck = window.matchMedia('(max-width: 960px)').matches;
-                    promptChapterChat(chapter, !mobileCheck);
-                    emphasizeChatForChapter(chapter, !mobileCheck);
+                    /* Never auto-open chat — user must click the bubble */
+                    promptChapterChat(chapter, false);
+                    emphasizeChatForChapter(chapter, false);
                 } else {
                     setChatExpanded(false);
                 }
@@ -3191,23 +3190,10 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
 
             function emphasizeChatForChapter(chapter, openWindow) {
                 if (!chapter || state.chatExpandedChapters[chapter.title]) {
-                    if (openWindow) {
-                        setChatWindowOpen(true);
-                    }
                     return;
                 }
                 state.chatExpandedChapters[chapter.title] = true;
-                /* On mobile, skip auto-expand — keep chat minimized */
-                var isMobile = window.matchMedia('(max-width: 960px)').matches;
-                if (!isMobile) {
-                    setChatExpanded(true);
-                    window.setTimeout(function() {
-                        setChatExpanded(false);
-                    }, 4800);
-                }
-                if (openWindow) {
-                    setChatWindowOpen(true);
-                }
+                /* Never auto-open or auto-expand — user clicks bubble to open */
             }
 
             async function sendChatMessage(prefilledQuestion) {
