@@ -388,26 +388,63 @@
         }
 
         .page-nav {
-            justify-content: space-between;
+            display: none;
         }
 
         .page-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
+            display: none;
         }
 
         .page-actions button {
-            min-width: 6.5rem;
+            display: none;
         }
 
         .page-status {
+            display: none;
+        }
+
+        /* Reader footer with progress */
+        .reader-footer {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--line);
+        }
+
+        .reader-footer-progress {
+            height: 4px;
+            background: var(--accent-soft);
+            border-radius: 2px;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-progress-bar {
+            height: 100%;
+            background: var(--accent);
+            border-radius: 2px;
+            width: 0%;
+            transition: width 300ms ease;
+        }
+
+        .reader-footer-info {
             display: flex;
             align-items: center;
-            gap: 0.65rem;
-            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
             color: var(--muted);
-            font-size: 0.92rem;
+        }
+
+        .footer-page {
+            font-weight: 500;
+        }
+
+        .footer-divider {
+            opacity: 0.5;
+        }
+
+        .footer-chapter {
+            font-style: italic;
         }
 
         .pill-label {
@@ -1544,6 +1581,16 @@
 
             <article class="book-surface">
                 <div id="content">Loading...</div>
+                <footer class="reader-footer">
+                    <div class="reader-footer-progress">
+                        <div id="footerProgressBar" class="footer-progress-bar"></div>
+                    </div>
+                    <div class="reader-footer-info">
+                        <span id="footerPageIndicator" class="footer-page">Page 1 of 1</span>
+                        <span class="footer-divider">·</span>
+                        <span id="footerChapter" class="footer-chapter">Loading...</span>
+                    </div>
+                </footer>
             </article>
         </main>
     </div>
@@ -1639,6 +1686,9 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                 pageIndicator: document.getElementById('pageIndicator'),
                 pageSelect: document.getElementById('pageSelect'),
                 readerProgressBar: document.getElementById('readerProgressBar'),
+                footerProgressBar: document.getElementById('footerProgressBar'),
+                footerPageIndicator: document.getElementById('footerPageIndicator'),
+                footerChapter: document.getElementById('footerChapter'),
                 resumeNotice: document.getElementById('resumeNotice'),
                 resumeText: document.getElementById('resumeText'),
                 resumeButton: document.getElementById('resumeButton'),
@@ -2228,8 +2278,15 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                 ui.pageSelect.value = String(state.currentPage);
                 ui.prevPage.disabled = state.currentPage <= 1;
                 ui.nextPage.disabled = state.currentPage >= total;
-                ui.readerProgressBar.style.width = total <= 1 ? '100%' : (((state.currentPage - 1) / (total - 1)) * 100).toFixed(2) + '%';
+                var progressPct = total <= 1 ? '100%' : (((state.currentPage - 1) / (total - 1)) * 100).toFixed(2) + '%';
+                ui.readerProgressBar.style.width = progressPct;
+                if (ui.footerProgressBar) ui.footerProgressBar.style.width = progressPct;
+                if (ui.footerPageIndicator) ui.footerPageIndicator.textContent = 'Page ' + state.currentPage + ' of ' + total;
                 const activeEntry = chapterForPage(state.chapters, state.currentPage);
+
+                if (ui.footerChapter) {
+                    ui.footerChapter.textContent = activeEntry ? activeEntry.title : 'Reading';
+                }
 
                 Array.from(ui.chapterNav.children).forEach(function(button) {
                     const active = activeEntry &&
