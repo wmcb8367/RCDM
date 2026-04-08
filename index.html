@@ -167,23 +167,40 @@
             position: relative;
         }
 
-        .cover-splash-frame.has-cover-image {
-            min-height: 20rem;
+        /* Desktop cover image: full-bleed on the splash overlay */
+        .cover-splash.has-cover-image {
+            background-size: cover;
+            background-position: center;
         }
 
-        .cover-splash-frame.has-cover-image .cover-splash-copy {
-            position: relative;
-            z-index: 2;
-            background: rgba(0, 0, 0, 0.35);
-            border-radius: 1rem;
-            padding: 1.5rem;
+        .cover-splash.has-cover-image .cover-splash-card {
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
-        .cover-splash-frame.has-cover-image .cover-splash-title,
-        .cover-splash-frame.has-cover-image .cover-splash-author,
-        .cover-splash-frame.has-cover-image .eyebrow {
+        .cover-splash.has-cover-image .cover-splash-frame {
+            background: none;
+            border: none;
+            box-shadow: none;
+        }
+
+        .cover-splash.has-cover-image .cover-splash-title {
             color: #fff;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .cover-splash.has-cover-image .cover-splash-author {
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        .cover-splash.has-cover-image .eyebrow {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .cover-splash.has-cover-image .cover-splash-note {
+            color: rgba(255, 255, 255, 0.7);
         }
 
         .cover-splash-frame img {
@@ -3489,11 +3506,9 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
             author.textContent = 'By ' + bookAuthor;
 
             if (coverUrl && !window.matchMedia('(max-width: 960px)').matches) {
-                /* Set cover as background image, keep text overlay */
-                frame.style.backgroundImage = 'url(' + coverUrl + ')';
-                frame.style.backgroundSize = 'cover';
-                frame.style.backgroundPosition = 'center';
-                frame.classList.add('has-cover-image');
+                /* Desktop: full-bleed cover on the splash overlay */
+                splash.style.backgroundImage = 'url(' + coverUrl + ')';
+                splash.classList.add('has-cover-image');
             }
 
             if (shouldSkip) {
