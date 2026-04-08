@@ -2184,38 +2184,66 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                 var touchStartX = 0;
                 var touchStartY = 0;
                 var touchStartTime = 0;
+                var touchCurrentX = 0;
+                var touchCurrentY = 0;
+                var isTrackingTouch = false;
+                var swipeConsumed = false;
                 var minSwipeDist = 50;
                 var maxSwipeTime = 500;
 
                 ui.bookSurface.addEventListener('touchstart', function(e) {
+                    if (e.touches.length !== 1) return;
                     var touch = e.touches[0];
                     touchStartX = touch.clientX;
                     touchStartY = touch.clientY;
+                    touchCurrentX = touch.clientX;
+                    touchCurrentY = touch.clientY;
                     touchStartTime = Date.now();
+                    isTrackingTouch = true;
+                    swipeConsumed = false;
                 }, { passive: true });
 
+                ui.bookSurface.addEventListener('touchmove', function(e) {
+                    if (!isTrackingTouch || e.touches.length !== 1) return;
+                    var touch = e.touches[0];
+                    touchCurrentX = touch.clientX;
+                    touchCurrentY = touch.clientY;
+                    var dx = touchCurrentX - touchStartX;
+                    var dy = touchCurrentY - touchStartY;
+                    /* Prevent vertical scroll when swiping horizontally */
+                    if (Math.abs(dx) > minSwipeDist / 2 && Math.abs(dx) > Math.abs(dy)) {
+                        e.preventDefault();
+                    }
+                }, { passive: false });
+
                 ui.bookSurface.addEventListener('touchend', function(e) {
+                    if (!isTrackingTouch) return;
                     var touch = e.changedTouches[0];
-                    var dx = touch.clientX - touchStartX;
-                    var dy = touch.clientY - touchStartY;
+                    var endX = touch ? touch.clientX : touchCurrentX;
+                    var endY = touch ? touch.clientY : touchCurrentY;
+                    var dx = endX - touchStartX;
+                    var dy = endY - touchStartY;
                     var dt = Date.now() - touchStartTime;
-                    /* Must be horizontal swipe, not vertical scroll */
+                    isTrackingTouch = false;
                     if (dt < maxSwipeTime && Math.abs(dx) > minSwipeDist && Math.abs(dx) > Math.abs(dy) * 1.5) {
+                        swipeConsumed = true;
                         if (dx < 0) {
-                            /* Swipe left → next page */
                             goToPage(state.currentPage + 1, false, { source: 'swipe' });
                         } else {
-                            /* Swipe right → prev page */
                             goToPage(state.currentPage - 1, false, { source: 'swipe' });
                         }
                     }
                 }, { passive: true });
 
-                /* Tap zones: left third = prev, right third = next (touch only) */
+                ui.bookSurface.addEventListener('touchcancel', function() {
+                    isTrackingTouch = false;
+                    swipeConsumed = false;
+                }, { passive: true });
+
+                /* Tap zones: left third = prev, right third = next */
                 ui.bookSurface.addEventListener('click', function(e) {
-                    if (!window.matchMedia('(pointer: coarse)').matches) return;
-                    /* Don't intercept taps on links, buttons, selects */
-                    if (e.target.closest('a, button, select, input, .chat-dock')) return;
+                    if (swipeConsumed) { swipeConsumed = false; return; }
+                    if (e.target.closest('a, button, select, input, textarea, .chat-dock')) return;
                     var rect = ui.bookSurface.getBoundingClientRect();
                     var x = e.clientX - rect.left;
                     var third = rect.width / 3;
@@ -2605,6 +2633,7 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
             function setCurrentPage(pageNumber, options) {
                 const page = clampPage(pageNumber, state.pages.length);
                 state.currentPage = page;
+                showPage(page);
                 updatePageUI();
                 if (!(options && options.skipAudioSync)) {
                     syncAudioToPage();
