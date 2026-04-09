@@ -7,6 +7,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title>Race Course Decision Making</title>
+    <script src="https://js.puter.com/v2/"></script>
     <style>
         :root {
             --bg: #f4efe4;
@@ -2114,8 +2115,9 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                 'rawWords:', rawWords, 'fitted:', fitted);
             return fitted;
         }
-        /* Chat API — Cloudflare Worker proxy to Gemini (API key hidden server-side) */
-        const CHAT_API_URL = 'https://rcdm-chat.mcbrideracing.workers.dev/chat';
+        /* Chat API — Puter.js provides free LLM access, no API key needed */
+        const CHAT_USE_PUTER = true;
+        const CHAT_PUTER_MODEL = 'gpt-5-nano';
 
         const SPLASH_STORAGE_KEY = 'race-course-reader-splash-v2';
         const SPLASH_DISPLAY_MS = 2000;
@@ -3299,28 +3301,38 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
 
             async function askAI(question, chapter) {
                 var relatedChapters = findRelevantChapters(question, chapter, state.chapters);
-                var response = await fetch(CHAT_API_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        question: question,
-                        chapterTitle: chapter.title,
-                        chapterText: chapter.contextText || '',
-                        relatedChapters: relatedChapters.map(function(ch) {
-                            return { title: ch.title, text: (ch.contextText || '').slice(0, 2000) };
-                        })
-                    })
-                });
-
-                if (!response.ok) {
-                    throw new Error('Chat API returned ' + response.status);
+                var systemPrompt = [
+                    'You are an expert sailing coach helping readers understand Willie McBride\'s book "Race Course Decision Making" (2025 Edition).',
+                    'Answer ONLY from the book context provided below. Do not make up information.',
+                    'If the answer is not in the context, say "I don\'t see that covered in this section. Try asking about a different topic from this chapter."',
+                    'Keep answers concise and practical - 2-3 paragraphs max.',
+                    '',
+                    'Current chapter: ' + chapter.title,
+                    (chapter.contextText || '').slice(0, 5000)
+                ];
+                if (relatedChapters.length > 0) {
+                    systemPrompt.push('', 'Related chapters:');
+                    relatedChapters.forEach(function(ch) {
+                        systemPrompt.push('--- ' + ch.title + ' ---');
+                        systemPrompt.push((ch.contextText || '').slice(0, 1500));
+                    });
                 }
 
-                var data = await response.json();
-                if (data.error) {
-                    throw new Error(data.error);
+                if (typeof puter !== 'undefined' && puter.ai && puter.ai.chat) {
+                    var response = await puter.ai.chat([
+                        { role: 'system', content: systemPrompt.join('\n') },
+                        { role: 'user', content: question }
+                    ], { model: CHAT_PUTER_MODEL });
+                    var text = response;
+                    if (response && response.message && response.message.content) {
+                        text = Array.isArray(response.message.content)
+                            ? response.message.content.map(function(c) { return c.text || c; }).join('')
+                            : response.message.content;
+                    }
+                    if (typeof text === 'object') text = JSON.stringify(text);
+                    return (text || '').trim();
                 }
-                return (data.answer || '').trim();
+                throw new Error('AI chat not available. Puter.js may not have loaded.');
             }
 
             function buildChatSystemPrompt(chapter, relatedChapters) {
@@ -3339,7 +3351,7 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
             }
 
             function buildChatFallback(question, chapter) {
-                return 'Sorry, I couldn\'t connect to the AI assistant right now. Try again in a moment, or browse the chapter for your answer.';
+                return 'The AI assistant is loading. Please try again in a moment.';
             }
 
             function findRelevantChapters(question, currentChapter, chapters) {
