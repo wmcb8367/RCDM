@@ -1,6 +1,7 @@
 name = "rcdm-chat"
 main = "worker.js"
 compatibility_date = "2024-01-01"
+account_id = "2f80f86265ce6c440553fd07ab49cb12"
 
 [observability]
 enabled = true
