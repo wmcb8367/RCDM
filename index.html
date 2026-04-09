@@ -1689,6 +1689,11 @@
                 padding-bottom: calc(5.5rem + var(--safe-bottom));
             }
 
+            .book-surface #content {
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
             /* --- Chapter nav in drawer --- */
             .chapter-nav {
                 display: grid;
@@ -2109,8 +2114,8 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                 'rawWords:', rawWords, 'fitted:', fitted);
             return fitted;
         }
-        const OLLAMA_URL = 'http://localhost:11434/api/chat';
-        const OLLAMA_MODEL = 'llama3.1:8b';
+        /* Chat API — Cloudflare Worker proxy to Gemini (API key hidden server-side) */
+        const CHAT_API_URL = 'https://rcdm-chat.mcbrideracing.workers.dev/chat';
 
         const SPLASH_STORAGE_KEY = 'race-course-reader-splash-v2';
         const SPLASH_DISPLAY_MS = 2000;
@@ -3279,7 +3284,7 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                 );
 
                 try {
-                    const answer = await askOllama(question, chapter);
+                    const answer = await askAI(question, chapter);
                     pending.classList.remove('chat-message--thinking');
                     pending.querySelector('.chat-message__body').innerHTML =
                         '<span class="chat-message__label">AI</span>' +
@@ -3292,37 +3297,30 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                 }
             }
 
-            async function askOllama(question, chapter) {
-                const relatedChapters = findRelevantChapters(question, chapter, state.chapters);
-                const response = await fetch(OLLAMA_URL, {
+            async function askAI(question, chapter) {
+                var relatedChapters = findRelevantChapters(question, chapter, state.chapters);
+                var response = await fetch(CHAT_API_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        model: OLLAMA_MODEL,
-                        stream: false,
-                        messages: [
-                            {
-                                role: 'system',
-                                content: buildChatSystemPrompt(chapter, relatedChapters)
-                            },
-                            {
-                                role: 'user',
-                                content: question
-                            }
-                        ]
+                        question: question,
+                        chapterTitle: chapter.title,
+                        chapterText: chapter.contextText || '',
+                        relatedChapters: relatedChapters.map(function(ch) {
+                            return { title: ch.title, text: (ch.contextText || '').slice(0, 2000) };
+                        })
                     })
                 });
 
                 if (!response.ok) {
-                    throw new Error('Ollama returned ' + response.status);
+                    throw new Error('Chat API returned ' + response.status);
                 }
 
-                const data = await response.json();
-                const content = data && data.message && data.message.content;
-                if (!content) {
-                    throw new Error('Ollama response was missing message content');
+                var data = await response.json();
+                if (data.error) {
+                    throw new Error(data.error);
                 }
-                return content.trim();
+                return (data.answer || '').trim();
             }
 
             function buildChatSystemPrompt(chapter, relatedChapters) {
@@ -3341,12 +3339,7 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
             }
 
             function buildChatFallback(question, chapter) {
-                return [
-                    'I could not reach Ollama at ' + OLLAMA_URL + '.',
-                    'Question: "' + question + '"',
-                    'Current chapter: ' + chapter.title + '.',
-                    'Start the local Ollama server to get chapter-specific answers.'
-                ].join(' ');
+                return 'Sorry, I couldn\'t connect to the AI assistant right now. Try again in a moment, or browse the chapter for your answer.';
             }
 
             function findRelevantChapters(question, currentChapter, chapters) {
