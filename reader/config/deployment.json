@@ -3,7 +3,7 @@
   "text": {
     "activeVersion": "v2.1",
     "manifestPath": "content/v2.1/book-manifest.json",
-    "scriptPath": "book-content.js",
+    "scriptPath": "content/v2.1/book-content.js",
     "sourcePath": "../editions/markdown/RCDM-v2.1.md"
   },
   "audio": {

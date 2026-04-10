@@ -46,14 +46,22 @@ The UI displays:
 
 ### Switch text only
 
-1. Add or generate the new text assets
-   - recommended target: `reader/content/<new-version>/book-manifest.json`
-   - recommended future companion: `reader/content/<new-version>/book-content.js`
+1. Add or generate the new text assets inside a versioned folder
+   - `reader/content/<new-version>/book-manifest.json`
+   - `reader/content/<new-version>/book-content.js`
 2. Update `reader/config/deployment.json`
    - `text.activeVersion`
    - `text.manifestPath`
    - `text.scriptPath`
 3. Leave audio settings alone if you intentionally want a mixed deployment
+
+### Recommended rule
+
+Do not point the reader at the old shared `reader/book-content.js` anymore.
+Use a versioned path such as:
+- `reader/content/v2.1/book-content.js`
+
+That keeps every deployed manuscript traceable and prevents silent drift between the reader and the manuscript archive.
 
 ### Switch audio only
 
@@ -72,8 +80,12 @@ The UI displays:
 When Willie chooses a final aligned pairing:
 
 1. point both text and audio to the desired versions
-2. set `deploymentMode` to `version-locked`
-3. remove or reduce the warning text if provenance is verified
+2. ensure the audio manifest uses verified `sourceTextVersion` values
+3. set `deploymentMode` to `version-locked`
+4. remove or reduce the warning text if provenance is verified
+
+There is a starter template at:
+- `reader/audio-manifests/template-version-locked.json`
 
 ## Recommended future content pipeline
 

@@ -14,7 +14,9 @@ Key files:
 
 - `reader/config/deployment.json`
 - `reader/content/v2.1/book-manifest.json`
+- `reader/content/v2.1/book-content.js`
 - `reader/audio-manifests/adam-2026-04-07-partial.json`
+- `reader/audio-manifests/template-version-locked.json`
 - `docs/VERSIONING.md`
 
 Current seeded deployment:
@@ -29,7 +31,7 @@ The deployment is currently marked mixed because text provenance is clearer than
 
 - `reader/` - static web reader
 - `reader/config/` - deploy-time version selection
-- `reader/content/` - versioned reader manifests
+- `reader/content/` - versioned reader manifests and scripts
 - `reader/audio-manifests/` - audio version manifests and provenance
 - `editions/markdown/` - manuscript history
 - `docs/VERSIONING.md` - how to add/switch versions

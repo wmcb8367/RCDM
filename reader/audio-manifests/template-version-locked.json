@@ -1,0 +1,17 @@
+{
+  "version": "template-version-locked",
+  "voice": "TBD",
+  "provider": "TBD",
+  "defaultSourceTextVersion": "vX.Y",
+  "provenanceNote": "Use this as the template when audio has been verified against a specific manuscript version.",
+  "tracks": [
+    {
+      "id": "preface",
+      "chapterId": "preface",
+      "title": "Preface",
+      "src": "audiobook/01-preface.mp3",
+      "sourceTextVersion": "vX.Y",
+      "provenanceNote": "Replace with verified provenance notes."
+    }
+  ]
+}
