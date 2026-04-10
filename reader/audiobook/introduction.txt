@@ -1,0 +1,103 @@
+### Introduction To Race Course Decision Making
+
+*Day two of the 2020 49er World Championship was do or die for Paris Henken and Anna Tunnacliffe-Tobias in the 2020 Olympic Trials. On day one, a field of seaweed had blown across the course as the afternoon pressure filled, making it impossible to get around the course without collecting bouquets of floating weed on both foils. Teams experimented with different techniques and timings to try to clear blades with minimal losses, but it was experimentation under pressure. Regardless of how well you could clear, there was always that aspect of random bad luck if you hit a patch of weed on starboard layline, and had to gybe out before rounding the weather mark as a result. As the day went on, the kelp got thicker, and the scorelines became more erratic. By the end of day one, Paris and Anna sat in the high teens with 42 points total - 23 points behind Steph Roble and Maggie Shea, whom they needed to beat.*
+
+*As teams tuned up for day two of racing, the team knew that they needed a big day to get back into contention, and from the coach boat, I knew that we didn't have any races to spare to start the comeback. Despite the big task ahead, confidence was high, and we hit the water focused on executing our routine.*
+
+*An hour before racing started, we arrived on the race course to find nice breeze, and got to work tuning the rig for the full power, flat water conditions. One solid upwind, one solid downwind, a few turns on the rig, some small adjustments to sheeting ranges and techniques got the boat dialed for the day. And then we set about focusing on the conditions - what type of day would it be, and where would the advantage come from?*
+
+*Unlike the usual thermal breeze that locals had told us to watch for, this breeze was gradient driven, with puffy, shifty streaks of pressure randomly moving down the course.*
+
+*First, the randomness in itself held a critical piece of information: lay lines would be risky, but edges of the fleet would create opportunity.*
+
+*The course was set against a thin peninsula of land obstructing the left corner of the course, and a shoreline a few hundred meters to weather of the windward mark. While the left land was closer, it was also quite low lying, whereas the right land to weather of the course had some large hills and more ground cover - a factor that Wind Strategy (Campbell, Houghton) would say might increase friction.*
+
+*With the weather shoreline, we might expect more right shift at the top of the course in the Southern Hemisphere, but with the tall hills, this might also be accompanied by less pressure - something we observed in the warm up before racing.*
+
+*Current was minimal in the bay, but a channel ran across the bottom of the course, diagonally from right to left, so if any water was flowing out in the ebb tide, it might have a small effect on sea state or speed over ground in the bottom third of the course.*
+
+*With a preliminary mental model of the race course devised, we spent the last few minutes testing our theories, checking angles off of the pin, checking pressure in the left hand corner, and getting as many compass numbers on port and starboard tack as possible.*
+
+*From the first starting gun, Paris and Anna were on a mission, executing a pin third start to edge out to the left side of the course. Off the line they carved out a nice hole, and then put their heads down in the boat for the first minute, focusing 100% on boat speed. A minute into the race their pack was looking good, so the discussion onboard went something like this: "High mode to peel the Danes off of our hip - then as soon as they go we're looking for a nice spot to tack with a big lane. Want to be able to hold for a while."*
+
+*The scoreline tells the story of the next three races: their 1, 4, 1 won the day, launching them forward in the standings and setting the stage for the remainder of the event.*
+
+Unlike football, basketball, or soccer where the strongest team on a given day can usually fight through the competition to carry the day, sailboat racing is a unique game of probabilities, wherein sometimes you do everything wrong and still win, and other times you do everything right only to be disappointed. In studying tactics and strategy, our challenge is to learn how to separate the outcomes from the decision making process.
+
+Races are often won and lost on big features that change quickly, and are obvious in retrospect: a big shift that defines a beat, or a pressure line that rolls through and helps one side come out way ahead. The storyline as told by race winners often goes like this: "We looked up the course and saw pressure on one side, so we went there and we were right!" This is how many of us learn strategy in junior sailing: look upwind, trust your eyes, and bet on what you see. But what carries an individual race, often is not the same thing that carries the day, or wins a regatta.
+
+What the best strategists tune into on any given day, are the underlying factors and conditions of the weather, the geography, the fleet, and the course that hint at longer term, smaller margin advantages.
+
+The better the fleet you race in, the more everyone will identify the low hanging fruit, so the more nuanced the understanding must be to extract small gains. In a local fleet, identifying new pressure might be enough to give you the edge, but if everyone is sharp, the whole fleet will tune into the pressure differences. In the more advanced fleet, everyone might bet correctly on the side to play, but as the front row heads to that favored side and the wind oscillates slightly, the question often arises: is it more important to tack on the shift, or to head toward slightly better pressure? Many in the fleet will see this as a 50:50 chance, but top strategists have a system to help answer this question so that they are right 60 or 70 percent of the time. 
+
+To add another layer of complexity to the previous example, if the starting line is biased towards the unfavored side, the odds of the favored side paying off might become even tighter. 
+
+One of the reasons that we love sailboat racing is the dynamic, strategic game that changes every day, in every condition. The ever changing race course and tactical positioning against other boats makes every situation unique, and every tactical decision needs to be evaluated instantaneously as positions change. Dave Ullman likes to say, "Sailing is not a thinking game, it is a reaction game." In the tactical world where an inch or two difference in positioning can shift the balance of who is strong and who is weak, this is exactly right. In the McBride Racing Tactical Playbook, I wrote about some of the most common positioning scenarios, and the communications that set the stage for solid, split second reactions. In the final section of this book I will review some of these ideas as they relate to the execution of strategy, however the main focus of the first two parts of this book will be on big picture decision making. 
+
+The goal of this book is to frame the decision making process in terms of a finite set of slowly changing factors, which can be evaluated ahead of time to identify small margin advantages over long periods of time. The discussion will start by focusing on **Race Course Philosophy** - the biggest of big picture factors, which change rarely if ever for a given class in a particular wind speed. The next section will dig into **Strategy,** building a framework for evaluating the "betting odds" on any given race course, and establishing five mindsets that should be applied to help prioritize the right factors across different conditions. Finally, we'll finish by discussing **Tactical positoning** and how your team can develop a playbook of moves that can be used to adapt to the quickly changing scenarios that develop with other boats on the race course. 
+
+To put this all into a real world example, consider Paris and Anna's second day of the 2020 Worlds. Paris' Race Course Philosophy was something that had been built over years of 49er racing. She knew that the beat would be about 7 minutes long, and that she'd need to focus on speed for the first few minutes off the line. The Strategy was devised before the start of the race based on the geography of the surrounding area and the conditions that we saw in the forecast and verified on the race course. This gave us confidence that over the course of three races, the left would hold a slight edge over the right. The Tactical consideration was the discussion about peeling the boat on their hip through a high mode and then taking a big lane back across to the right. 
+
+When these three pieces come together, the decision making process takes into account big picture priorities of the class you're racing, medium term factors of weather and geography that will help to know in advance which priorities are most important on a given day, and short term factors like puffs, lulls, positioning against other boats, etc. 
+
+Hopefully this book will help you to bring these three factors together in your own sailing. 
+
+### Overview of Race Course Philosophy Tactics and Strategy
+
+Hi there, I'm Willie McBride and in this book, I'm going to be your coach as we discuss decision making on the race course. For me, understanding the tactical decision making process has been a long road, trying to take a sometimes mystical topic, and understand it in a way that can be articulated, improved upon, taught and ultimately applied successfully. 
+
+Tactics and strategy are probably the most difficult topics to learn in sailing because sometimes you make all the right decisions and lose, and other times you make all the wrong decisions and win. This book is going to cover a lot of ground on race course decision making - from race course fundamentals, to one on one battles, and how to choose a strategy before the race begins. The best tactical systems use logical ideas to create an intuitive approach to racing that can adapt to new situations. My goal in the next few topics is to fast track your understanding of tactics, strategy and race course philosophy, while helping you to develop a process for improving those fundamentals, and ultimately creating your own, intuitive understanding of the race course. 
+
+This book is designed to be used in conjunction with the online McBride Racing Google Classroom curriculum, which will include videos to supplement the reading, quizzes to help you identify gaps in your understanding, and exercises to help you practice applying these ideas on the water. In the book you'll sometimes see references to videos to help you stay on track. I recommend going through the videos and reading together, one section at a time, as there is an order of operations that is designed to build on each idea. If questions arise, please don't hesitate to reach out; when things don't make sense, **these are often some of the most important learning moments!**
+
+I'm looking forward to diving in, so in the next section we'll talk about the three main building blocks of decision making: tactics, strategy and race course philosophy. 
+
+### The Three Building Blocks Of Race Course Decision Making
+
+One of my coaches early in my sailing career had a saying that he liked to repeat whenever we talked about tactics and strategy: he would say, "Sailing is simple. You only ever have one decision to make: do I tack, or do I go straight?" 
+
+Some of the sailors who I've coached have also been coached by Ed Baird, who likes to say that, "When two boats cross, one of them is making the wrong decision and one is making the right decision, so if you're one of the two, you need to figure out which one you are." 
+
+In making decisions around the race course, there are three main building blocks that you need to understand in order to make good choices. The first of these building blocks is what I'm going to refer to as **Race Course Philosophy**. Race Course Philosophy is the idea that whether your race course is set in Santa Barbara, California, Miami, Florida, or Auckland, New Zealand, there are some characteristics of the boat that you're racing that will always apply in your decision making. 
+
+Take the 49er class for instance. Like many classes in sailing, the International 49er Class Association provides guidelines to race organizers to help them run good races. Target times for the length of a race are generally 35 minutes, with a matrix of course lengths corresponding to wind strengths to help race committees set good courses. If you know the course length, and you know the approximate wind speed, you can work backwards from there to understand how long the first beat will be, how long you are likely to spend on starboard tack before reaching layline and even what percentage of your overall leverage you stand to take by starting at a particular end of the starting line. If a lot of that went over your head, don't worry, we'll break it all down in the next topic in the course, but for now, what's important to understand is that those factors all fall into this idea of Race Course Philosophy, because they are factors that will generally be predictable no matter where in the world you're racing, how shifty the wind is, or what tack you're on at any given moment. 
+
+The second major building block that you'll need to understand is **Strategy**. I like to think of strategy as your roadmap for a race. To create a good roadmap, you'll need to understand what the weather is on a macro level, as well as how the wind and current are moving on a more micro level. For this section, we're going to talk a lot about different types of days, and I'm going to share the system that I've developed by categorizing and combining the best ideas of the top coaches that I've worked alongside. 
+
+Finally, we'll dig into the one-on-one knife fights that occur around the race course, in the topic on **Tactics**. This section will be all about the nuances of positioning and the tradeoffs that we make when we use our leverage to create big, comfortable lanes, or to put pressure on our competitors. Here we'll discuss how to balance wind prediction - sailing just against the wind without regard to what your competitors are doing - with fleet management - how you respond to competitor position. 
+
+*Table 1. Characteristics of tactical, strategic, and race course philosophy decisions.*
+
+An interesting piece of race course philosophy in the 49er fleet is that on average, the top boats only pass about two boats per race after the top mark. This means that if you can learn to win the one-on-one match races around the course, and pick the fights you know you have a good chance of winning, you can minimize risks that a lot of competitors take when they feel that they need to bet big to make gains. Instead of betting on factors that are outside of your control, we'll talk about how to consistently pick off a few boats each race while maintaining high percentage strategic execution. 
+
+Understanding the big picture will help you separate these topics in your mind, and organize your thoughts into a more systematic process that you can tweak later on. Ultimately it will shape your mindset to help to know at any moment whether you should tack or go straight! Simplicity is key, but first we need to blow everything up before we can restructure your thinking, and repackage it into a streamlined system, so let's get to work. 
+
+### Building A Process For Learning Race Course Decision Making
+
+Tactics and strategy are the most difficult topics in sailing to teach and to learn because you can make all the right decisions and still lose a race, and you can make all the wrong decisions and still win. As a result, it's easy to get confused about what is right, what is wrong, where you might have applied good tactics, but just made a bad big picture strategic call, or vice versa. 
+
+The system that I'm going to teach you can't eliminate that, but it will teach you how to think about your own races to evaluate where errors occurred. To do this, it's helpful to keep a journal where you write about each race you sail in, and follow a repeatable, 3 step process for evaluating those races. 
+
+**Step 1** is to write down observations from before the race: what did you see on the race course that might impact your game plan? 
+
+**Step 2** is to write down what you thought those observations meant, or in other words, what your game plan was based on your observations. 
+
+**Step 3** is to write down what actually happened, and to reflect on whether there were factors that you should have identified or weighted differently. 
+
+Let's look at an example. 
+
+*Figure 1. Looking upwind from an aerial view of the race course in Arhus, Denmark.*
+
+Let's say we look up this race course in Aarhus, Denmark. The marks aren't set yet, but we immediately see puffy conditions. There is land close to windward of the course, and the breeze is very shifty. Once the marks are in the water, we recognize that the course is square and the starting line is long enough for all of the boats to fit. All of these observations are the things that we'll record in our notebook at the end of the day for step one. No opinions yet, just observations of what we see. 
+
+Based on these observations, hopefully we made a game plan before the race, and step two of our journal entry is all about writing that game plan down, no matter whether it was right or wrong. In this case let's say, that after looking upwind, we thought that the course would be puffy and shifty, so we picked an "edge out" strategy - this is something we'll talk a lot more about when we get into the topic on strategy and type of day. We weren't sure which side to play, so we figured that a boat end start would be high percentage. 
+
+One really important note here is that the edge out strategy has a built in plan B associated with it - if we get shot out at the start, we're still looking to work towards an edge - likely the right edge in this case because we're planning on starting at the boat end. 
+
+We'll talk later about switching the plan at the last minute, and the risks involved there, but if you switched plans after the warning signal or any time during the race, it's important to note that in part two of your journal entry. With our plan A and our plan B clearly defined, we have a game plan that we can follow on the race course to see if it's right or wrong. 
+
+**The biggest mistake that you can make on the racecourse at this point, is to allow yourself to get pushed around and not end up executing your plan**. In step three of your journal entry, you'll be recording whether the plan worked or not, so if you didn't actually end up executing that plan at all, then you're not going to learn much from this exercise. In this case, let's say we executed our plan A, "edge out right" strategy, and rounded the top mark in 10th out of 30, winning the right, but losing out to the pack on the left. Obviously there must have been some successes for us to round top 10, but in step 3 it's important to reflect on the fact that the left ended up paying and to ask the question, "Was there something I could have seen to predict that ahead of time? Was there a geographic feature or visual pressure on the water?" 
+
+In this case, I might hypothesize that the windward shoreline actually created a left bend to the wind that was more significant than I realized. Again we'll talk about shore effects in a later topic, but the takeaway here was that I expected it to be a puffy, shifty, random course, and in reality I weighted this factor of the windward shoreline too lightly, so in the future maybe I need to put more faith in the left when the mark is close to a windward shore. 
+
+This is just a hypothetical situation, and your own races will all be different, but practicing this process of note taking will make you much better at racing in the long run and help to give you a steeper learning curve to understand factors that others miss. If you do this for 15 regattas per year, with 10 races at each event, you'll have analyzed 150 races. Think about what a difference this will make after a year or two, or four, or ten!

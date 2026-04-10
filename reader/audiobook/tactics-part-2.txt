@@ -1,0 +1,75 @@
+Take a look, decide how you would respond to these setups, and then read about the approach that we would recommend.
+
+#### UW 5.1 -- Cross When You Can
+
+**Guiding Principle(s):** Inside track.
+
+**The Play:** In a steady oscillating breeze, the minimum distance around the course is to tack each time the wind shifts through the average wind direction, however, in practice, it can often times be difficult to know where that average direction is, and even if you know what it is, tactically there is often a higher percentage move: cross when you can. This nugget of wisdom that coaches often preach, ticks off a lot of different boxes on the strategic checklist. First of all, crossing packs when you have the opportunity often helps to put you in phase if you are uncertain of the shift pattern. If this is the case, chances are, much of the pack on your hip will end up tacking also. Probably more importantly, crossing when you can, establishes control over the boats around you. Putting you in a strong position to fleet manage the pack that you have just crossed. If the fleet does not tack to match your play, consider hipping back up on the fleet to loose cover and minimize leverage as you sail into the next shift.
+
+In the scenario pictured, Red has gained enough of an advantage (likely from a small right shift) that she can tack without the threat of being lee-bowed by any of the boats on her hip. Using the boats on your hip as an indicator of whether or not a wind shift has occurred is a very good way to stay in phase. On port, the play applies in the same circumstances, however, you would need a bigger shift to tack and cross because you don't have right of way to force your competitors to avoid you.
+
+**Most Common Mistakes:** Applying this play if it takes you out of pressure or into traffic.
+
+**Pro Tip:** To defend against this, competitors will often tack simultaneously to prevent you from consolidating gains. Pair this play with UW 4.1 to close leverage and lock in gains when you are in a strong shift.
+
+**Best Communication:** "We can cross the boats on our hip," "Let's consolidate," "Center up on this pack"
+
+### UW 6
+
+**Description:** In an oscillating breeze you are on the outside of a lift, and you believe that the next shift will be a header.  What is the high percentage move?
+
+#### UW 6.1 -- Consolidate Gains By Footing In Lifts
+
+**Guiding Principle(s):** Inside track.
+
+**The Play:** VMG is typically independent of phases or shifts, but consolidating your lead when you are in a strong shift eliminates the need to time shifts perfectly, keeps options open, and becomes a higher and higher percentage option, as the breeze becomes less predictable. To execute this play, take advantage of lifts by sailing a low, fast mode to get over top of your competition as they get lifted into you. Essentially, you are burning some of your (recently extended) lead in order to close leverage, and assume a more dominant position over your competition.
+
+The benefits of this play are obvious when a shift puts you out in front of your competition, but you can leverage the same idea even in close quarters, by footing into a controlling position where you can pin your opponent from tacking.
+
+**Most Common Mistakes:** Footing too aggressively and ending up in bad air!
+
+**Pro Tip:** In unstable, unpredictable conditions, this play paired with a tiny speed edge makes for a super powerful combination. Use your speed edge to stay alive when you feel weak, and then consolidate your lead when you feel strong against your competition. This tactics will create a lot of options down the road.
+
+**Best Communication:** "Fast mode here," "Consolidate with a fast mode," "Kill mode"
+
+### UW 7
+
+**Description:** You are approaching the lead pack out of the left and you are nearly even with Green and Yellow. Your strategy is to play the inside track. Should you play through, or lead back?
+
+#### UW 7.1 -- Lead Back Leading Packs
+
+**Guiding Principle(s):** Inside track.
+
+**The Play:** The dialogue that should be initiated at position one or earlier is, "Are we playing through or leading back?" In an oscillating breeze, this discussion should always occur before every crossing situation. In this case, favored side does not matter because this is the lead pack from the left, and they are all on port. Red should get as close to the leaders as possible, in order to shut down lanes, and make it difficult for Green to sail his own groove. Leading back is the high percentage move here both in terms of wind prediction as well as fleet management. The lead packing being on port is a good indicator that we might be in left phase, which means that the next shift will be back right. Even if the fleet is not a good indication of the phase, tacking to leeward puts Red in a position to consolidate any gains by tacking first, should the breeze go right. Finally, if Red is bow behind at all, leading back saves any potential ducking situations. If left pressure begins to come in hard, it is likely that Green will tack to minimize Yellow's leverage, in which case Red will be able to go as well. This also preserves starboard advantage.
+
+**Most Common Mistakes:** Don't get greedy, and try to force the fleet to tack just because you are a Starboard boat. Chances are, one or two boats from the pack will find a way to get to the right of you (either by ducking, or by crossing you), which gives them starboard advantage and control of the right shift.
+
+**Pro Tip:** The deeper you are in the fleet, the earlier this conversation needs to take place. If half of the port pack is crossing you, you need to know early on whether your plan is to play through or lead back so that you can tack early enough to keep your bow clear.
+
+**Best Communication:** "Lead back or play through?" "Leading back," "Tacking to leeward of the pack"
+
+### Tactics of The Edge Out Strategy
+
+When it comes to learning how to execute the Edge Out strategy well, one of the most challenging aspects of these types of day is that often the rich get richer. If you can escape from the line and make the first decision correctly, you set yourself up to control the fleet, making the next move easier, and the move after that even easier. Get it wrong however, and it will be an especially difficult fight to get back into the race. As a result we're going to start with a discussion about the first tactical decision off the line - the timing of the first tack relative to other boats - and then we'll build from there.
+
+The following illustration shows the importance of this first tack timing. In these three images, Red, Purple, and Green have started to leeward of Blue, and have created a half boat length advantage one minute after the start. All three are looking to tack.
+
+Red is not sure where she wants to go, but after seeing Blue decide to tack, matches the maneuver a second later.
+
+*Figure 45. Subtleties in the leeward boat's tack position can make a big difference tactically.*
+
+Purple knows she wants to tack, and communicates that she wants a "simultaneous tack" with Blue, turning at the same time and maintaining the original distance.
+
+Green knows that she is looking to tack and pressure Blue, so the moment she sees Blue prepping sheets for the tack, she starts cheating into the turn to be one step ahead.
+
+The end result is that Green can put the bow down to pressure Blue, but may need to tack away fairly quickly if Blue gains an advantage. Red has a big lane to live in, which may be good if she expects to go straight for a long time, but doesn't put much pressure on Blue, and is at a disadvantage if she expects a right shift next, because she has given Blue additional leverage. Purple maintains the same leverage, which gives her tactical options in the next shift.
+
+While the Red position is likely good for a Place To Race To/Outside Track race, or a Minimize Decisions strategy because it will allow Red to hang for a long time, Purple is likely better for the Inside Track strategy because she will be able to live through some small shifts, while having the option of a tight leebow on the next shift. Green is ideal for an Edge Out strategy where Green started close to the pin. In this case, pressuring Blue back to the middle of the course takes away their ability to sail a high mode tactically or for VMG reasons, and forces them to sail quickly back towards the rest of the fleet.
+
+*Figure 46. A real-life example of the importance of subtle positioning differences.*
+
+Let's look at an example from a small, regional 49er race in 2022.
+
+On this track, the boat that we're looking at - let's call him George - won the pin end, and quickly gained an advantage on 3 boats on his hip.
+
+The weather boat of the three - let's call him Larry - had a plan A start and hug on George's hip, while the other two were forced to bail out. After about a minute of sailing on starboard tack, Larry faded slightly into George, and tacked to clear. Seeing Larry tack out, George looked around, realized that he too wanted to tack to cover the fleet, and tacked about 10 seconds later.

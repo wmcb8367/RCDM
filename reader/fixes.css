@@ -1,0 +1,123 @@
+/* FIX 1: Chapter sidebar - prevent overlapping text */
+.chapter-link {
+    display: block !important;
+    position: relative !important; /* Not absolute */
+    min-height: 44px !important;
+    margin-bottom: 4px !important;
+}
+
+.chapter-link-label {
+    display: block !important;
+    line-height: 1.35 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.chapter-nav {
+    overflow-y: auto !important;
+    padding-right: 0.5rem !important;
+}
+
+/* FIX 2: Compact audiobook section - single line layout */
+.audio-panel {
+    padding-top: 0.6rem !important;
+    gap: 0.5rem !important;
+}
+
+.audio-meta-row {
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 1rem !important;
+}
+
+.audio-meta-row > div {
+    flex: 1;
+    min-width: 0;
+}
+
+.audio-now-playing {
+    font-size: 0.9rem !important;
+    margin: 0 !important;
+}
+
+.audio-chapter-meta {
+    font-size: 0.75rem !important;
+    margin: 0 !important;
+}
+
+.audio-speed {
+    flex-shrink: 0 !important;
+}
+
+.audio-row--controls {
+    gap: 0.5rem !important;
+}
+
+.audio-play-btn {
+    min-height: 44px !important;
+    min-width: 80px !important;
+    padding: 0.6rem 1rem !important;
+    font-size: 0.9rem !important;
+}
+
+.audio-skip-btn {
+    min-height: 44px !important;
+    min-width: 70px !important;
+    padding: 0.5rem 0.8rem !important;
+}
+
+.audio-row--progress {
+    gap: 0.6rem !important;
+}
+
+.audio-track-picker {
+    flex: 0 1 auto !important;
+    max-width: 200px !important;
+}
+
+/* FIX 3: Move chat under chapter sidebar */
+.chat-dock {
+    position: relative !important;
+    right: auto !important;
+    bottom: auto !important;
+    margin-top: 1rem !important;
+    max-width: none !important;
+    animation: none !important;
+}
+
+.chat-dock::before {
+    display: none !important; /* Remove glow effect */
+}
+
+.chat-bubble {
+    width: 100% !important;
+    max-width: none !important;
+    justify-content: center !important;
+}
+
+.chat-window {
+    width: 100% !important;
+    max-width: none !important;
+    position: relative !important;
+    transform: none !important;
+}
+
+/* Keep chat visible and accessible */
+.sidebar-card {
+    overflow: visible !important;
+}
+
+.chapter-nav {
+    margin-bottom: 1rem !important;
+    max-height: calc(100vh - 400px) !important;
+}
+
+/* Mobile: keep original behavior */
+@media (max-width: 960px) {
+    .chat-dock {
+        position: fixed !important;
+        left: var(--safe-side) !important;
+        right: var(--safe-side) !important;
+        bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px)) !important;
+    }
+}
