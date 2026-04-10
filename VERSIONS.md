@@ -1,106 +1,116 @@
-# RCDM Versions
+# RCDM Version History
 
-## Comparison Table
+All editions of Race Course Decision Making by William McBride.
 
-| Version | Repo path | Format | Approx. words | Date observed | Pages | Figures | Notes |
-| --- | --- | --- | ---: | --- | ---: | --- | --- |
-| RCDM v2.1 | `editions/RCDM-v2.1.md` | Markdown | 55,077 | 2026-04-06 file timestamp | n/a | Yes | Most structured source text in repo, with full heading hierarchy and 2025 edition front matter. |
-| RCDM v2 Draft 2 | `editions/RCDM-v2-DRAFT2.pdf` | PDF | 50,642 | 2026-02-23 file timestamp | 132 | Yes | Earlier rough-draft PDF. Preface explicitly calls it a rough draft. |
-| RCDM v2 | `editions/RCDM-v2.pdf` | PDF | 54,159 | 2026-04-08 file timestamp | 138 | Yes | Later PDF received from Willie. Text closely matches the v2.1 / reader generation and is more complete than Draft 2. |
-| Reader HTML source | `reader/book-content.html` | HTML fragment | 53,210 | 2026-04-07 file timestamp | n/a | Yes | HTML-rendered book body used by the interactive reader. |
-| Reader JS source | `reader/book-content.js` | JS-embedded HTML/text payload | 53,206 | 2026-04-07 file timestamp | n/a | Yes | JavaScript-packed reader content, effectively the same manuscript family as the HTML reader source. |
-| Narration script | `narration/RCDM-narration-script.txt` | Plain text | 52,838 | 2026-04-08 file timestamp | n/a | Mostly no | Clean narration-oriented export of the book text, optimized for voice work rather than page layout. |
-| Course outline | `curriculum/RCDM-Course-Outline.md` | Markdown | 685 | 2026-02-23 file timestamp | n/a | No | Companion curriculum outline mapping book sections to a 12-unit course. |
+## Summary Table
 
-## File identity notes
+| Version | Words | Headings | Format | Key Changes |
+|---------|-------|----------|--------|-------------|
+| RCDM-v1.1 | 55,482 | 31 | Markdown | Minor edits ( words) |
+| RCDM-v1.2 | 53,005 | 31 | Markdown | Major trim (-2477 words) |
+| RCDM-v1.3 | 52,034 | 31 | Markdown | Further editing (-971 words) |
+| RCDM-v1.4 | 52,034 | 31 | Markdown | Same length as v1.3 (0 words) |
+| RCDM-v1.6 | 50,069 | 51 | Markdown | Most edited v1 (-1965 words) |
+| RCDM-v1 | 55,490 | 31 | Markdown |  |
+| RCDM-v2.1 | 53,644 | 54 | Markdown | Current edition (-1846 words) |
+| RCDM-v2 | 53,542 | 53 | Markdown |  |
 
-- `editions/RCDM-v2-DRAFT2.pdf` is byte-for-byte identical to `/Users/mcbrideagents/.openclaw/workspace/projects/rcdm-curriculum/RCDM-v2-DRAFT2.pdf`.
-- SHA-256 for both Draft 2 PDF copies: `6f6ce8d45e72841202fc27a4edf18e5edc9ffa1e413966daa72bf60e22777a30`
-- SHA-256 for `editions/RCDM-v2.pdf`: `3935d2604503c5bef4e4110ef8811666e0f58da6eb43068b50c7792a14baae38`
+## Additional Formats
 
-## Shared chapter structure across the main book editions
+| Format | File | Notes |
+|--------|------|-------|
+| PDF | `editions/pdf/RCDM-v2-DRAFT.pdf` | Draft layout |
+| PDF | `editions/pdf/RCDM-v2-DRAFT2.pdf` | Updated draft layout |
+| DOCX | `editions/docx/RCDM-v2.docx` | Word format for editing |
+| DOCX | `editions/docx/book_1_kindle.docx` | Kindle Create source |
+| EPUB | `editions/epub/Race Course Decision Making Kindle Publishing.epub` | Kindle-ready |
 
-The Markdown manuscript, later PDF, reader sources, and narration script all track the same core structure:
+## Chapter Structure Comparison
 
-1. Preface
-2. Prologue: The Education of a Coach
-3. Introduction
-   - Introduction To Race Course Decision Making
-   - Overview of Race Course Philosophy Tactics and Strategy
-   - The Three Building Blocks Of Race Course Decision Making
-   - Building A Process For Learning Race Course Decision Making
-4. I. Race Course Philosophy
-   - What Is Race Course Philosophy?
-   - What We Know About The Starting Line
-   - First Beat Fundamentals
-   - Weather Mark Layline Management
-   - 9 Ways To Pass Boats Downwind
-   - The Downwind Decision Diamond
-   - Downwind Philosophy Of Symmetrical Spinnaker Boats
-   - The Evolution of Race Course Philosophy
-5. II. Strategy
-   - What is Strategy?
-   - Making Your Bet: The Game Of Odds
-   - 5 Types of Day
-   - Spirit Animals Of the Five Types Of Day
-6. III. Tactics
-   - What Are Tactics?
-   - Tactics of Connect The Dots
-   - Tactics of The Inside Track
-   - UW 6
-   - UW 7
-   - Tactics of The Edge Out Strategy
-   - Tactics of the Outside Track
-   - Tactical Summary
-7. Conclusion: Balancing Race Course Philosophy, Strategy and Tactics
-   - When The Unconscious Becomes Conscious
+### RCDM-v1.6
 
-## Detailed notes by version
+**50,069 words** · 8 sections · 25 chapters
 
-### 1. `editions/RCDM-v2.1.md`
-- Most readable source version for ongoing edits.
-- Includes explicit Markdown heading hierarchy, making it the best base for future editorial work.
-- Word count is slightly higher than the reader and narration exports, suggesting it preserves more markup-driven structure and some copy that may be normalized downstream.
-- Includes figures by reference and aligns with the 2025 edition branding.
+- **2025 Edition**
+- **Contents**
+- **Preface**
+- **Introduction**
+- **I. Race Course Philosophy**
+- **II. Strategy**
+- **III. Tactics**
+- **Conclusion: Balancing Race Course Philosophy, Strategy and Tactics**
 
-### 2. `editions/RCDM-v2-DRAFT2.pdf`
-- Earlier and shorter than the later PDF by about 3,500 words and 6 pages.
-- Preface language is clearly draft-oriented: it calls itself a rough draft and references a Google Classroom module under construction.
-- Early extracted pages show the book beginning with Preface and Introduction material, with less polished framing than the newer manuscript family.
-- Includes figures in laid-out PDF form.
+### RCDM-v1
 
-### 3. `editions/RCDM-v2.pdf`
-- Later PDF sent on 2026-04-08.
-- Closer to the later manuscript family, with updated prefatory language about the remote coaching module being in continual improvement.
-- Longer than Draft 2, and includes the Prologue in the extracted opening pages.
-- Best PDF candidate for sharing or archival comparison against the living Markdown manuscript.
+**55,490 words** · 6 sections · 12 chapters
 
-### 4. `reader/book-content.html`
-- Reader-ready HTML export of the manuscript.
-- Essentially the web-reader presentation layer for the book body, with inline figure references and HTML paragraph markup.
-- Word count closely matches the later PDF and narration export, which suggests it was generated from a similar source snapshot.
+- **2025 Edition**
+- **Contents**
+- **Preface**
+- **Introduction**
+- **III\. Tactics**
+- **Conclusion: Balancing Race Course Philosophy, Strategy and Tactics**
 
-### 5. `reader/book-content.js`
-- JavaScript-packaged content payload used by the interactive reader.
-- Content family appears to match the HTML export, but embedded for browser-side loading.
-- Best treated as an application asset rather than an editorial source of truth.
+### RCDM-v2.1
 
-### 6. `narration/RCDM-narration-script.txt`
-- Clean text export intended for narration or TTS workflows.
-- Closely tracks the same manuscript family as the reader exports, but with fewer layout dependencies.
-- Best source for voice production and audiobook cleanup.
+**53,644 words** · 9 sections · 26 chapters
 
-### 7. `curriculum/RCDM-Course-Outline.md`
-- Not a book edition, but a curriculum companion.
-- Maps the manuscript into a 12-unit course structure with estimated time, exercises, and evaluations.
-- Useful for connecting the manuscript to teaching and training deliverables.
+- **2025 Edition**
+- **Contents**
+- **Preface**
+- **Prologue: The Education of a Coach**
+- **Introduction**
+- **I. Race Course Philosophy**
+- **II. Strategy**
+- **III. Tactics**
+- **Conclusion: Balancing Race Course Philosophy, Strategy and Tactics**
 
-## Bottom line
+### RCDM-v2
 
-The repository now contains three distinct manuscript states worth tracking:
+**53,542 words** · 9 sections · 25 chapters
 
-1. **Draft 2 PDF**: the earlier rough-draft laid-out edition.
-2. **Later manuscript family**: `RCDM-v2.1.md`, `RCDM-v2.pdf`, `book-content.html`, `book-content.js`, and `RCDM-narration-script.txt`.
-3. **Curriculum companion**: `RCDM-Course-Outline.md`.
+- **2025 Edition**
+- **Contents**
+- **Preface**
+- **Prologue: The Education of a Coach**
+- **Introduction**
+- **I. Race Course Philosophy**
+- **II. Strategy**
+- **III. Tactics**
+- **Conclusion: Balancing Race Course Philosophy, Strategy and Tactics**
 
-For future edits, `editions/RCDM-v2.1.md` should be treated as the primary editable source, with the reader, narration, and PDF outputs considered derivative or delivery-specific formats.
+## Version Evolution
+
+### v1 → v1.1 (−48 words)
+Minor edits. Nearly identical content.
+
+### v1.1 → v1.2 (−2,477 words)
+Significant trimming. Content condensed and tightened.
+
+### v1.2 → v1.3 (−971 words)
+Further editing pass. Refinements throughout.
+
+### v1.3 → v1.4 (0 words)
+Same word count — likely formatting/structural changes only.
+
+### v1.4 → v1.6 (−1,965 words)
+Note: v1.5 is missing. Most aggressive edit of the v1 branch.
+
+### v1.6 → v2 (+3,471 words)
+Major revision. New content added, structure reorganized. Represents a new edition rather than incremental edits.
+
+### v2 → v2.1 (+102 words)
+Minor updates to v2. Current canonical version.
+
+## Figures & Tables
+
+- **55 figures** in `figures/Figures/` (Figure1.png through Figure50.png + sub-figures)
+- **7 tables** in `figures/Tables/` (Table1.png through Table7.png)
+- McBride Racing logo in `figures/`
+- Numbers spreadsheet for tables in `figures/`
+
+## Canonical Version
+
+**`editions/markdown/RCDM-v2.1.md`** is the current source of truth.
+The interactive reader at `/reader/` is built from this version.
+Future editions should be created as new versioned files (v2.2, v3, etc.).
