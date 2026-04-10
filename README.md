@@ -9,12 +9,20 @@ Live at: https://wmcb8367.github.io/RCDM/reader/
 The repository root redirects to `reader/` for GitHub Pages compatibility.
 
 ## Editions
-See [VERSIONS.md](VERSIONS.md) for a comparison of all known versions currently tracked in this repository.
+See [VERSIONS.md](VERSIONS.md) for the tracked version history.
+
+Current archive includes:
+- 8 markdown editions
+- 4 PDF copies/variants kept for reference
+- 2 DOCX files
+- 1 EPUB export
+- Dropbox figures, tables, and Kindle assets
 
 ## Structure
 - `reader/` - Interactive web reader and audiobook assets
-- `editions/` - Book text in Markdown and PDF formats
-- `figures/` - Figures and tables used throughout the book
+- `editions/` - Book text and exports in markdown, PDF, DOCX, and EPUB
+- `figures/` - Dropbox-imported figures, tables, logo, and Numbers source
+- `figures-from-legacy/` - Older local figure archive kept so nothing was lost
 - `curriculum/` - Course outline and related curriculum assets
 - `narration/` - Narration-ready script text
 
