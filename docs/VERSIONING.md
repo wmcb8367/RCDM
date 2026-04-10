@@ -1,0 +1,94 @@
+# RCDM Reader Versioning
+
+## What is versioned now
+
+The reader now has a human-editable deployment layer.
+
+- `reader/config/deployment.json`
+  - declares active text version
+  - declares active audio version
+  - declares whether deployment is `version-locked` or `mixed`
+- `reader/content/<text-version>/book-manifest.json`
+  - chapter map for the selected text edition
+- `reader/audio-manifests/<audio-version>.json`
+  - chapter-by-chapter audio mapping
+  - source manuscript version for each track
+  - provenance notes when uncertain
+
+## Current seeded state
+
+- Active text version: `v2.1`
+- Active audio version: `adam-2026-04-07-partial`
+- Deployment mode: `mixed`
+- Confidence:
+  - text provenance is high confidence
+  - audio provenance is partial and still uncertain at the chapter/manuscript level
+
+The system is intentionally honest about uncertainty. It does not claim the current audio was definitely recorded from `v2.1`.
+
+## How the reader works now
+
+`reader/index.html` loads:
+
+1. `reader/config/deployment.json`
+2. the selected text script from `deployment.text.scriptPath`
+3. the selected text manifest from `deployment.text.manifestPath`
+4. the selected audio manifest from `deployment.audio.manifestPath`
+
+The UI displays:
+
+- text version in use
+- audio version in use
+- deployment mode
+- warning copy when text/audio provenance is mixed or uncertain
+
+## How to switch versions
+
+### Switch text only
+
+1. Add or generate the new text assets
+   - recommended target: `reader/content/<new-version>/book-manifest.json`
+   - recommended future companion: `reader/content/<new-version>/book-content.js`
+2. Update `reader/config/deployment.json`
+   - `text.activeVersion`
+   - `text.manifestPath`
+   - `text.scriptPath`
+3. Leave audio settings alone if you intentionally want a mixed deployment
+
+### Switch audio only
+
+1. Add a new manifest in `reader/audio-manifests/<audio-version>.json`
+2. Map each track to:
+   - `chapterId`
+   - `src`
+   - `sourceTextVersion`
+   - `provenanceNote` if needed
+3. Update `reader/config/deployment.json`
+   - `audio.activeVersion`
+   - `audio.manifestPath`
+
+### Lock text and audio to the same manuscript
+
+When Willie chooses a final aligned pairing:
+
+1. point both text and audio to the desired versions
+2. set `deploymentMode` to `version-locked`
+3. remove or reduce the warning text if provenance is verified
+
+## Recommended future content pipeline
+
+1. Edit manuscript in `editions/markdown/RCDM-vX.Y.md`
+2. Generate reader-ready HTML/JS for that manuscript
+3. Create `reader/content/vX.Y/book-manifest.json`
+4. If audio exists for that manuscript, create `reader/audio-manifests/<audio-version>.json`
+5. Flip `reader/config/deployment.json` to the chosen pairing
+6. Test locally, then publish to Pages
+
+## Known unresolved uncertainty
+
+- The current reader text appears to be `v2.1`
+- The currently mapped audiobook files are real and usable
+- Exact manuscript provenance for those audio files is still not fully verified
+- Some files may have been recorded against a nearby draft rather than the final `v2.1` wording
+
+That uncertainty is now explicit in config and in the UI instead of being hidden in file assumptions.

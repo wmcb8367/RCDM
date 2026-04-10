@@ -1,0 +1,49 @@
+{
+  "version": "adam-2026-04-07-partial",
+  "voice": "Adam",
+  "provider": "ElevenLabs",
+  "defaultSourceTextVersion": "unknown",
+  "provenanceNote": "Recording dates and filenames are known, but exact manuscript match is not yet fully verified. Treat this audio set as chapter-level provenance with uncertainty.",
+  "tracks": [
+    {
+      "id": "preface",
+      "chapterId": "preface",
+      "title": "Preface",
+      "src": "audiobook/01-preface.mp3",
+      "sourceTextVersion": "unknown",
+      "provenanceNote": "Likely close to v2/v2.1 front matter, but not formally verified."
+    },
+    {
+      "id": "prologue",
+      "chapterId": "prologue-the-education-of-a-coach",
+      "title": "Prologue: The Education of a Coach",
+      "src": "audiobook/02-prologue-full.mp3",
+      "sourceTextVersion": "unknown",
+      "provenanceNote": "Exact source manuscript version not yet verified."
+    },
+    {
+      "id": "introduction-to-rcdm",
+      "chapterId": "introduction-to-race-course-decision-making",
+      "title": "Introduction To Race Course Decision Making",
+      "src": "audiobook/06-introduction-to-rcdm.mp3",
+      "sourceTextVersion": "unknown",
+      "provenanceNote": "Current filename mapping retained from the live reader."
+    },
+    {
+      "id": "three-building-blocks",
+      "chapterId": "the-three-building-blocks-of-race-course-decision-making",
+      "title": "The Three Building Blocks Of Race Course Decision Making",
+      "src": "audiobook/07-three-building-blocks.mp3",
+      "sourceTextVersion": "unknown",
+      "provenanceNote": "Current filename mapping retained from the live reader."
+    },
+    {
+      "id": "building-a-process",
+      "chapterId": "building-a-process-for-learning-race-course-decision-making",
+      "title": "Building A Process For Learning Race Course Decision Making",
+      "src": "audiobook/08-building-a-process.mp3",
+      "sourceTextVersion": "unknown",
+      "provenanceNote": "Current filename mapping retained from the live reader."
+    }
+  ]
+}

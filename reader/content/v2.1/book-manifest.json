@@ -1,0 +1,281 @@
+{
+  "title": "Race Course Decision Making",
+  "author": "William McBride",
+  "edition": "2025 Edition",
+  "textVersion": "v2.1",
+  "sourcePath": "../editions/markdown/RCDM-v2.1.md",
+  "wordsPerPage": 250,
+  "chapters": [
+    {
+      "id": "preface",
+      "title": "Preface",
+      "level": 2,
+      "approxWordPosition": 10,
+      "approxPage": 1,
+      "audio": {
+        "src": "audiobook/01-preface.mp3",
+        "id": "preface"
+      }
+    },
+    {
+      "id": "prologue-the-education-of-a-coach",
+      "title": "Prologue: The Education of a Coach",
+      "level": 2,
+      "approxWordPosition": 340,
+      "approxPage": 1,
+      "audio": {
+        "src": "audiobook/02-prologue-full.mp3",
+        "id": "prologue"
+      }
+    },
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "level": 2,
+      "approxWordPosition": 1382,
+      "approxPage": 3,
+      "audio": null
+    },
+    {
+      "id": "introduction-to-race-course-decision-making",
+      "title": "Introduction To Race Course Decision Making",
+      "level": 3,
+      "approxWordPosition": 1383,
+      "approxPage": 3,
+      "audio": {
+        "src": "audiobook/06-introduction-to-rcdm.mp3",
+        "id": "introduction-to-rcdm"
+      }
+    },
+    {
+      "id": "overview-of-race-course-philosophy-tactics-and-strategy",
+      "title": "Overview of Race Course Philosophy Tactics and Strategy",
+      "level": 3,
+      "approxWordPosition": 3011,
+      "approxPage": 7,
+      "audio": null
+    },
+    {
+      "id": "the-three-building-blocks-of-race-course-decision-making",
+      "title": "The Three Building Blocks Of Race Course Decision Making",
+      "level": 3,
+      "approxWordPosition": 3359,
+      "approxPage": 7,
+      "audio": {
+        "src": "audiobook/07-three-building-blocks.mp3",
+        "id": "three-building-blocks"
+      }
+    },
+    {
+      "id": "building-a-process-for-learning-race-course-decision-making",
+      "title": "Building A Process For Learning Race Course Decision Making",
+      "level": 3,
+      "approxWordPosition": 4152,
+      "approxPage": 9,
+      "audio": {
+        "src": "audiobook/08-building-a-process.mp3",
+        "id": "building-a-process"
+      }
+    },
+    {
+      "id": "i-race-course-philosophy",
+      "title": "I. Race Course Philosophy",
+      "level": 2,
+      "approxWordPosition": 5075,
+      "approxPage": 11,
+      "audio": null
+    },
+    {
+      "id": "what-is-race-course-philosophy",
+      "title": "What Is Race Course Philosophy?",
+      "level": 3,
+      "approxWordPosition": 5079,
+      "approxPage": 11,
+      "audio": null
+    },
+    {
+      "id": "what-we-know-about-the-starting-line",
+      "title": "What We Know About The Starting Line",
+      "level": 3,
+      "approxWordPosition": 5415,
+      "approxPage": 11,
+      "audio": null
+    },
+    {
+      "id": "first-beat-fundamentals",
+      "title": "First Beat Fundamentals",
+      "level": 3,
+      "approxWordPosition": 7757,
+      "approxPage": 16,
+      "audio": null
+    },
+    {
+      "id": "weather-mark-layline-management",
+      "title": "Weather Mark Layline Management",
+      "level": 3,
+      "approxWordPosition": 10286,
+      "approxPage": 21,
+      "audio": null
+    },
+    {
+      "id": "9-ways-to-pass-boats-downwind",
+      "title": "9 Ways To Pass Boats Downwind",
+      "level": 3,
+      "approxWordPosition": 11905,
+      "approxPage": 24,
+      "audio": null
+    },
+    {
+      "id": "the-downwind-decision-diamond",
+      "title": "The Downwind Decision Diamond",
+      "level": 3,
+      "approxWordPosition": 14746,
+      "approxPage": 30,
+      "audio": null
+    },
+    {
+      "id": "downwind-philosophy-of-symmetrical-spinnaker-boats",
+      "title": "Downwind Philosophy Of Symmetrical Spinnaker Boats",
+      "level": 3,
+      "approxWordPosition": 15456,
+      "approxPage": 31,
+      "audio": null
+    },
+    {
+      "id": "the-evolution-of-race-course-philosophy",
+      "title": "The Evolution of Race Course Philosophy",
+      "level": 3,
+      "approxWordPosition": 16474,
+      "approxPage": 33,
+      "audio": null
+    },
+    {
+      "id": "ii-strategy",
+      "title": "II. Strategy",
+      "level": 2,
+      "approxWordPosition": 17134,
+      "approxPage": 35,
+      "audio": null
+    },
+    {
+      "id": "what-is-strategy",
+      "title": "What is Strategy?",
+      "level": 3,
+      "approxWordPosition": 17136,
+      "approxPage": 35,
+      "audio": null
+    },
+    {
+      "id": "making-your-bet-the-game-of-odds",
+      "title": "Making Your Bet: The Game Of Odds",
+      "level": 3,
+      "approxWordPosition": 18608,
+      "approxPage": 38,
+      "audio": null
+    },
+    {
+      "id": "5-types-of-day",
+      "title": "5 Types of Day",
+      "level": 3,
+      "approxWordPosition": 34739,
+      "approxPage": 70,
+      "audio": null
+    },
+    {
+      "id": "spirit-animals-of-the-five-types-of-day",
+      "title": "Spirit Animals Of the Five Types Of Day",
+      "level": 3,
+      "approxWordPosition": 46639,
+      "approxPage": 94,
+      "audio": null
+    },
+    {
+      "id": "iii-tactics",
+      "title": "III. Tactics",
+      "level": 2,
+      "approxWordPosition": 47507,
+      "approxPage": 96,
+      "audio": null
+    },
+    {
+      "id": "what-are-tactics",
+      "title": "What Are Tactics?",
+      "level": 3,
+      "approxWordPosition": 47509,
+      "approxPage": 96,
+      "audio": null
+    },
+    {
+      "id": "tactics-of-connect-the-dots",
+      "title": "Tactics of Connect The Dots",
+      "level": 3,
+      "approxWordPosition": 48598,
+      "approxPage": 98,
+      "audio": null
+    },
+    {
+      "id": "tactics-of-the-inside-track",
+      "title": "Tactics of The Inside Track",
+      "level": 3,
+      "approxWordPosition": 49077,
+      "approxPage": 99,
+      "audio": null
+    },
+    {
+      "id": "uw-6",
+      "title": "UW 6",
+      "level": 3,
+      "approxWordPosition": 49647,
+      "approxPage": 100,
+      "audio": null
+    },
+    {
+      "id": "uw-7",
+      "title": "UW 7",
+      "level": 3,
+      "approxWordPosition": 49939,
+      "approxPage": 100,
+      "audio": null
+    },
+    {
+      "id": "tactics-of-the-edge-out-strategy",
+      "title": "Tactics of The Edge Out Strategy",
+      "level": 3,
+      "approxWordPosition": 50366,
+      "approxPage": 101,
+      "audio": null
+    },
+    {
+      "id": "tactics-of-the-outside-track",
+      "title": "Tactics of the Outside Track",
+      "level": 3,
+      "approxWordPosition": 52141,
+      "approxPage": 105,
+      "audio": null
+    },
+    {
+      "id": "tactical-summary",
+      "title": "Tactical Summary",
+      "level": 3,
+      "approxWordPosition": 53216,
+      "approxPage": 107,
+      "audio": null
+    },
+    {
+      "id": "conclusion-balancing-race-course-philosophy-strategy-and-tactics",
+      "title": "Conclusion: Balancing Race Course Philosophy, Strategy and Tactics",
+      "level": 2,
+      "approxWordPosition": 53343,
+      "approxPage": 107,
+      "audio": null
+    },
+    {
+      "id": "when-the-unconscious-becomes-conscious",
+      "title": "When The Unconscious Becomes Conscious",
+      "level": 3,
+      "approxWordPosition": 53351,
+      "approxPage": 107,
+      "audio": null
+    }
+  ]
+}

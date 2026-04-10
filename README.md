@@ -1,32 +1,41 @@
 # Race Course Decision Making (RCDM)
-**By William McBride**
 
-This repository contains the interactive web reader, manuscript editions, figures, narration scripts, and curriculum materials for *Race Course Decision Making*.
+Interactive reader, manuscript editions, and audiobook assets for *Race Course Decision Making*.
 
-## Interactive Reader
-Live at: https://wmcb8367.github.io/RCDM/reader/
+## Live reader
 
-The repository root redirects to `reader/` for GitHub Pages compatibility.
+GitHub Pages serves the reader from `reader/`.
 
-## Editions
-See [VERSIONS.md](VERSIONS.md) for the tracked version history.
+## Version-aware deployment
 
-Current archive includes:
-- 8 markdown editions
-- 4 PDF copies/variants kept for reference
-- 2 DOCX files
-- 1 EPUB export
-- Dropbox figures, tables, and Kindle assets
+The reader now loads its active text and audio from explicit config instead of hidden assumptions.
 
-## Structure
-- `reader/` - Interactive web reader and audiobook assets
-- `editions/` - Book text and exports in markdown, PDF, DOCX, and EPUB
-- `figures/` - Dropbox-imported figures, tables, logo, and Numbers source
-- `figures-from-legacy/` - Older local figure archive kept so nothing was lost
-- `curriculum/` - Course outline and related curriculum assets
-- `narration/` - Narration-ready script text
+Key files:
 
-## Notes
-- The `reader/` directory preserves the current browser-based reading experience.
-- `editions/RCDM-v2-DRAFT2.pdf` and the curriculum copy of that same PDF were verified as identical by SHA-256 before consolidation.
-- `editions/RCDM-v2.pdf` is a different later PDF file received on 2026-04-08.
+- `reader/config/deployment.json`
+- `reader/content/v2.1/book-manifest.json`
+- `reader/audio-manifests/adam-2026-04-07-partial.json`
+- `docs/VERSIONING.md`
+
+Current seeded deployment:
+
+- Text: `v2.1`
+- Audio: `adam-2026-04-07-partial`
+- Mode: `mixed`
+
+The deployment is currently marked mixed because text provenance is clearer than audio provenance.
+
+## Repo structure
+
+- `reader/` - static web reader
+- `reader/config/` - deploy-time version selection
+- `reader/content/` - versioned reader manifests
+- `reader/audio-manifests/` - audio version manifests and provenance
+- `editions/markdown/` - manuscript history
+- `docs/VERSIONING.md` - how to add/switch versions
+
+## Switching versions
+
+Edit `reader/config/deployment.json` and point it at the desired text and audio manifests.
+
+See `docs/VERSIONING.md` for the full workflow.

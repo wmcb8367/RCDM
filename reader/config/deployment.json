@@ -1,0 +1,18 @@
+{
+  "deploymentMode": "mixed",
+  "text": {
+    "activeVersion": "v2.1",
+    "manifestPath": "content/v2.1/book-manifest.json",
+    "scriptPath": "book-content.js",
+    "sourcePath": "../editions/markdown/RCDM-v2.1.md"
+  },
+  "audio": {
+    "activeVersion": "adam-2026-04-07-partial",
+    "manifestPath": "audio-manifests/adam-2026-04-07-partial.json"
+  },
+  "warning": "Current deployment is intentionally marked mixed until Willie chooses a final text and audio pairing.",
+  "notes": [
+    "Text provenance is high confidence: reader content aligns with v2.1 manuscript.",
+    "Audio provenance is partial and chapter-level only. Some recordings may predate the final v2.1 wording."
+  ]
+}
