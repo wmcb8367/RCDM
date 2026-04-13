@@ -1498,7 +1498,7 @@ In the scenario pictured, Red has gained enough of an advantage (likely from a s
 
 ![Figure41.png](/Users/williammcbride/Documents/Race%20Course%20Decision%20Making/Figures/Figures/Figure41.png)
 
-**Description:** In an oscillating breeze you are on the outside of a lift, and you believe that the next shift will be a header.  What is the high percentage move?
+**Description:** In an oscillating breeze you are on the outside of a lift, and you believe that the next shift will be a header. What is the high-percentage move?
 
 #### UW 6.1 -- Consolidate Gains By Footing In Lifts
 
@@ -1520,7 +1520,7 @@ The benefits of this play are obvious when a shift puts you out in front of your
 
 ![Figure43.png](/Users/williammcbride/Documents/Race%20Course%20Decision%20Making/Figures/Figures/Figure43.png)
 
-**Description:** You are approaching the lead pack out of the left and you are nearly even with Green and Yellow. Your strategy is to play the inside track. Should you play through, or lead back?
+**Description:** You are approaching the lead pack out of the left and you are nearly even with Green and Yellow. Your strategy is to play the inside track. Should you play through, or lead back?
 
 #### UW 7.1 -- Lead Back Leading Packs
 
@@ -1530,9 +1530,9 @@ The benefits of this play are obvious when a shift puts you out in front of your
 
 **The Play:** The dialogue that should be initiated at position one or earlier is, "Are we playing through or leading back?" In an oscillating breeze, this discussion should always occur before every crossing situation. In this case, favored side does not matter because this is the lead pack from the left, and they are all on port. Red should get as close to the leaders as possible in order to shut down lanes and make it difficult for Green to sail his own groove. Leading back is the high-percentage move here, both in terms of wind prediction as well as fleet management. The lead pack being on port is a good indicator that we might be in a left phase, which means that the next shift will be back right. Even if the fleet is not a good indication of the phase, tacking to leeward puts Red in a position to consolidate any gains by tacking first, should the breeze go right. Finally, if Red is bow behind at all, leading back saves any potential ducking situations. If left pressure begins to come in hard, it is likely that Green will tack to minimize Yellow's leverage, in which case Red will be able to go as well. This also preserves starboard advantage.
 
-**Most Common Mistakes:** Don't get greedy, and try to force the fleet to tack just because you are a Starboard boat. Chances are, one or two boats from the pack will find a way to get to the right of you (either by ducking, or by crossing you), which gives them starboard advantage and control of the right shift.
+**Most Common Mistakes:** Don't get greedy, and try to force the fleet to tack just because you are a Starboard boat. Chances are, one or two boats from the pack will find a way to get to the right of you (either by ducking, or by crossing you), which gives them starboard advantage and control of the right shift.
 
-**Pro Tip:** The deeper you are in the fleet, the earlier this conversation needs to take place. If half of the port pack is crossing you, you need to know early on whether your plan is to play through or lead back so that you can tack early enough to keep your bow clear.
+**Pro Tip:** The deeper you are in the fleet, the earlier this conversation needs to take place. If half of the port pack is crossing you, you need to know early on whether your plan is to play through or lead back so that you can tack early enough to keep your bow clear.
 
 **Best Communication:** "Lead back or play through?" "Leading back," "Tacking to leeward of the pack"
 
