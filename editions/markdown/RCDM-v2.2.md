@@ -24,17 +24,17 @@ That desire to share turned into something bigger: the Skiff Squad. It started s
 
 The secret wasn’t me. It was the system: a generational handoff of knowledge. Most sailors started as helms and aged into crewing roles, helping a younger helm along the same path. Each generation learned from the one before, added their unique learnings, and then passed that knowledge down. It created a pipeline.
 
-The 29er class has a hard age limit of 18 for the Youth Worlds. That means most sailors have a 2-3 year window as a helm, maybe another 2-3 as a crew. The basic skill set can be taught in a year, refined in the second, and by the third, it’s all about racing. Transitioning to crew brings fresh focus, and mentoring a younger helm becomes part of the challenge. Skiff Squad became a place to refine that process.
+The 29er class has a hard age limit of 18 for the Youth Worlds. That means most sailors have a 2-3 year window as a helm, and maybe another 2-3 as a crew. The basic skill set can be taught in a year, refined in the second, and by the third, it’s all about racing. Transitioning to crew brings fresh focus, and mentoring a younger helm becomes part of the challenge. Skiff Squad became a place to refine that process.
 
 While I was in college, I ran Skiff Squad on the side. It was scrappy. 29ers were expensive. Coach boats were even more expensive. Some days I lost money because teams canceled last-minute, but it taught me how to run a program, manage people, and share a vision.
 
 Then I got an offer I wasn’t expecting. During my senior year at UC Santa Barbara, the Santa Barbara Youth Sailing Foundation posted a job opening for a program director. I applied on a whim. One parent told me, "Don't turn down a job you haven't been offered." That stuck with me. When the offer came—$42,000 to run the program while finishing school—I couldn't say no. I took my final semesters pass/no-pass and threw myself into it.
 
-I was on the water 240 days the year I graduated. Tuesdays and Thursdays were high school practice. Wednesdays and Fridays were Opti, Laser, and 29er practice. Weekends were regattas. The program motto was "Safety, fun, results—always in that order." I hired the best coaches I could find, filled in where needed, and built a culture of loving hard work. The results followed: we went from middle of the pack to dominating Southern California.
+I was on the water 240 days in the year I graduated. Tuesdays and Thursdays were high school practice. Wednesdays and Fridays were Opti, Laser, and 29er practice. Weekends were regattas. The program motto was "Safety, fun, results—always in that order." I hired the best coaches I could find, filled in where needed, and built a culture of loving hard work. The results followed: we went from middle of the pack to dominating Southern California.
 
-At this point, everything I taught came from my own experience. I had been where these kids wanted to go. But as they got better, their questions got harder. Why did this work? Why not that? I started to hit the edge of my own understanding.
+At this point, everything I taught came from my own experience. I had been where these kids wanted to go. But as they got better, their questions became harder. Why did this work? Why not that? I started to hit the edge of my own understanding.
 
-To keep up, I began sailing professionally, including seasons in the Melges 20 with three-time Olympian Chris Rast. Chris accelerated my development. More than anything, he taught me how to ask better questions. His approach was rigorous, almost scientific: start with a hypothesis, test it, and keep testing until you learn something. He once told me, "Olympic sailing is like getting your PhD in sailing. First, master what's known. Then push beyond it."
+To keep up, I began sailing professionally, including seasons in the Melges 20 with three-time Olympian Chris Rast. Chris accelerated my development. More than anything, he taught me to ask better questions. His approach was rigorous, almost scientific: start with a hypothesis, test it, and keep testing until you learn something. He once told me, "Olympic sailing is like getting your PhD in sailing. First, master what's known. Then push beyond it."
 
 I realized that top-level coaching isn’t about being the expert with all the answers—it’s about becoming the kind of person who knows how to ask the right questions. It’s about stepping into the unknown alongside your team, testing ideas, tossing out what doesn’t work, and refining what does. In this phase of coaching, you aren’t the guide on the hill—you’re in the trenches, experimenting and iterating shoulder-to-shoulder with your athletes. You’re building trust, not just by giving answers, but by showing them how to explore the edges of performance with curiosity, discipline, and humility.
 
@@ -42,7 +42,7 @@ This shift—from teacher to collaborator—was the turning point for me. It mar
 
 In August 2024, Paris Henken called. She was thinking about one last campaign. "But I won't do it if you're not part of it. I feel like we have unfinished business," she said.
 
-By January 2025, she was all in. But she still didn’t have a crew. Then Helena Scutt called. Paris figured it was just to say hi. Instead, Helena said, "I'm thinking about coming back."
+By January 2025, she was all in. But she still didn’t have a crew. Then Helena Scutt called. Paris assumed it was just to say hi. Instead, Helena said, "I'm thinking about coming back."
 
 Less than a week later, Paris and Helena were back in the 49erFX—together again, for the first time since Rio.
 
