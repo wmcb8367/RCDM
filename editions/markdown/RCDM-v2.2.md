@@ -96,7 +96,7 @@ Hopefully this book will help you to bring these three factors together in your 
 
 ### Overview of Race Course Philosophy Tactics and Strategy
 
-Hi there, I'm Willie McBride and in this book, I'm going to be your coach as we discuss decision making on the race course. For me, understanding the tactical decision making process has been a long road, trying to take a sometimes mystical topic, and understand it in a way that can be articulated, improved upon, taught and ultimately applied successfully. 
+Hi there, I'm Willie McBride, and in this book, I'm going to be your coach as we discuss decision making on the race course. For me, understanding the tactical decision making process has been a long road, trying to take a sometimes mystical topic and understand it in a way that can be articulated, improved upon, taught, and ultimately applied successfully. 
 
 Tactics and strategy are probably the most difficult topics to learn in sailing because sometimes you make all the right decisions and lose, and other times you make all the wrong decisions and win. This book is going to cover a lot of ground on race course decision making - from race course fundamentals, to one on one battles, and how to choose a strategy before the race begins. The best tactical systems use logical ideas to create an intuitive approach to racing that can adapt to new situations. My goal in the next few topics is to fast track your understanding of tactics, strategy and race course philosophy, while helping you to develop a process for improving those fundamentals, and ultimately creating your own, intuitive understanding of the race course. 
 
