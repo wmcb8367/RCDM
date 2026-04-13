@@ -586,7 +586,7 @@ Big teams with dedicated analysts are poised to raise the bar in this arena if r
 
 ### What is Strategy?
 
-As a junior sailor, I consumed all of the sailing books that I could get my hands on. From Stuart Walker's Advanced Racing Tactics, I learned that I needed to minimize major mistakes. From Dave Perry's, Winning In One Designs I learned the importance of switching mindsets from moderate wind **assertiveness** to light air **patience**. 
+As a junior sailor, I consumed all of the sailing books that I could get my hands on. From Stuart Walker's Advanced Racing Tactics, I learned that I needed to minimize major mistakes. From Dave Perry's *Winning in One Designs* I learned the importance of switching mindsets from moderate-wind **assertiveness** to light-air **patience**. 
 
 At the same time, my high school sailing coach was teaching me important lessons on the race course. "Cross when you can," was a common mantra. Other days the advice would be, "Start in a position to get to the first pressure." Sometimes I would follow the advice and win, and other times I would follow the advice and lose. The more experience I got, the more I began to **fit the tactical lessons into some rough categories**. If the course was short, it might be more important to start closer to the boat and protect starboard advantage. If the course was long, maybe it didn't matter where I started. In bad fleets I could push the line and use a line-sight to nail my time-on-distance at the start, but in good fleets, I had to start against the fleet. 
 
