@@ -2,6 +2,8 @@
   "title": "Race Course Decision Making",
   "author": "William McBride",
   "edition": "2025 Edition",
+  "textVersion": "v2.2",
+  "sourcePath": "../editions/markdown/RCDM-v2.2.md",
   "wordsPerPage": 250,
   "chapters": [
     {
@@ -51,7 +53,10 @@
       "level": 3,
       "approxWordPosition": 3011,
       "approxPage": 7,
-      "audio": null
+      "audio": {
+        "src": "audiobook/04-overview-of-race-course-philosophy.mp3",
+        "id": "overview-of-race-course-philosophy"
+      }
     },
     {
       "id": "the-three-building-blocks-of-race-course-decision-making",
@@ -89,7 +94,10 @@
       "level": 3,
       "approxWordPosition": 5079,
       "approxPage": 11,
-      "audio": null
+      "audio": {
+        "src": "audiobook/09-what-is-race-course-philosophy.mp3",
+        "id": "what-is-race-course-philosophy"
+      }
     },
     {
       "id": "what-we-know-about-the-starting-line",
@@ -97,7 +105,10 @@
       "level": 3,
       "approxWordPosition": 5415,
       "approxPage": 11,
-      "audio": null
+      "audio": {
+        "src": "audiobook/10-what-we-know-about-the-starting-line.mp3",
+        "id": "what-we-know-about-the-starting-line"
+      }
     },
     {
       "id": "first-beat-fundamentals",
@@ -105,7 +116,10 @@
       "level": 3,
       "approxWordPosition": 7757,
       "approxPage": 16,
-      "audio": null
+      "audio": {
+        "src": "audiobook/11-first-beat-fundamentals.mp3",
+        "id": "first-beat-fundamentals"
+      }
     },
     {
       "id": "weather-mark-layline-management",
@@ -113,7 +127,10 @@
       "level": 3,
       "approxWordPosition": 10286,
       "approxPage": 21,
-      "audio": null
+      "audio": {
+        "src": "audiobook/12-weather-mark-layline-management.mp3",
+        "id": "weather-mark-layline-management"
+      }
     },
     {
       "id": "9-ways-to-pass-boats-downwind",
@@ -121,7 +138,10 @@
       "level": 3,
       "approxWordPosition": 11905,
       "approxPage": 24,
-      "audio": null
+      "audio": {
+        "src": "audiobook/13-9-ways-to-pass-boats-downwind.mp3",
+        "id": "9-ways-to-pass-boats-downwind"
+      }
     },
     {
       "id": "the-downwind-decision-diamond",
@@ -129,7 +149,10 @@
       "level": 3,
       "approxWordPosition": 14746,
       "approxPage": 30,
-      "audio": null
+      "audio": {
+        "src": "audiobook/14-the-downwind-decision-diamond.mp3",
+        "id": "the-downwind-decision-diamond"
+      }
     },
     {
       "id": "downwind-philosophy-of-symmetrical-spinnaker-boats",
@@ -137,7 +160,10 @@
       "level": 3,
       "approxWordPosition": 15456,
       "approxPage": 31,
-      "audio": null
+      "audio": {
+        "src": "audiobook/15-downwind-philosophy-of-symmetrical-spinnaker-boats.mp3",
+        "id": "downwind-philosophy-of-symmetrical-spinnaker-boats"
+      }
     },
     {
       "id": "the-evolution-of-race-course-philosophy",
@@ -145,7 +171,10 @@
       "level": 3,
       "approxWordPosition": 16474,
       "approxPage": 33,
-      "audio": null
+      "audio": {
+        "src": "audiobook/16-the-evolution-of-race-course-philosophy.mp3",
+        "id": "the-evolution-of-race-course-philosophy"
+      }
     },
     {
       "id": "ii-strategy",
