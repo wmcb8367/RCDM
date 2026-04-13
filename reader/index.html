@@ -1,2 +1,556 @@
 <!DOCTYPE html>
-<html><head><meta http-equiv="refresh" content="0;url=reader/"></head></html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Race Course Decision Making</title>
+  <style>
+    :root {
+      --bg: #f4efe4;
+      --panel: #fffaf1;
+      --ink: #1f2a2e;
+      --muted: #5a6a70;
+      --line: rgba(31, 42, 46, 0.12);
+      --accent: #0b7285;
+      --accent-soft: rgba(11, 114, 133, 0.12);
+      --warn: #9a4d16;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      line-height: 1.75;
+      color: var(--ink);
+      background: linear-gradient(180deg, #f8f3e9 0%, var(--bg) 100%);
+    }
+    .app {
+      display: grid;
+      grid-template-columns: 320px minmax(0, 1fr);
+      gap: 1rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1rem;
+      min-height: 100vh;
+    }
+    .panel {
+      background: rgba(255,250,241,.92);
+      border: 1px solid rgba(255,255,255,.68);
+      border-radius: 24px;
+      box-shadow: 0 18px 40px rgba(36, 48, 53, 0.12);
+    }
+    .sidebar {
+      padding: 1.2rem;
+      position: sticky;
+      top: 1rem;
+      align-self: start;
+      max-height: calc(100vh - 2rem);
+      overflow: auto;
+    }
+    .eyebrow {
+      margin: 0 0 .35rem;
+      font: 700 .78rem/1.2 "Trebuchet MS", sans-serif;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    h1 { margin: 0; line-height: 1.1; }
+    .byline { margin: .45rem 0 1rem; color: var(--muted); font-style: italic; }
+    .version-panel {
+      margin-bottom: 1rem;
+      padding: .9rem 1rem;
+      background: rgba(255,255,255,.72);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      display: grid;
+      gap: .4rem;
+      font-size: .92rem;
+    }
+    .version-warning { color: var(--warn); }
+    .chapter-nav { display: grid; gap: .35rem; }
+    .chapter-link {
+      width: 100%; text-align: left; border: 1px solid var(--line); background: transparent;
+      border-radius: 12px; padding: .65rem .8rem; cursor: pointer; color: inherit;
+    }
+    .chapter-link.section { font-weight: 700; }
+    .chapter-link.chapter { margin-left: .85rem; width: calc(100% - .85rem); color: var(--muted); }
+    .chapter-link.active { background: var(--accent); color: white; border-color: transparent; }
+    .main { display: grid; grid-template-rows: auto minmax(0, 1fr); gap: .9rem; min-width: 0; }
+    .toolbar { padding: .9rem 1rem; display: grid; gap: .85rem; }
+    .toolbar-row { display: flex; flex-wrap: wrap; gap: .65rem; align-items: center; }
+    .pill, button, select, input[type="range"] { font: inherit; }
+    button, select {
+      min-height: 42px; border-radius: 999px; border: 1px solid var(--line);
+      background: rgba(255,255,255,.85); color: var(--ink); padding: 0 .9rem;
+    }
+    button { cursor: pointer; }
+    .play { background: linear-gradient(135deg, var(--accent), #1991a8); color: white; border-color: transparent; }
+    .content-wrap { padding: 1.2rem 1.4rem; overflow: auto; }
+    .content { max-width: 860px; margin: 0 auto; }
+    .content h1, .content h2, .content h3 { color: var(--accent); line-height: 1.25; }
+    .content img { max-width: 100%; height: auto; display: block; margin: 1.4rem auto; border-radius: 12px; }
+    .status { color: var(--muted); font-size: .92rem; }
+    .warning { color: var(--warn); }
+    .now-playing { font-weight: 600; }
+    .progress { flex: 1 1 180px; }
+    @media (max-width: 960px) {
+      .app { grid-template-columns: 1fr; }
+      .sidebar { position: static; max-height: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar panel">
+      <p class="eyebrow">Interactive Reader</p>
+      <h1>Race Course Decision Making</h1>
+      <p class="byline">By William McBride</p>
+      <div class="version-panel" aria-live="polite">
+        <div><strong>Text:</strong> <span id="textVersion">Loading…</span></div>
+        <div><strong>Audio:</strong> <span id="audioVersion">Loading…</span></div>
+        <div id="deploymentMode">Checking deployment profile…</div>
+        <div id="versionWarning" class="version-warning" hidden></div>
+      </div>
+      <nav id="chapterNav" class="chapter-nav" aria-label="Chapter navigation"></nav>
+    </aside>
+
+    <main class="main">
+      <section class="toolbar panel">
+        <div class="toolbar-row">
+          <button id="prevPage" type="button">Previous</button>
+          <span id="pageIndicator">Page 1 of 1</span>
+          <button id="nextPage" type="button">Next</button>
+          <label class="pill">Jump to
+            <select id="pageSelect"></select>
+          </label>
+        </div>
+        <div class="toolbar-row">
+          <button id="playPause" class="play" type="button">Play</button>
+          <button id="prevTrack" type="button">Prev track</button>
+          <button id="nextTrack" type="button">Next track</button>
+          <label class="pill">Audio
+            <select id="audioTrack"></select>
+          </label>
+          <label class="pill">Speed
+            <select id="audioSpeed">
+              <option value="0.8">0.8x</option>
+              <option value="0.9">0.9x</option>
+              <option value="1" selected>1.0x</option>
+              <option value="1.1">1.1x</option>
+              <option value="1.25">1.25x</option>
+              <option value="1.5">1.5x</option>
+            </select>
+          </label>
+        </div>
+        <div class="toolbar-row">
+          <div class="now-playing" id="nowPlaying">Ready to play</div>
+          <div class="status" id="audioMeta">Audio provenance will appear here.</div>
+        </div>
+        <div class="toolbar-row">
+          <input id="audioProgress" class="progress" type="range" min="0" max="100" value="0" step="0.1">
+          <span id="audioTime">0:00 / 0:00</span>
+        </div>
+        <div id="audioStatus" class="status">Loading reader…</div>
+        <audio id="audioElement" preload="metadata" playsinline webkit-playsinline></audio>
+      </section>
+
+      <article class="content-wrap panel">
+        <div id="content" class="content">Loading…</div>
+      </article>
+    </main>
+  </div>
+
+  <script>
+    const STORAGE_KEY = 'rcdm.reader.state.v3';
+    const DEFAULT_WORDS_PER_PAGE = 260;
+    const state = {
+      deployment: null,
+      manifest: null,
+      audioManifest: null,
+      pages: [],
+      chapters: [],
+      tracks: [],
+      currentPage: 1,
+      currentTrackId: null,
+      audioPositions: {},
+      playbackRate: 1
+    };
+
+    const ui = {
+      content: document.getElementById('content'),
+      chapterNav: document.getElementById('chapterNav'),
+      prevPage: document.getElementById('prevPage'),
+      nextPage: document.getElementById('nextPage'),
+      pageIndicator: document.getElementById('pageIndicator'),
+      pageSelect: document.getElementById('pageSelect'),
+      playPause: document.getElementById('playPause'),
+      prevTrack: document.getElementById('prevTrack'),
+      nextTrack: document.getElementById('nextTrack'),
+      audioTrack: document.getElementById('audioTrack'),
+      audioSpeed: document.getElementById('audioSpeed'),
+      audioProgress: document.getElementById('audioProgress'),
+      audioTime: document.getElementById('audioTime'),
+      audioElement: document.getElementById('audioElement'),
+      audioStatus: document.getElementById('audioStatus'),
+      nowPlaying: document.getElementById('nowPlaying'),
+      audioMeta: document.getElementById('audioMeta'),
+      textVersion: document.getElementById('textVersion'),
+      audioVersion: document.getElementById('audioVersion'),
+      deploymentMode: document.getElementById('deploymentMode'),
+      versionWarning: document.getElementById('versionWarning')
+    };
+
+    async function loadJson(path) {
+      const response = await fetch(path);
+      if (!response.ok) throw new Error(path + ' failed with ' + response.status);
+      return response.json();
+    }
+
+    async function loadScript(path) {
+      await new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = path;
+        script.onload = resolve;
+        script.onerror = () => reject(new Error('Failed to load ' + path));
+        document.head.appendChild(script);
+      });
+    }
+
+    function normalize(text) {
+      return (text || '').replace(/\s+/g, ' ').trim();
+    }
+
+    function slug(text) {
+      return normalize(text).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    }
+
+    function countWords(text) {
+      const cleaned = normalize(text);
+      return cleaned ? cleaned.split(' ').length : 0;
+    }
+
+    function clampPage(page) {
+      return Math.max(1, Math.min(page, state.pages.length || 1));
+    }
+
+    function formatTime(seconds) {
+      const value = Number.isFinite(seconds) ? Math.max(0, Math.floor(seconds)) : 0;
+      const mins = Math.floor(value / 60);
+      const secs = String(value % 60).padStart(2, '0');
+      return mins + ':' + secs;
+    }
+
+    function loadSavedState() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+        state.currentPage = Number(saved.currentPage) || 1;
+        state.currentTrackId = saved.currentTrackId || null;
+        state.audioPositions = saved.audioPositions || {};
+        state.playbackRate = Number(saved.playbackRate) || 1;
+      } catch (_error) {}
+    }
+
+    function saveState() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        currentPage: state.currentPage,
+        currentTrackId: state.currentTrackId,
+        audioPositions: state.audioPositions,
+        playbackRate: ui.audioElement.playbackRate || state.playbackRate
+      }));
+    }
+
+    function buildPages(blocks) {
+      const pages = [];
+      let startIndex = 0;
+      let words = 0;
+      let wordsPerPage = state.manifest.wordsPerPage || DEFAULT_WORDS_PER_PAGE;
+
+      blocks.forEach((block, index) => {
+        const blockWords = countWords(block.textContent || '');
+        const tag = block.tagName;
+        const forceBreak = (tag === 'H2' || tag === 'H3') && index > startIndex && words > 0;
+        const overflow = words > 0 && words + blockWords > wordsPerPage;
+        if (forceBreak || overflow) {
+          pages.push({ number: pages.length + 1, startIndex, endIndex: index - 1 });
+          startIndex = index;
+          words = 0;
+        }
+        words += blockWords;
+      });
+
+      if (blocks.length) pages.push({ number: pages.length + 1, startIndex, endIndex: blocks.length - 1 });
+      return pages;
+    }
+
+    function pageForBlock(blockIndex) {
+      const page = state.pages.find(entry => blockIndex >= entry.startIndex && blockIndex <= entry.endIndex);
+      return page ? page.number : 1;
+    }
+
+    function buildChapters(blocks) {
+      const headings = blocks.filter(block => block.tagName === 'H2' || block.tagName === 'H3');
+      return state.manifest.chapters.map((chapter, index) => {
+        const element = headings.find(block => normalize(block.textContent) === normalize(chapter.title)) || null;
+        if (element) element.id = chapter.id || slug(chapter.title);
+        const blockIndex = element ? blocks.indexOf(element) : 0;
+        const audioEntry = (state.audioManifest.tracks || []).find(track => track.chapterId === chapter.id) || null;
+        return {
+          ...chapter,
+          blockIndex,
+          page: element ? pageForBlock(blockIndex) : (chapter.approxPage || 1),
+          element,
+          isMajor: chapter.level === 2,
+          audio: audioEntry,
+          nextPage: null,
+          index
+        };
+      }).map((chapter, index, all) => {
+        const next = all[index + 1];
+        return { ...chapter, nextPage: next ? Math.max(chapter.page, next.page - 1) : state.pages.length };
+      });
+    }
+
+    function buildTracks() {
+      return state.chapters
+        .filter(chapter => chapter.audio && chapter.audio.src)
+        .map(chapter => ({
+          id: chapter.audio.id || chapter.id,
+          chapterId: chapter.id,
+          title: chapter.audio.title || chapter.title,
+          src: chapter.audio.src,
+          startPage: chapter.page,
+          endPage: chapter.nextPage,
+          sourceTextVersion: chapter.audio.sourceTextVersion || state.audioManifest.defaultSourceTextVersion || 'unknown',
+          provenanceNote: chapter.audio.provenanceNote || state.audioManifest.provenanceNote || ''
+        }));
+    }
+
+    function renderVersionPanel() {
+      ui.textVersion.textContent = state.deployment.text.activeVersion;
+      ui.audioVersion.textContent = state.deployment.audio.activeVersion;
+      ui.deploymentMode.textContent = state.deployment.deploymentMode === 'version-locked'
+        ? 'Deployment mode: version-locked'
+        : 'Deployment mode: mixed versions allowed';
+
+      const notes = [];
+      if (state.deployment.warning) notes.push(state.deployment.warning);
+      const textVersion = state.deployment.text.activeVersion;
+      const audioTextVersion = state.audioManifest.defaultSourceTextVersion || 'unknown';
+      if (audioTextVersion !== 'unknown' && textVersion !== audioTextVersion) {
+        notes.unshift('Warning: text version and audio source version do not match.');
+      }
+      if (state.audioManifest.provenanceNote) notes.push(state.audioManifest.provenanceNote);
+      if (notes.length) {
+        ui.versionWarning.hidden = false;
+        ui.versionWarning.textContent = notes.join(' ');
+      }
+    }
+
+    function renderChapterNav() {
+      ui.chapterNav.innerHTML = '';
+      state.chapters.forEach(chapter => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'chapter-link ' + (chapter.isMajor ? 'section' : 'chapter');
+        button.textContent = chapter.title + ' (p. ' + chapter.page + ')';
+        if (chapter.page === state.currentPage || (state.currentPage >= chapter.page && state.currentPage <= chapter.nextPage)) {
+          button.classList.add('active');
+        }
+        button.addEventListener('click', () => goToPage(chapter.page));
+        ui.chapterNav.appendChild(button);
+      });
+    }
+
+    function renderPageSelect() {
+      ui.pageSelect.innerHTML = '';
+      state.pages.forEach(page => {
+        const chapter = chapterForPage(page.number);
+        const option = document.createElement('option');
+        option.value = String(page.number);
+        option.textContent = 'Page ' + page.number + ' - ' + (chapter ? chapter.title : 'Reading');
+        ui.pageSelect.appendChild(option);
+      });
+    }
+
+    function renderTrackSelect() {
+      ui.audioTrack.innerHTML = '';
+      if (!state.tracks.length) {
+        const option = document.createElement('option');
+        option.textContent = 'No audio tracks mapped';
+        option.value = '';
+        ui.audioTrack.appendChild(option);
+        ui.audioTrack.disabled = true;
+        return;
+      }
+      ui.audioTrack.disabled = false;
+      state.tracks.forEach(track => {
+        const option = document.createElement('option');
+        option.value = track.id;
+        option.textContent = track.title;
+        ui.audioTrack.appendChild(option);
+      });
+    }
+
+    function chapterForPage(pageNumber) {
+      return state.chapters.find(chapter => pageNumber >= chapter.page && pageNumber <= chapter.nextPage) || null;
+    }
+
+    function trackForPage(pageNumber) {
+      return state.tracks.find(track => pageNumber >= track.startPage && pageNumber <= track.endPage) || null;
+    }
+
+    function showPage(pageNumber) {
+      const page = state.pages[pageNumber - 1];
+      if (!page) return;
+      const blocks = Array.from(ui.content.children);
+      blocks.forEach((block, index) => {
+        block.style.display = index >= page.startIndex && index <= page.endIndex ? '' : 'none';
+      });
+      ui.pageIndicator.textContent = 'Page ' + pageNumber + ' of ' + state.pages.length;
+      ui.pageSelect.value = String(pageNumber);
+      ui.prevPage.disabled = pageNumber <= 1;
+      ui.nextPage.disabled = pageNumber >= state.pages.length;
+      renderChapterNav();
+    }
+
+    function goToPage(pageNumber, skipAudioSync) {
+      state.currentPage = clampPage(pageNumber);
+      showPage(state.currentPage);
+      if (!skipAudioSync) syncAudioToPage();
+      saveState();
+    }
+
+    function syncAudioToPage() {
+      const track = trackForPage(state.currentPage);
+      if (!track) {
+        ui.audioStatus.textContent = 'No mapped audio for this page.';
+        return;
+      }
+      if (state.currentTrackId !== track.id) loadTrack(track.id, false);
+      ui.audioStatus.textContent = 'Audio mapped to pages ' + track.startPage + '-' + track.endPage + '.';
+    }
+
+    function loadTrack(trackId, autoplay) {
+      const track = state.tracks.find(item => item.id === trackId);
+      if (!track) return;
+      if (state.currentTrackId) state.audioPositions[state.currentTrackId] = ui.audioElement.currentTime || 0;
+      const sameTrack = state.currentTrackId === track.id && ui.audioElement.src.includes(track.src);
+      state.currentTrackId = track.id;
+      ui.audioTrack.value = track.id;
+      ui.nowPlaying.textContent = track.title;
+      ui.audioMeta.textContent = 'Audio source manuscript: ' + (track.sourceTextVersion || 'unknown') + '. ' + (track.provenanceNote || '').trim();
+      if (sameTrack) {
+        if (autoplay && ui.audioElement.paused) ui.audioElement.play().catch(() => {});
+        updateAudioUI();
+        return;
+      }
+      ui.audioElement.src = track.src;
+      ui.audioElement.load();
+      const resumeAt = state.audioPositions[track.id] || 0;
+      ui.audioElement.onloadedmetadata = () => {
+        if (resumeAt > 0) ui.audioElement.currentTime = Math.min(resumeAt, Math.max(0, ui.audioElement.duration - 0.25));
+        if (autoplay) ui.audioElement.play().catch(() => {});
+        updateAudioUI();
+      };
+      updateAudioUI();
+      saveState();
+    }
+
+    function stepTrack(direction) {
+      if (!state.tracks.length) return;
+      const currentIndex = state.tracks.findIndex(track => track.id === state.currentTrackId);
+      const baseIndex = currentIndex >= 0 ? currentIndex : 0;
+      const nextIndex = Math.max(0, Math.min(state.tracks.length - 1, baseIndex + direction));
+      if (nextIndex === baseIndex && currentIndex >= 0) return;
+      const track = state.tracks[nextIndex];
+      loadTrack(track.id, !ui.audioElement.paused);
+      goToPage(track.startPage, true);
+    }
+
+    function updateAudioUI() {
+      const duration = Number.isFinite(ui.audioElement.duration) ? ui.audioElement.duration : 0;
+      const currentTime = Number.isFinite(ui.audioElement.currentTime) ? ui.audioElement.currentTime : 0;
+      ui.audioProgress.value = duration > 0 ? String((currentTime / duration) * 100) : '0';
+      ui.audioTime.textContent = formatTime(currentTime) + ' / ' + formatTime(duration);
+      ui.playPause.textContent = ui.audioElement.paused ? 'Play' : 'Pause';
+      ui.audioSpeed.value = String(ui.audioElement.playbackRate || state.playbackRate || 1);
+    }
+
+    async function init() {
+      loadSavedState();
+      state.deployment = await loadJson('config/deployment.json');
+      await loadScript(state.deployment.text.scriptPath);
+      state.manifest = await loadJson(state.deployment.text.manifestPath);
+      state.audioManifest = await loadJson(state.deployment.audio.manifestPath);
+      if (typeof window.BOOK_HTML !== 'string' || window.BOOK_HTML.length < 100) throw new Error('BOOK_HTML unavailable');
+
+      ui.content.innerHTML = window.BOOK_HTML;
+      const blocks = Array.from(ui.content.children);
+      state.pages = buildPages(blocks);
+      state.chapters = buildChapters(blocks);
+      state.tracks = buildTracks();
+      ui.audioElement.playbackRate = state.playbackRate;
+
+      renderVersionPanel();
+      renderPageSelect();
+      renderTrackSelect();
+
+      const initialPage = clampPage(state.currentPage);
+      goToPage(initialPage, true);
+      const initialTrack = state.tracks.find(track => track.id === state.currentTrackId) || trackForPage(initialPage) || state.tracks[0];
+      if (initialTrack) loadTrack(initialTrack.id, false);
+      else ui.audioStatus.textContent = 'No mapped audio tracks in this deployment.';
+    }
+
+    ui.prevPage.addEventListener('click', () => goToPage(state.currentPage - 1));
+    ui.nextPage.addEventListener('click', () => goToPage(state.currentPage + 1));
+    ui.pageSelect.addEventListener('change', event => goToPage(Number(event.target.value)));
+    ui.audioTrack.addEventListener('change', event => {
+      loadTrack(event.target.value, false);
+      const track = state.tracks.find(item => item.id === event.target.value);
+      if (track) goToPage(track.startPage, true);
+    });
+    ui.prevTrack.addEventListener('click', () => stepTrack(-1));
+    ui.nextTrack.addEventListener('click', () => stepTrack(1));
+    ui.playPause.addEventListener('click', () => {
+      if (!state.currentTrackId && state.tracks[0]) loadTrack(state.tracks[0].id, true);
+      else if (ui.audioElement.paused) ui.audioElement.play().catch(() => {});
+      else ui.audioElement.pause();
+    });
+    ui.audioSpeed.addEventListener('change', event => {
+      const nextRate = Number(event.target.value) || 1;
+      state.playbackRate = nextRate;
+      ui.audioElement.playbackRate = nextRate;
+      saveState();
+    });
+    ui.audioProgress.addEventListener('input', event => {
+      const duration = ui.audioElement.duration;
+      if (!Number.isFinite(duration) || duration <= 0) return;
+      ui.audioElement.currentTime = (Number(event.target.value) / 100) * duration;
+      updateAudioUI();
+      saveState();
+    });
+    ui.audioElement.addEventListener('timeupdate', () => {
+      if (state.currentTrackId) state.audioPositions[state.currentTrackId] = ui.audioElement.currentTime;
+      updateAudioUI();
+      saveState();
+    });
+    ui.audioElement.addEventListener('play', updateAudioUI);
+    ui.audioElement.addEventListener('pause', updateAudioUI);
+    ui.audioElement.addEventListener('loadedmetadata', updateAudioUI);
+    ui.audioElement.addEventListener('ended', () => stepTrack(1));
+    window.addEventListener('beforeunload', saveState);
+    document.addEventListener('keydown', event => {
+      const tag = document.activeElement && document.activeElement.tagName;
+      if (tag === 'INPUT' || tag === 'SELECT' || tag === 'TEXTAREA') return;
+      if (event.key === 'ArrowRight') goToPage(state.currentPage + 1);
+      if (event.key === 'ArrowLeft') goToPage(state.currentPage - 1);
+    });
+
+    init().catch(error => {
+      console.error(error);
+      ui.content.innerHTML = '<p class="warning">Reader failed to load. Check deployment config, content manifest, and audio manifest.</p>';
+      ui.audioStatus.textContent = 'Reader failed to initialize.';
+    });
+  </script>
+</body>
+</html>
