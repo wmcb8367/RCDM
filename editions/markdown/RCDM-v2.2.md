@@ -162,7 +162,7 @@ This is just a hypothetical situation, and your own races will all be different,
 
 ### What Is Race Course Philosophy?
 
-Chances are good that you've talked with coaches in the past about tactics, and strategy - the other two components of this book - but unless you've worked with me before, the term "Race Course Philosophy" is probably new. This is something that often gets lumped into Strategy, but to me the important distinction is that Race Course Philosophy covers ideas that carry over from venue to venue, and race course to race course, whereas Strategy is specific to a particular day or weather conditions. 
+Chances are good that you've talked with coaches in the past about tactics and strategy - the other two components of this book - but unless you've worked with me before, the term "Race Course Philosophy" is probably new. This is something that often gets lumped into Strategy, but to me the important distinction is that Race Course Philosophy covers ideas that carry over from venue to venue, and race course to race course, whereas Strategy is specific to a particular day or weather conditions. 
 
 ![Figure2.png](/Users/williammcbride/Documents/Race%20Course%20Decision%20Making/Figures/Figures/Figure2.png)
 
