@@ -22,6 +22,7 @@ The reader now loads its active text and audio from explicit deployment config.
 
 Current target deployment:
 
+- Player: `player-v1-puter-splash-v22`
 - Text: `v2.2`
 - Audio: `coach-willie-2026-04-13-frontmatter-part1-v2.2`
 - Mode: `aligned` for Preface through the end of Part 1
