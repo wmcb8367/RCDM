@@ -17,14 +17,15 @@ The reader now has a human-editable deployment layer.
 
 ## Current seeded state
 
-- Active text version: `v2.1`
-- Active audio version: `adam-2026-04-07-partial`
-- Deployment mode: `mixed`
+- Active text version: `v2.2`
+- Active audio version: `coach-willie-2026-04-13-frontmatter-part1-v2.2`
+- Deployment mode: `aligned`
 - Confidence:
   - text provenance is high confidence
-  - audio provenance is partial and still uncertain at the chapter/manuscript level
+  - Preface, Prologue, and Part 1 audio provenance is high confidence
+  - later sections remain text-only until recorded
 
-The system is intentionally honest about uncertainty. It does not claim the current audio was definitely recorded from `v2.1`.
+The current deployment is aligned for the front matter through the end of Part 1, and explicit about what has not yet been recorded.
 
 ## How the reader works now
 
@@ -86,6 +87,13 @@ When Willie chooses a final aligned pairing:
 
 There is a starter template at:
 - `reader/audio-manifests/template-version-locked.json`
+
+## Current live pairing
+
+- Text source: `editions/markdown/RCDM-v2.2.md`
+- Text manifest: `reader/content/v2.2/book-manifest.json`
+- Audio manifest: `reader/audio-manifests/coach-willie-2026-04-13-frontmatter-part1-v2.2.json`
+- Scope of aligned audio: Preface, Prologue, and all chapters in Part 1
 
 ## Recommended future content pipeline
 

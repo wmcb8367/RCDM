@@ -1,0 +1,123 @@
+{
+  "version": "coach-willie-2026-04-13-part1-v2.2",
+  "voice": "Coach Willie",
+  "voiceId": "bwxOJkWapAsieGYpeBMX",
+  "provider": "ElevenLabs",
+  "model": "eleven_multilingual_v2",
+  "defaultSourceTextVersion": "v2.2",
+  "provenanceNote": "Preface, Prologue, and all Part 1 chapter audio were regenerated from the edited v2.2 manuscript.",
+  "tracks": [
+    {
+      "id": "preface",
+      "chapterId": "preface",
+      "title": "Preface",
+      "src": "audiobook/01-preface.mp3",
+      "sourceTextVersion": "v2.2",
+      "provenanceNote": "Regenerated from the edited v2.2 manuscript with ElevenLabs Coach Willie voice on 2026-04-13."
+    },
+    {
+      "id": "prologue",
+      "chapterId": "prologue-the-education-of-a-coach",
+      "title": "Prologue: The Education of a Coach",
+      "src": "audiobook/02-prologue-full.mp3",
+      "sourceTextVersion": "v2.2",
+      "provenanceNote": "Regenerated from the edited v2.2 manuscript with ElevenLabs Coach Willie voice on 2026-04-13."
+    },
+    {
+      "id": "introduction-to-rcdm",
+      "chapterId": "introduction-to-race-course-decision-making",
+      "title": "Introduction To Race Course Decision Making",
+      "src": "audiobook/06-introduction-to-rcdm.mp3",
+      "sourceTextVersion": "v2.2",
+      "provenanceNote": "Generated from the edited v2.2 manuscript with ElevenLabs Coach Willie voice on 2026-04-13."
+    },
+    {
+      "id": "overview-of-race-course-philosophy",
+      "chapterId": "overview-of-race-course-philosophy-tactics-and-strategy",
+      "title": "Overview of Race Course Philosophy Tactics and Strategy",
+      "src": "audiobook/04-overview-of-race-course-philosophy.mp3",
+      "sourceTextVersion": "v2.2",
+      "provenanceNote": "Generated from the edited v2.2 manuscript with ElevenLabs Coach Willie voice on 2026-04-13."
+    },
+    {
+      "id": "three-building-blocks",
+      "chapterId": "the-three-building-blocks-of-race-course-decision-making",
+      "title": "The Three Building Blocks Of Race Course Decision Making",
+      "src": "audiobook/07-three-building-blocks.mp3",
+      "sourceTextVersion": "v2.2",
+      "provenanceNote": "Generated from the edited v2.2 manuscript with ElevenLabs Coach Willie voice on 2026-04-13."
+    },
+    {
+      "id": "building-a-process",
+      "chapterId": "building-a-process-for-learning-race-course-decision-making",
+      "title": "Building A Process For Learning Race Course Decision Making",
+      "src": "audiobook/08-building-a-process.mp3",
+      "sourceTextVersion": "v2.2",
+      "provenanceNote": "Generated from the edited v2.2 manuscript with ElevenLabs Coach Willie voice on 2026-04-13."
+    },
+    {
+      "id": "what-is-race-course-philosophy",
+      "chapterId": "what-is-race-course-philosophy",
+      "title": "What Is Race Course Philosophy?",
+      "src": "audiobook/09-what-is-race-course-philosophy.mp3",
+      "sourceTextVersion": "v2.2",
+      "provenanceNote": "Generated from the edited v2.2 manuscript with ElevenLabs Coach Willie voice on 2026-04-13."
+    },
+    {
+      "id": "what-we-know-about-the-starting-line",
+      "chapterId": "what-we-know-about-the-starting-line",
+      "title": "What We Know About The Starting Line",
+      "src": "audiobook/10-what-we-know-about-the-starting-line.mp3",
+      "sourceTextVersion": "v2.2",
+      "provenanceNote": "Generated from the edited v2.2 manuscript with ElevenLabs Coach Willie voice on 2026-04-13."
+    },
+    {
+      "id": "first-beat-fundamentals",
+      "chapterId": "first-beat-fundamentals",
+      "title": "First Beat Fundamentals",
+      "src": "audiobook/11-first-beat-fundamentals.mp3",
+      "sourceTextVersion": "v2.2",
+      "provenanceNote": "Generated from the edited v2.2 manuscript with ElevenLabs Coach Willie voice on 2026-04-13."
+    },
+    {
+      "id": "weather-mark-layline-management",
+      "chapterId": "weather-mark-layline-management",
+      "title": "Weather Mark Layline Management",
+      "src": "audiobook/12-weather-mark-layline-management.mp3",
+      "sourceTextVersion": "v2.2",
+      "provenanceNote": "Generated from the edited v2.2 manuscript with ElevenLabs Coach Willie voice on 2026-04-13."
+    },
+    {
+      "id": "9-ways-to-pass-boats-downwind",
+      "chapterId": "9-ways-to-pass-boats-downwind",
+      "title": "9 Ways To Pass Boats Downwind",
+      "src": "audiobook/13-9-ways-to-pass-boats-downwind.mp3",
+      "sourceTextVersion": "v2.2",
+      "provenanceNote": "Generated from the edited v2.2 manuscript with ElevenLabs Coach Willie voice on 2026-04-13."
+    },
+    {
+      "id": "the-downwind-decision-diamond",
+      "chapterId": "the-downwind-decision-diamond",
+      "title": "The Downwind Decision Diamond",
+      "src": "audiobook/14-the-downwind-decision-diamond.mp3",
+      "sourceTextVersion": "v2.2",
+      "provenanceNote": "Generated from the edited v2.2 manuscript with ElevenLabs Coach Willie voice on 2026-04-13."
+    },
+    {
+      "id": "downwind-philosophy-of-symmetrical-spinnaker-boats",
+      "chapterId": "downwind-philosophy-of-symmetrical-spinnaker-boats",
+      "title": "Downwind Philosophy Of Symmetrical Spinnaker Boats",
+      "src": "audiobook/15-downwind-philosophy-of-symmetrical-spinnaker-boats.mp3",
+      "sourceTextVersion": "v2.2",
+      "provenanceNote": "Generated from the edited v2.2 manuscript with ElevenLabs Coach Willie voice on 2026-04-13."
+    },
+    {
+      "id": "the-evolution-of-race-course-philosophy",
+      "chapterId": "the-evolution-of-race-course-philosophy",
+      "title": "The Evolution of Race Course Philosophy",
+      "src": "audiobook/16-the-evolution-of-race-course-philosophy.mp3",
+      "sourceTextVersion": "v2.2",
+      "provenanceNote": "Generated from the edited v2.2 manuscript with ElevenLabs Coach Willie voice on 2026-04-13."
+    }
+  ]
+}

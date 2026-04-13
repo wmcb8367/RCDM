@@ -4,9 +4,9 @@ All tracked editions of *Race Course Decision Making* by William McBride.
 
 ## Canonical Source
 
-**Current source of truth:** `editions/markdown/RCDM-v2.1.md`
+**Current source of truth:** `editions/markdown/RCDM-v2.2.md`
 
-That is the best editable master for future revisions. New editions should branch from it as `v2.2`, `v3`, etc.
+That is the current editable master for future revisions. New editions should branch from it as `v2.3`, `v3`, etc.
 
 ## Summary Table
 
@@ -19,7 +19,8 @@ That is the best editable master for future revisions. New editions should branc
 | RCDM-v1.4 | 52,034 | 6 sections, 12 chapters | Same word count as v1.3, likely structural or line-level changes |
 | RCDM-v1.6 | 50,069 | 8 sections, 25 chapters | Most aggressively edited v1 branch, with more granular structure |
 | RCDM-v2 | 53,542 | 9 sections, 25 chapters | Major revision, adds prologue and reorganizes the manuscript |
-| RCDM-v2.1 | 53,644 | 9 sections, 26 chapters | Current edition, light update to v2 |
+| RCDM-v2.1 | 53,644 | 9 sections, 26 chapters | Prior reader-aligned edition, light update to v2 |
+| RCDM-v2.2 | in progress | 9 sections, 26 chapters | Conservative spelling, punctuation, and grammar cleanup pass on v2.1 |
 
 ## Evolution
 
@@ -30,6 +31,7 @@ That is the best editable master for future revisions. New editions should branc
 - **v1.4 → v1.6:** most substantial restructuring within the v1 branch. More headings and finer chapter breakdown.
 - **v1.6 → v2:** clear edition jump, not just another cleanup. New material added back in, structure modernized.
 - **v2 → v2.1:** light polish and incremental additions.
+- **v2.1 → v2.2:** conservative spelling, punctuation, and grammar cleanup without structural rewrites.
 
 ## Structural Snapshot
 
@@ -47,13 +49,14 @@ That is the best editable master for future revisions. New editions should branc
   - Tactics
 - Much more granular chapter structure than early v1 files
 
-### v2 / v2.1
+### v2 / v2.1 / v2.2
 - Adds **Prologue: The Education of a Coach**
 - Keeps the three-part framework:
   - Race Course Philosophy
   - Strategy
   - Tactics
 - Presents the most mature structure of the book
+- `v2.2` is the current editorial cleanup line used by the live reader text deployment
 
 ## Additional Formats in Repo
 
