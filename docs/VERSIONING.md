@@ -95,6 +95,25 @@ There is a starter template at:
 - Audio manifest: `reader/audio-manifests/coach-willie-2026-04-13-frontmatter-part1-v2.2.json`
 - Scope of aligned audio: Preface, Prologue, and all chapters in Part 1
 
+## Approved player baseline
+
+**Player version:** `player-v1-puter-splash-v22`
+
+This is the approved reader shell baseline Willie selected on 2026-04-13.
+
+Characteristics:
+- Puter-based chapter assistant
+- splash screen enabled
+- approved desktop player/UI shell
+- runtime wired to `v2.2` text
+- runtime wired to `coach-willie-2026-04-13-frontmatter-part1-v2.2` audio
+
+Reference commits:
+- Player shell baseline restored in `9c211f1` (`Restore latest player with Puter and splash (#16)`)
+- Current approved v2.2 wiring in `55591a3` (`Wire approved player to v2.2 text and updated audio (#17)`)
+
+If we need to recover this exact experience later, start from those commits before making new UI changes.
+
 ## Recommended future content pipeline
 
 1. Edit manuscript in `editions/markdown/RCDM-vX.Y.md`
