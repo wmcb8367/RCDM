@@ -1655,7 +1655,7 @@ As with every other piece of race course decision making, each team will develop
 
 ### When The Unconscious Becomes Conscious
 
-On the race course, decision making often boils down to a gut feeling and an intuitive reaction in the moment. It can feel spontaneous, and magical - like a sixth sense for sailboat racing. But underneath these intuitions - behind the curtain - is a complex process that your brain is constantly performing whether you realize it or not. One of the Kite Foil athletes that I have worked with loves the quote by psychologist Carl Jung: ​​"Until the unconscious becomes conscious, it will direct your life and you will call it fate." In the case of race course decision making, if we can break down the components of this mystical "sixth sense," we can start to understand the mechanics behind our intuition, and rebuild a new process for decision making based on measurements and logic instead of a conglomeration of random experiences.
+On the race course, decision making often boils down to a gut feeling and an intuitive reaction in the moment. It can feel spontaneous and magical, like a sixth sense for sailboat racing. But underneath these intuitions - behind the curtain - is a complex process that your brain is constantly performing whether you realize it or not. One of the Kite Foil athletes that I have worked with loves the quote by psychologist Carl Jung: ​​"Until the unconscious becomes conscious, it will direct your life and you will call it fate." In the case of race course decision making, if we can break down the components of this mystical "sixth sense," we can start to understand the mechanics behind our intuition, and rebuild a new process for decision making based on measurements and logic instead of a conglomeration of random experiences.
 
 In this book we've drilled down into the mechanics that drive this decision making process. We've highlighted some big picture factors of Race Course Philosophy that rarely change for individual racing disciplines. We've outlined five categories that wind patterns might fit into - how to predict those days, and ultimately how to adapt our strategies to fit them. And finally, we've looked at some tools that teams need to carry in their tactical repertoires to adapt for other boats on the race course so that the strategic aims can be realized.
 
@@ -1671,7 +1671,7 @@ In the movie, The Last Samurai, there's a ridiculous scene that I love, where To
 
 "Too many mind," says the character.
 
-At first Tom doesn't understand what he means at first, but then the young samurai elaborates: "Mind sword. Mind the people watching. Mind enemy. Too many mind... No mind."
+At first, Tom doesn't understand what he means, but then the young samurai elaborates: "Mind sword. Mind the people watching. Mind enemy. Too many mind... No mind."
 
 And suddenly Tom understands: he is thinking about all of the details of his training, and by getting lured into the details, he keeps getting schooled.
 
@@ -1683,7 +1683,7 @@ Okay, I know it's kind of corny, but there is so much going on in this scene tha
 
 During training, we talk about the importance of the details. We break things down into tiny pieces and strive at every turn to understand not just WHAT works, but WHY it works. In this book we have gone deep into details of wind mechanics, tactical decision making and race course strategy that is likely far more detailed than any discussion you have had on the subjects. In my experience as a coach, dissecting the concepts like this creates a far more efficient way to learn very hard ideas.
 
-But once you have explored these ideas in a critical way, we need to move them from the analytical realm to the intuitive. We need to think about the ideas long enough that they can percolate through our minds, and then trust that they will impact our split second responses. We need to move from an adult's analytical approach, to a child's fearless mindset of "no mind.
+But once you have explored these ideas in a critical way, we need to move them from the analytical realm to the intuitive. We need to think about the ideas long enough that they can percolate through our minds, and then trust that they will impact our split second responses. We need to move from an adult's analytical approach to a child's fearless mindset of "no mind."
 
 \***
 
