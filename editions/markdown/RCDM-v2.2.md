@@ -540,7 +540,7 @@ Symmetrical spinnaker boats are similar in many ways to asymmetrics, so if you h
 
 ![Figure21.png](/Users/williammcbride/Documents/Race%20Course%20Decision%20Making/Figures/Figures/Figure21.png)
 
-*Figure 21. The field of play for symetric and assymetric boats.*
+*Figure 21. The field of play for symmetric and asymmetric boats.*
 
 Let's look at a few important pieces of Race Course Philosophy that should be considered when sailing symmetrical kite boats. 
 
