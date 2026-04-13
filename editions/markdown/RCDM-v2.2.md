@@ -428,7 +428,7 @@ What we see is a very strong relationship between SOG and XTE, where the boats f
 
 ### 9 Ways To Pass Boats Downwind
 
-While tactics and strategy will play into our down wind decision making in certain conditions, downwind we move with the wind, so we see far fewer wind shifts, and pressure differences than upwind. As a result, **race course philosophy plays a huge role in decision making downwind**. 
+While tactics and strategy will play into our downwind decision making in certain conditions, downwind we move with the wind, so we see far fewer wind shifts and pressure differences than upwind. As a result, **race course philosophy plays a huge role in decision making downwind**. 
 
 Like the upwind, we can generally split the downwind race track into a few sections but unlike the upwind, I generally like to think about downwind as just two priority groups. First we have the escape from the weather mark, in which we look to execute whatever strategy we discussed before rounding the mark. After that, we need to be thinking very early about the approach to the leeward mark. 
 
