@@ -1374,7 +1374,7 @@ One of the most important aspects of the Minimize Decisions strategy is that it 
 
 ### Spirit Animals Of the Five Types Of Day
 
-The previous section includes a lot of details about how to address each type of day. As a coach, what I look for, is that each decision fits within a certain mindset. If a team is fighting agressively for one side of the starting line in an "Outside Track" mentality, I want to see every other aspect of the race reflect those priorities. They should be digging into the corners upwind, using a plan B strategy that gets them back into the favored side, shaping their downwind strategy around the same beliefs, and taking the gate mark that allows them to stick to the same strategy. Overall, this means that each type of day has a very specific mindset that the most successful racers are able to adopt. For some teams that I work with, we have a list of "type of day mantras" - a little reminder of the mindset for each day of racing. For other teams, we've created a list of five spirit animals to channel, depending on the type of day! 
+The previous section includes a lot of details about how to address each type of day. As a coach, what I look for is that each decision fits within a certain mindset. If a team is fighting aggressively for one side of the starting line in an "Outside Track" mentality, I want to see every other aspect of the race reflect those priorities. They should be digging into the corners upwind, using a plan B strategy that gets them back into the favored side, shaping their downwind strategy around the same beliefs, and taking the gate mark that allows them to stick to the same strategy. Overall, this means that each type of day has a very specific mindset that the most successful racers are able to adopt. For some teams that I work with, we have a list of "type of day mantras" - a little reminder of the mindset for each day of racing. For other teams, we've created a list of five spirit animals to channel, depending on the type of day! 
 
 ![Figure40.2.jpeg](/Users/williammcbride/Documents/Race%20Course%20Decision%20Making/Figures/Figures/V2%20Figures/Figure40.2.jpeg)
 
@@ -1392,7 +1392,7 @@ The five spirit animals are:
 
 Let's look at the mantras and mentalities of each spirit animal!
 
-**The Owl:** The owl is calucluating and surgical. On days where the breeze is shifting within a consistent range, the Owl works hard before racing to collect compass numbers, and remains very tuned into the compass during racing. The owl stays in phase upwind and downwind, talking constantly about whether the numbers are showing a lift or a header, and striving to sail the shortest distance to the mark by staying lifted. So often, the inside track is a game of inches, and the Owl excels through surgical precision and adherance to the numbers. Our mantra in this condition is: "Do the average thing and let everyone else take themselves out."
+**The Owl:** The owl is calculating and surgical. On days where the breeze is shifting within a consistent range, the Owl works hard before racing to collect compass numbers, and remains very tuned into the compass during racing. The owl stays in phase upwind and downwind, talking constantly about whether the numbers are showing a lift or a header, and striving to sail the shortest distance to the mark by staying lifted. So often, the inside track is a game of inches, and the Owl excels through surgical precision and adherance to the numbers. Our mantra in this condition is: "Do the average thing and let everyone else take themselves out."
 
 **The Salmon:** Outside track days are challenging because the whole fleet often knows which side is favored, and the strategic game becomes an unforgiving battle for specific spots on the starting line and on the race course. As a result, the execution is hard, but you have to embrace the fight. The Salmon is stubborn, and is a master of remaining calm while fighting the upstream battle. The Salmon gets to the favored end of the line early and is willing to battle on the starting line for the full 5 minute sequence. If they win the start, they lock in on their long journey to the favored side. In plan B scenarios, the destination is the priority, and they find a slippery lane that will take them all the way to the final destination.
 
@@ -1400,11 +1400,11 @@ Let's look at the mantras and mentalities of each spirit animal!
 
 **The Meercat:** When many features and opportunities present themselves, the meercat is alert, observant and opportunistic. The Meercat has her head on a swivel, looking around constantly, and is ready to dart towards the nearest pressure, even if that means doing extra maneuvers. 
 
-**The Croccodile:** On uncertain days, the croccodile is patient and waits until she sees an opportunity to strike. Setting herself up for success, the Croccodile sets up in a high percentage spot on the starting line (low density) where she can go straight for a while. As soon as the opportunity becomes clear, however, the Crocodile strikes agressively and decisively.
+**The Crocodile:** On uncertain days, the crocodile is patient and waits until she sees an opportunity to strike. Setting herself up for success, the Crocodile sets up in a high percentage spot on the starting line (low density) where she can go straight for a while. As soon as the opportunity becomes clear, however, the Crocodile strikes aggressively and decisively.
 
 If you choose the wrong spirit animal for the conditions, you will know it. In the outside track conditions, the stubborn salmon excels, but the hunting Wolf gets spooked if she starts to drown in the long jounrey upstream, and often makes a rash decision to hunt for passing lanes on the other side of the course. This is a major mistake!
 
-Obviously we've had fun coming up with these mental models, but it can be a super helpful excercise for your team to articulate the mantra or spirit animal before each race, and spend a moment resetting the mind in the style that will fit the condition. 
+Obviously we've had fun coming up with these mental models, but it can be a super helpful exercise for your team to articulate the mantra or spirit animal before each race, and spend a moment resetting the mind in the style that will fit the condition. 
 
 \***
 
