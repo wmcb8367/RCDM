@@ -1,18 +1,19 @@
 {
-  "deploymentMode": "mixed",
+  "deploymentMode": "aligned",
   "text": {
-    "activeVersion": "v2.1",
-    "manifestPath": "content/v2.1/book-manifest.json",
-    "scriptPath": "content/v2.1/book-content.js",
-    "sourcePath": "../editions/markdown/RCDM-v2.1.md"
+    "activeVersion": "v2.2",
+    "manifestPath": "content/v2.2/book-manifest.json",
+    "scriptPath": "content/v2.2/book-content.js",
+    "sourcePath": "../editions/markdown/RCDM-v2.2.md"
   },
   "audio": {
-    "activeVersion": "adam-2026-04-07-partial",
-    "manifestPath": "audio-manifests/adam-2026-04-07-partial.json"
+    "activeVersion": "coach-willie-2026-04-13-frontmatter-part1-v2.2",
+    "manifestPath": "audio-manifests/coach-willie-2026-04-13-frontmatter-part1-v2.2.json"
   },
-  "warning": "Current deployment is intentionally marked mixed until Willie chooses a final text and audio pairing.",
+  "warning": "Front matter through the end of Part 1 is now aligned to v2.2. Later sections remain text-only until recorded.",
   "notes": [
-    "Text provenance is high confidence: reader content aligns with v2.1 manuscript.",
-    "Audio provenance is partial and chapter-level only. Some recordings may predate the final v2.1 wording."
+    "Reader text aligns with the edited v2.2 manuscript.",
+    "Preface, Prologue, and all Part 1 chapter audio are version-locked to v2.2.",
+    "Strategy, Tactics, and Conclusion sections remain without per-chapter audio for now."
   ]
 }
