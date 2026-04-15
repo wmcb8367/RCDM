@@ -1,0 +1,137 @@
+{
+  "clusters": [
+    {
+      "id": 0,
+      "name": "Unsettled Blend 1",
+      "rcdmType": "Inside Track",
+      "spiritAnimal": "Owl",
+      "description": "The session sits near the center of the fleet distribution.",
+      "centroid": {
+        "iqrRatio": 0.578912,
+        "rollingShiftFrequency": 44.756247,
+        "cv": 0.387313,
+        "circularStdDev": 56.782087,
+        "detrendedCv": 0.219341,
+        "detrendedCircularStdDev": 70.816663,
+        "gustFactor": 0.836664,
+        "phasePersistence": 4.32086,
+        "meanWindSpeed": 10.666267,
+        "medianWindSpeed": 10.219298,
+        "windRange": 33.247368,
+        "speedTrendSlope": 0.014482,
+        "directionTrendDeg": -1.446135,
+        "oscillationRegularity": 0.994701,
+        "pressureShiftCorrelation": 0.016393,
+        "lullPeakSpread": 1.383656,
+        "dominantOscillationPeriodMinutes": 0.066667,
+        "speedDirectionCoherence": 0.269669
+      },
+      "thresholds": {
+        "lullPeakSpread": {
+          "maxZ": 0.461
+        },
+        "windRange": {
+          "maxZ": 0.229
+        }
+      }
+    },
+    {
+      "id": 1,
+      "name": "Trend Lane 2",
+      "rcdmType": "Uncertain / Minimize Decisions",
+      "spiritAnimal": "Crocodile",
+      "description": "Pressure variation is above average, directional movement is above average, the pattern is structurally messy, persistent trend matters more than pure oscillation.",
+      "centroid": {
+        "iqrRatio": 0.666667,
+        "rollingShiftFrequency": 1688.172043,
+        "cv": 0.463193,
+        "circularStdDev": 22.179436,
+        "detrendedCv": 0.19741,
+        "detrendedCircularStdDev": 21.974162,
+        "gustFactor": 1.31483,
+        "phasePersistence": 0.145965,
+        "meanWindSpeed": 7.345803,
+        "medianWindSpeed": 6.414687,
+        "windRange": 13.412527,
+        "speedTrendSlope": 44.844071,
+        "directionTrendDeg": -9.992617,
+        "oscillationRegularity": 0.677912,
+        "pressureShiftCorrelation": -0.293802,
+        "lullPeakSpread": 1.749358,
+        "dominantOscillationPeriodMinutes": 0.033333,
+        "speedDirectionCoherence": 0.072032
+      },
+      "thresholds": {}
+    },
+    {
+      "id": 2,
+      "name": "Mixed Edge 3",
+      "rcdmType": "Connect the Dots",
+      "spiritAnimal": "Meerkat",
+      "description": "Pressure variation is above average, the pattern is structurally messy.",
+      "centroid": {
+        "iqrRatio": 0.675926,
+        "rollingShiftFrequency": 476.817832,
+        "cv": 0.457017,
+        "circularStdDev": 51.235452,
+        "detrendedCv": 0.267232,
+        "detrendedCircularStdDev": 60.530648,
+        "gustFactor": 1.086946,
+        "phasePersistence": 0.390483,
+        "meanWindSpeed": 6.358917,
+        "medianWindSpeed": 5.466667,
+        "windRange": 34.866667,
+        "speedTrendSlope": 0.075505,
+        "directionTrendDeg": -26.431832,
+        "oscillationRegularity": 0.988014,
+        "pressureShiftCorrelation": 0,
+        "lullPeakSpread": 1.803024,
+        "dominantOscillationPeriodMinutes": 0.066667,
+        "speedDirectionCoherence": 0.13647
+      },
+      "thresholds": {
+        "lullPeakSpread": {
+          "minZ": 0.461
+        },
+        "rollingShiftFrequency": {
+          "minZ": 0.123
+        }
+      }
+    },
+    {
+      "id": 3,
+      "name": "Pressure Hunt 4",
+      "rcdmType": "Connect the Dots",
+      "spiritAnimal": "Meerkat",
+      "description": "Pressure variation is above average.",
+      "centroid": {
+        "iqrRatio": 0.68494,
+        "rollingShiftFrequency": 46.155155,
+        "cv": 0.466631,
+        "circularStdDev": 64.795639,
+        "detrendedCv": 0.266444,
+        "detrendedCircularStdDev": 74.328591,
+        "gustFactor": 0.858942,
+        "phasePersistence": 2.890638,
+        "meanWindSpeed": 10.407306,
+        "medianWindSpeed": 9.344118,
+        "windRange": 43.279412,
+        "speedTrendSlope": 0.014679,
+        "directionTrendDeg": 24.954512,
+        "oscillationRegularity": 0.995408,
+        "pressureShiftCorrelation": 0.02569,
+        "lullPeakSpread": 1.755597,
+        "dominantOscillationPeriodMinutes": 0.066667,
+        "speedDirectionCoherence": 0.27143
+      },
+      "thresholds": {
+        "lullPeakSpread": {
+          "minZ": 0.461
+        },
+        "rollingShiftFrequency": {
+          "maxZ": 0.123
+        }
+      }
+    }
+  ]
+}
