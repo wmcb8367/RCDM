@@ -1,0 +1,47 @@
+Making Your Bet: Hedging Your Bets
+
+When your confidence is high in the favored side of the course, or the favored end of the line, it's likely that other people will notice the same factors that you're betting on, and develop similar ideas. As more people pile into the same strategy, traffic will increase, and you'll need to consider how much you want to fight the fight and how you plan on hedging your bets.
+
+The most common way that teams hedge their bets is generally to balance their decision making between traffic considerations and their ideal plan: if the left looks good, start at the pin end, but start to windward of the crowd fighting for the pin. While this is by far the most common way to hedge bets, it's not the best fit for every situation, so in this section we're going to look at different ways to hedge your bets, and when each might be best.
+
+When we talk about making "high percentage decisions" we're talking about making decisions that have a high chance of a good outcome. We need to break this thinking into two parts: first is the chance of each possible outcome that could come from a decision, and second is how good each outcome could be.
+
+Let's look at Ricky Bobby, who either wins, or crashes his car trying to win... He lives by the philosophy, "If you're not first, you're last." In this case, there's maybe a 50% chance that everything goes right, but also a 50% chance that everything goes wrong. In the case that everything goes right, he wins the race. But if things go wrong he is guaranteed a last place finish. When you combine these factors you get a 50% chance of first, 50% chance of last, which on average puts you right in the middle. Maybe good enough for race car drivers, but not good enough for sailors who want to win regattas!
+
+Okay back to sailing. Let's look at a situation where the left side of the course is favored on a square starting line with a lot of traffic pushing down towards the pin. In this case, If we decide to fight the fight, and slug it out with the pack at the pin, we might win the pin end and come off the line winning the race. However, there's also a chance that we don't lay the pin end, and immediately we find ourselves close to last. There is a third possibility, which is that we get off the line on starboard, but bad chop from the crowd puts us in a plan B or plan C lane, and we have to tack within the first few minutes of the race to get out of bad air. We're not quite Ricky Bobby here, but maybe this means that there's a 25% chance of being the first boat into the favored side, a 25% chance of being last off the line because we don't lay the pin, a 25% chance of being in a plan B lane off the line where we need to tack within the first 2 minutes of the race, and a 25% chance of being in a plan C lane off the line where we're actively in bad air from the gun.
+
+Instead, if we start to weather of the pin pack, we know that we're going to at least lay, and our chance of a plan A start might increase a little bit just because there is less traffic to contend with. With the plan A start, we're still in a position to get to the left side of the course, so while it's not quite as good as winning the pin, we can expect that some of the pin pack will have plan B starts or worse, and we'll probably come out beating them. In addition, if we have a plan B or C start, we're already a little bit farther up the line, which might make the bailout easier. Ultimately, maybe the likelihood of plan A, B, and C become 40%, 30% and 30% respectively. Maybe we expect to be the 5th front row team into the favored side if we get off the line as the plan A boat, whereas the B and C outcomes might be similar to B and C from the pin.
+
+Ultimately, this isn't an exact calculation that you're going to do every time you line up for a start, but intuitively you'll need to learn how to hedge your bets by adjusting how aggressive you are willing to be to gain a potential advantage.
+
+In the film, Free Solo, Alex Honald discusses the distinction between "risk" and "consequence" as they relate to his climbing. Because he trained on the route he was going to climb so many times, and knew how to approach each section, he felt that the chance of failure, or the "risk" was low. In contrast, in the event that he did fall... the consequence of certain death was as high as it gets!
+
+We can apply this same idea on the starting line.
+
+What is the chance that you escape from a certain situation given the fleet density, skew of the line, etc.? In Alex's terms, that's the risk.
+
+But on the other hand, what is the cost if you don't escape? What place will you be in? Will you have to sit in bad air? Will you be able to go to the side that you like? That's the consequence.
+
+If Ricky Bobby crashes 50% of the time, risk is high and consequences are high, but if he knows that he'll only crash 10% of the time, risk is low and consequences are still the same high standard of "first or last".
+
+Keeping those two factors separate is very important.
+
+Here's a thought experiment to consider for a minute: what is the difference in risk and consequence between starting at the favored end on a ten degree boat favored line versus a fifteen degree pin favored line?
+
+In both cases, the fleet is likely to pile up at the favored end making starting difficult. In both cases, the layline is going to play a big role, making it hard to judge where you need to be. In both cases, your rate of approach to the line will likely be different than you are used to, because with the pin favor you'll be approaching very flat to the line, while with the boat favor, you'll be approaching closer to perpendicular than you're used to.
+
+As such, the risk in both situations is probably fairly high.
+
+But the consequences for a second row start in each are very different.
+
+On the pin favored line, a second row start, or missing the layline to the mark probably means ducking a significant portion of the fleet. Hopefully a hole opens up to pop through, but there's a good chance that you're ducking several boats, and that other boats with plan B starts are bailing out as well, which can make escape lanes more limited.
+
+In contrast, the boat favored plan B is fairly forgiving. If you were fighting it out at the boat end already, there aren't many boats keeping you from tacking out right. Clear lanes on port open up quickly, and because you were already on the favored end, you're likely beating most of the fleet.
+
+The first hedge - moving towards the center of the line to avoid the traffic that tends to pile up at a favored end - had to do with minimizing risk. In the thought experiment above however, you might realize that we can hedge our bet by focusing not on the risk aspect of the equation, but on the consiquence. In the pin favored versus boat favored example, a hedge when starting at a crowded pin might be to start up the line to minimize risk. With a boat favored line however, we could hedge out bets by agressively fighting for the boat end of the line - a super risky play, but one in which the consiquence of the plan B escape route - tacking immediately - is probably much easier to manage than the plan B of starting closer to the middle in this situation. Let's take a look at a few more ways that we can move the needle on the consequence side of the equation to hedge our bets in a different way.
+
+One metric that I like to track as a coach is how often teams that I'm working with stick to the plan that they made before the start of a race. If they tell me, "We like the outside right track," and then they start at the boat end and tack right away, that's likely a tick in the positive column. On the other hand if they tell me they want the left, but bailout due to a bad start and never make it back to the left side, that's a mark in the negative column. In plan A situations, this metric is an indication of confidence and clarity in game plans, but in plan B and plan C situations, this metric often indicates a team's ability to manage consequences of a bad start in such a way that allows them to stick to their beliefs on the race course.
+
+When it comes to improving plan B and plan C outcomes, this metric is the best one that I've found. Teams who stick to their guns and find ways to execute their gameplan even after compromised starts are the ones who are able to string together a full regatta rather than just having a few good races. There are a few things that these teams focus on that can help you improve your bailout game.
+
+First, trust your homework. More often than not, changing your plan at the last minute because you've seen a momentary change in angle or pressure should not override the hour of prep or even the fifteen minutes of homework that you did in clear air before the race started. If you thought the left was favored then, it's probably still favored.

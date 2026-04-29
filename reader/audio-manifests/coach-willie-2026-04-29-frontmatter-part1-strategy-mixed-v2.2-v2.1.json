@@ -1,0 +1,263 @@
+{
+  "version": "coach-willie-2026-04-29-frontmatter-part1-strategy-mixed-v2.2-v2.1",
+  "voice": "Coach Willie",
+  "voiceId": "bwxOJkWapAsieGYpeBMX",
+  "provider": "ElevenLabs",
+  "model": "eleven_multilingual_v2",
+  "defaultSourceTextVersion": "mixed",
+  "provenanceNote": "Preface, Prologue, Introduction, and Part 1 are aligned to v2.2. Strategy tracks were generated from RCDM v2.1 and are intentionally marked mixed until regenerated from v2.2 or accepted as equivalent.",
+  "tracks": [
+    {
+      "id": "preface",
+      "chapterId": "preface",
+      "title": "Preface",
+      "src": "audiobook/01-preface.mp3",
+      "sourceTextVersion": "v2.2",
+      "provenanceNote": "Regenerated from the edited v2.2 manuscript with ElevenLabs Coach Willie voice on 2026-04-13."
+    },
+    {
+      "id": "prologue",
+      "chapterId": "prologue-the-education-of-a-coach",
+      "title": "Prologue: The Education of a Coach",
+      "src": "audiobook/02-prologue-full.mp3",
+      "sourceTextVersion": "v2.2",
+      "provenanceNote": "Regenerated from the edited v2.2 manuscript with ElevenLabs Coach Willie voice on 2026-04-13."
+    },
+    {
+      "id": "introduction-to-rcdm",
+      "chapterId": "introduction-to-race-course-decision-making",
+      "title": "Introduction To Race Course Decision Making",
+      "src": "audiobook/06-introduction-to-rcdm.mp3",
+      "sourceTextVersion": "v2.2",
+      "provenanceNote": "Generated from the edited v2.2 manuscript with ElevenLabs Coach Willie voice on 2026-04-13."
+    },
+    {
+      "id": "overview-of-race-course-philosophy",
+      "chapterId": "overview-of-race-course-philosophy-tactics-and-strategy",
+      "title": "Overview of Race Course Philosophy Tactics and Strategy",
+      "src": "audiobook/04-overview-of-race-course-philosophy.mp3",
+      "sourceTextVersion": "v2.2",
+      "provenanceNote": "Generated from the edited v2.2 manuscript with ElevenLabs Coach Willie voice on 2026-04-13."
+    },
+    {
+      "id": "three-building-blocks",
+      "chapterId": "the-three-building-blocks-of-race-course-decision-making",
+      "title": "The Three Building Blocks Of Race Course Decision Making",
+      "src": "audiobook/07-three-building-blocks.mp3",
+      "sourceTextVersion": "v2.2",
+      "provenanceNote": "Generated from the edited v2.2 manuscript with ElevenLabs Coach Willie voice on 2026-04-13."
+    },
+    {
+      "id": "building-a-process",
+      "chapterId": "building-a-process-for-learning-race-course-decision-making",
+      "title": "Building A Process For Learning Race Course Decision Making",
+      "src": "audiobook/08-building-a-process.mp3",
+      "sourceTextVersion": "v2.2",
+      "provenanceNote": "Generated from the edited v2.2 manuscript with ElevenLabs Coach Willie voice on 2026-04-13."
+    },
+    {
+      "id": "what-is-race-course-philosophy",
+      "chapterId": "what-is-race-course-philosophy",
+      "title": "What Is Race Course Philosophy?",
+      "src": "audiobook/09-what-is-race-course-philosophy.mp3",
+      "sourceTextVersion": "v2.2",
+      "provenanceNote": "Generated from the edited v2.2 manuscript with ElevenLabs Coach Willie voice on 2026-04-13."
+    },
+    {
+      "id": "what-we-know-about-the-starting-line",
+      "chapterId": "what-we-know-about-the-starting-line",
+      "title": "What We Know About The Starting Line",
+      "src": "audiobook/10-what-we-know-about-the-starting-line.mp3",
+      "sourceTextVersion": "v2.2",
+      "provenanceNote": "Generated from the edited v2.2 manuscript with ElevenLabs Coach Willie voice on 2026-04-13."
+    },
+    {
+      "id": "first-beat-fundamentals",
+      "chapterId": "first-beat-fundamentals",
+      "title": "First Beat Fundamentals",
+      "src": "audiobook/11-first-beat-fundamentals.mp3",
+      "sourceTextVersion": "v2.2",
+      "provenanceNote": "Generated from the edited v2.2 manuscript with ElevenLabs Coach Willie voice on 2026-04-13."
+    },
+    {
+      "id": "weather-mark-layline-management",
+      "chapterId": "weather-mark-layline-management",
+      "title": "Weather Mark Layline Management",
+      "src": "audiobook/12-weather-mark-layline-management.mp3",
+      "sourceTextVersion": "v2.2",
+      "provenanceNote": "Generated from the edited v2.2 manuscript with ElevenLabs Coach Willie voice on 2026-04-13."
+    },
+    {
+      "id": "9-ways-to-pass-boats-downwind",
+      "chapterId": "9-ways-to-pass-boats-downwind",
+      "title": "9 Ways To Pass Boats Downwind",
+      "src": "audiobook/13-9-ways-to-pass-boats-downwind.mp3",
+      "sourceTextVersion": "v2.2",
+      "provenanceNote": "Generated from the edited v2.2 manuscript with ElevenLabs Coach Willie voice on 2026-04-13."
+    },
+    {
+      "id": "the-downwind-decision-diamond",
+      "chapterId": "the-downwind-decision-diamond",
+      "title": "The Downwind Decision Diamond",
+      "src": "audiobook/14-the-downwind-decision-diamond.mp3",
+      "sourceTextVersion": "v2.2",
+      "provenanceNote": "Generated from the edited v2.2 manuscript with ElevenLabs Coach Willie voice on 2026-04-13."
+    },
+    {
+      "id": "downwind-philosophy-of-symmetrical-spinnaker-boats",
+      "chapterId": "downwind-philosophy-of-symmetrical-spinnaker-boats",
+      "title": "Downwind Philosophy Of Symmetrical Spinnaker Boats",
+      "src": "audiobook/15-downwind-philosophy-of-symmetrical-spinnaker-boats.mp3",
+      "sourceTextVersion": "v2.2",
+      "provenanceNote": "Generated from the edited v2.2 manuscript with ElevenLabs Coach Willie voice on 2026-04-13."
+    },
+    {
+      "id": "the-evolution-of-race-course-philosophy",
+      "chapterId": "the-evolution-of-race-course-philosophy",
+      "title": "The Evolution of Race Course Philosophy",
+      "src": "audiobook/16-the-evolution-of-race-course-philosophy.mp3",
+      "sourceTextVersion": "v2.2",
+      "provenanceNote": "Generated from the edited v2.2 manuscript with ElevenLabs Coach Willie voice on 2026-04-13."
+    },
+    {
+      "id": "what-is-strategy",
+      "chapterId": "what-is-strategy",
+      "title": "What is Strategy?",
+      "src": "audiobook/17-what-is-strategy.mp3",
+      "sourceTextVersion": "v2.1",
+      "provenanceNote": "Generated from RCDM v2.1 with ElevenLabs Coach Willie voice.",
+      "chunks": 1,
+      "characters": 8139
+    },
+    {
+      "id": "making-your-bet-the-game-of-odds",
+      "chapterId": "making-your-bet-the-game-of-odds",
+      "title": "Making Your Bet: The Game Of Odds",
+      "src": "audiobook/18-making-your-bet-the-game-of-odds.mp3",
+      "sourceTextVersion": "v2.1",
+      "provenanceNote": "Generated from RCDM v2.1 with ElevenLabs Coach Willie voice.",
+      "chunks": 1,
+      "characters": 7982
+    },
+    {
+      "id": "making-your-bet-venue-research",
+      "chapterId": "making-your-bet-venue-research",
+      "title": "Making Your Bet: Venue Research",
+      "src": "audiobook/19-making-your-bet-venue-research.mp3",
+      "sourceTextVersion": "v2.1",
+      "provenanceNote": "Generated from RCDM v2.1 with ElevenLabs Coach Willie voice.",
+      "chunks": 3,
+      "characters": 21237
+    },
+    {
+      "id": "making-your-bet-incorporating-forecasts",
+      "chapterId": "making-your-bet-incorporating-forecasts",
+      "title": "Making Your Bet: Incorporating Forecasts Into Decision Making",
+      "src": "audiobook/20-making-your-bet-incorporating-forecasts.mp3",
+      "sourceTextVersion": "v2.1",
+      "provenanceNote": "Generated from RCDM v2.1 with ElevenLabs Coach Willie voice.",
+      "chunks": 3,
+      "characters": 26169
+    },
+    {
+      "id": "making-your-bet-master-the-compass",
+      "chapterId": "making-your-bet-master-the-compass",
+      "title": "Making Your Bet: Master The Compass",
+      "src": "audiobook/21-making-your-bet-master-the-compass.mp3",
+      "sourceTextVersion": "v2.1",
+      "provenanceNote": "Generated from RCDM v2.1 with ElevenLabs Coach Willie voice.",
+      "chunks": 1,
+      "characters": 8550
+    },
+    {
+      "id": "making-your-bet-course-geometry",
+      "chapterId": "making-your-bet-course-geometry",
+      "title": "Making Your Bet: Course Geometry",
+      "src": "audiobook/22-making-your-bet-course-geometry.mp3",
+      "sourceTextVersion": "v2.1",
+      "provenanceNote": "Generated from RCDM v2.1 with ElevenLabs Coach Willie voice.",
+      "chunks": 1,
+      "characters": 7033
+    },
+    {
+      "id": "making-your-bet-hedging-your-bets",
+      "chapterId": "making-your-bet-hedging-your-bets",
+      "title": "Making Your Bet: Hedging Your Bets",
+      "src": "audiobook/23-making-your-bet-hedging-your-bets.mp3",
+      "sourceTextVersion": "v2.1",
+      "provenanceNote": "Generated from RCDM v2.1 with ElevenLabs Coach Willie voice.",
+      "chunks": 2,
+      "characters": 14351
+    },
+    {
+      "id": "5-types-of-day-foundations",
+      "chapterId": "5-types-of-day-foundations",
+      "title": "5 Types of Day: Foundations Of The System",
+      "src": "audiobook/24-5-types-of-day-foundations.mp3",
+      "sourceTextVersion": "v2.1",
+      "provenanceNote": "Generated from RCDM v2.1 with ElevenLabs Coach Willie voice.",
+      "chunks": 1,
+      "characters": 6034
+    },
+    {
+      "id": "type-1-connect-the-dots",
+      "chapterId": "type-1-connect-the-dots",
+      "title": "Type 1: Connect the Dots",
+      "src": "audiobook/25-type-1-connect-the-dots.mp3",
+      "sourceTextVersion": "v2.1",
+      "provenanceNote": "Generated from RCDM v2.1 with ElevenLabs Coach Willie voice.",
+      "chunks": 2,
+      "characters": 11593
+    },
+    {
+      "id": "type-2-inside-track",
+      "chapterId": "type-2-inside-track",
+      "title": "Type 2: Inside Track",
+      "src": "audiobook/26-type-2-inside-track.mp3",
+      "sourceTextVersion": "v2.1",
+      "provenanceNote": "Generated from RCDM v2.1 with ElevenLabs Coach Willie voice.",
+      "chunks": 2,
+      "characters": 10253
+    },
+    {
+      "id": "type-3-outside-track",
+      "chapterId": "type-3-outside-track",
+      "title": "Type 3: Outside Track",
+      "src": "audiobook/27-type-3-outside-track.mp3",
+      "sourceTextVersion": "v2.1",
+      "provenanceNote": "Generated from RCDM v2.1 with ElevenLabs Coach Willie voice.",
+      "chunks": 1,
+      "characters": 7909
+    },
+    {
+      "id": "type-4-edge-out",
+      "chapterId": "type-4-edge-out",
+      "title": "Type 4: Edge Out",
+      "src": "audiobook/28-type-4-edge-out.mp3",
+      "sourceTextVersion": "v2.1",
+      "provenanceNote": "Generated from RCDM v2.1 with ElevenLabs Coach Willie voice.",
+      "chunks": 3,
+      "characters": 18003
+    },
+    {
+      "id": "type-5-uncertain",
+      "chapterId": "type-5-uncertain",
+      "title": "Type 5: Uncertain",
+      "src": "audiobook/29-type-5-uncertain.mp3",
+      "sourceTextVersion": "v2.1",
+      "provenanceNote": "Generated from RCDM v2.1 with ElevenLabs Coach Willie voice.",
+      "chunks": 1,
+      "characters": 8238
+    },
+    {
+      "id": "spirit-animals-of-the-five-types-of-day",
+      "chapterId": "spirit-animals-of-the-five-types-of-day",
+      "title": "Spirit Animals Of the Five Types Of Day",
+      "src": "audiobook/30-spirit-animals-of-the-five-types-of-day.mp3",
+      "sourceTextVersion": "v2.1",
+      "provenanceNote": "Generated from RCDM v2.1 with ElevenLabs Coach Willie voice.",
+      "chunks": 1,
+      "characters": 4792
+    }
+  ]
+}

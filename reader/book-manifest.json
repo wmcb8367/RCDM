@@ -190,7 +190,10 @@
       "level": 3,
       "approxWordPosition": 17136,
       "approxPage": 35,
-      "audio": null
+      "audio": {
+        "src": "audiobook/17-what-is-strategy.mp3",
+        "id": "what-is-strategy"
+      }
     },
     {
       "id": "making-your-bet-the-game-of-odds",
@@ -198,7 +201,65 @@
       "level": 3,
       "approxWordPosition": 18608,
       "approxPage": 38,
-      "audio": null
+      "audio": {
+        "src": "audiobook/18-making-your-bet-the-game-of-odds.mp3",
+        "id": "making-your-bet-the-game-of-odds"
+      }
+    },
+    {
+      "id": "making-your-bet-venue-research",
+      "title": "Making Your Bet: Venue Research",
+      "level": 4,
+      "approxWordPosition": 20140,
+      "approxPage": 41,
+      "audio": {
+        "src": "audiobook/19-making-your-bet-venue-research.mp3",
+        "id": "making-your-bet-venue-research"
+      }
+    },
+    {
+      "id": "making-your-bet-incorporating-forecasts",
+      "title": "Making Your Bet: Incorporating Forecasts Into Decision Making",
+      "level": 4,
+      "approxWordPosition": 24170,
+      "approxPage": 49,
+      "audio": {
+        "src": "audiobook/20-making-your-bet-incorporating-forecasts.mp3",
+        "id": "making-your-bet-incorporating-forecasts"
+      }
+    },
+    {
+      "id": "making-your-bet-master-the-compass",
+      "title": "Making Your Bet: Master The Compass",
+      "level": 4,
+      "approxWordPosition": 28840,
+      "approxPage": 58,
+      "audio": {
+        "src": "audiobook/21-making-your-bet-master-the-compass.mp3",
+        "id": "making-your-bet-master-the-compass"
+      }
+    },
+    {
+      "id": "making-your-bet-course-geometry",
+      "title": "Making Your Bet: Course Geometry",
+      "level": 4,
+      "approxWordPosition": 30460,
+      "approxPage": 61,
+      "audio": {
+        "src": "audiobook/22-making-your-bet-course-geometry.mp3",
+        "id": "making-your-bet-course-geometry"
+      }
+    },
+    {
+      "id": "making-your-bet-hedging-your-bets",
+      "title": "Making Your Bet: Hedging Your Bets",
+      "level": 4,
+      "approxWordPosition": 31780,
+      "approxPage": 64,
+      "audio": {
+        "src": "audiobook/23-making-your-bet-hedging-your-bets.mp3",
+        "id": "making-your-bet-hedging-your-bets"
+      }
     },
     {
       "id": "5-types-of-day",
@@ -206,7 +267,65 @@
       "level": 3,
       "approxWordPosition": 34739,
       "approxPage": 70,
-      "audio": null
+      "audio": {
+        "src": "audiobook/24-5-types-of-day-foundations.mp3",
+        "id": "5-types-of-day-foundations"
+      }
+    },
+    {
+      "id": "type-1-connect-the-dots",
+      "title": "Type 1: Connect the Dots",
+      "level": 4,
+      "approxWordPosition": 35935,
+      "approxPage": 72,
+      "audio": {
+        "src": "audiobook/25-type-1-connect-the-dots.mp3",
+        "id": "type-1-connect-the-dots"
+      }
+    },
+    {
+      "id": "type-2-inside-track",
+      "title": "Type 2: Inside Track",
+      "level": 4,
+      "approxWordPosition": 38085,
+      "approxPage": 77,
+      "audio": {
+        "src": "audiobook/26-type-2-inside-track.mp3",
+        "id": "type-2-inside-track"
+      }
+    },
+    {
+      "id": "type-3-outside-track",
+      "title": "Type 3: Outside Track",
+      "level": 4,
+      "approxWordPosition": 40010,
+      "approxPage": 81,
+      "audio": {
+        "src": "audiobook/27-type-3-outside-track.mp3",
+        "id": "type-3-outside-track"
+      }
+    },
+    {
+      "id": "type-4-edge-out",
+      "title": "Type 4: Edge Out",
+      "level": 4,
+      "approxWordPosition": 41545,
+      "approxPage": 84,
+      "audio": {
+        "src": "audiobook/28-type-4-edge-out.mp3",
+        "id": "type-4-edge-out"
+      }
+    },
+    {
+      "id": "type-5-uncertain",
+      "title": "Type 5: Uncertain",
+      "level": 4,
+      "approxWordPosition": 44990,
+      "approxPage": 90,
+      "audio": {
+        "src": "audiobook/29-type-5-uncertain.mp3",
+        "id": "type-5-uncertain"
+      }
     },
     {
       "id": "spirit-animals-of-the-five-types-of-day",
@@ -214,7 +333,10 @@
       "level": 3,
       "approxWordPosition": 46639,
       "approxPage": 94,
-      "audio": null
+      "audio": {
+        "src": "audiobook/30-spirit-animals-of-the-five-types-of-day.mp3",
+        "id": "spirit-animals-of-the-five-types-of-day"
+      }
     },
     {
       "id": "iii-tactics",

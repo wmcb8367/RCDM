@@ -1,5 +1,5 @@
 {
-  "deploymentMode": "aligned",
+  "deploymentMode": "mixed",
   "text": {
     "activeVersion": "v2.2",
     "manifestPath": "book-manifest.json",
@@ -7,13 +7,15 @@
     "sourcePath": "../editions/markdown/RCDM-v2.2.md"
   },
   "audio": {
-    "activeVersion": "coach-willie-2026-04-13-frontmatter-part1-v2.2",
-    "manifestPath": "audio-manifests/coach-willie-2026-04-13-frontmatter-part1-v2.2.json"
+    "activeVersion": "coach-willie-2026-04-29-frontmatter-part1-strategy-mixed-v2.2-v2.1",
+    "manifestPath": "audio-manifests/coach-willie-2026-04-29-frontmatter-part1-strategy-mixed-v2.2-v2.1.json"
   },
-  "warning": "Front matter through the end of Part 1 is aligned to v2.2. Later sections remain text-only until recorded.",
+  "warning": "Preface, Prologue, Introduction, and Part 1 are aligned to v2.2. Strategy audio is generated from v2.1 and wired into the v2.2 reader as a mixed-provenance deployment. Tactics and conclusion remain text-only.",
   "notes": [
     "Approved Puter+splash player shell preserved.",
-    "Reader text aligns with the edited v2.2 manuscript.",
-    "Preface, Prologue, and all Part 1 chapter audio are version-locked to v2.2."
+    "Reader text remains v2.2.",
+    "Preface, Prologue, Introduction, and Part 1 audio are version-locked to v2.2.",
+    "Strategy audio uses Coach Willie tracks generated from v2.1 on 2026-04-29.",
+    "Tactics and conclusion remain text-only until recorded."
   ]
 }

@@ -2665,7 +2665,7 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
             function buildChapters(allBlocks, pages, manifest) {
                 const manifestChapters = manifest && Array.isArray(manifest.chapters) ? manifest.chapters : [];
                 const headings = allBlocks.filter(function(block) {
-                    return block.tagName === 'H2' || block.tagName === 'H3';
+                    return block.tagName === 'H2' || block.tagName === 'H3' || block.tagName === 'H4';
                 });
                 const chapters = manifestChapters.map(function(entry, index) {
                     const matchingHeading = headings.find(function(block) {
