@@ -1,5 +1,5 @@
 const ANTHROPIC_URL = 'https://api.anthropic.com/v1/messages';
-const DEFAULT_MODEL = 'claude-sonnet-4-6';
+const DEFAULT_MODEL = 'claude-sonnet-4-20250514';
 const MAX_QUESTION_CHARS = 900;
 const MAX_CHAPTER_CHARS = 6000;
 const MAX_RELATED_CHAPTERS = 3;
