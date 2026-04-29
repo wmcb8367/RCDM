@@ -736,12 +736,45 @@
             margin: 1em 0;
         }
 
+        #content p.figure-block {
+            min-height: min(62vh, 34rem);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #content p.figure-block.figure-wide {
+            min-height: min(42vh, 22rem);
+        }
+
+        #content p.figure-block.figure-tall {
+            min-height: min(68vh, 38rem);
+        }
+
         #content img {
             max-width: 100%;
             height: auto;
             display: block;
             margin: 1.4rem auto;
             border-radius: 0.75rem;
+        }
+
+        #content img.book-figure {
+            width: auto;
+            max-width: 100%;
+            max-height: min(66vh, 38rem);
+            object-fit: contain;
+            margin: 0 auto;
+        }
+
+        #content p.figure-block.figure-wide img.book-figure {
+            width: 100%;
+            max-height: min(44vh, 24rem);
+        }
+
+        #content p.figure-block.figure-tall img.book-figure {
+            max-height: min(72vh, 40rem);
         }
 
         .page-marker {
@@ -2595,19 +2628,24 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                 allBlocks.forEach(function(block, index) {
                     const blockWords = countWords(block.textContent);
                     const isHeading = block.tagName === 'H2' || block.tagName === 'H3';
-                    const hasImage = block.tagName === 'P' && block.querySelector('img');
-                    const isImage = block.tagName === 'IMG';
+                    const isFigure = isFigureBlock(block);
                     /* Force page break before chapter headings */
                     if (isHeading && index > startIndex && wordCount > 0) {
                         finalizePage(index - 1);
                         startIndex = index;
                         wordCount = 0;
                     }
-                    /* Force page break before images/figures if page already has content */
-                    if ((hasImage || isImage) && wordCount > 0 && index > startIndex) {
+                    /* Figures get deterministic standalone pages so image load timing cannot change the visual pagination. */
+                    if (isFigure && index > startIndex) {
                         finalizePage(index - 1);
                         startIndex = index;
                         wordCount = 0;
+                    }
+                    if (isFigure) {
+                        finalizePage(index);
+                        startIndex = index + 1;
+                        wordCount = 0;
+                        return;
                     }
                     const wouldOverflow = wordCount > 0 && wordCount + blockWords > wordsPerPage;
                     if (wouldOverflow && index > startIndex) {
@@ -2648,6 +2686,16 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                         scrollTarget: allBlocks[startIndex]
                     });
                 }
+            }
+
+            function isFigureBlock(block) {
+                if (!block) {
+                    return false;
+                }
+                if (block.tagName === 'IMG') {
+                    return true;
+                }
+                return block.classList && block.classList.contains('figure-block');
             }
 
             function buildChapters(allBlocks, pages, manifest) {
@@ -3743,11 +3791,75 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
             return trimmed ? trimmed.split(/\s+/).length : 0;
         }
 
+        const FIGURE_DIMENSIONS = {
+            'Figure1.png': [1148, 548],
+            'Figure2.png': [1148, 656],
+            'Figure3.png': [1150, 396],
+            'Figure4.png': [1140, 194],
+            'Figure5.png': [1294, 662],
+            'Figure6.png': [1294, 820],
+            'Figure7.png': [1152, 344],
+            'Figure8.png': [1152, 592],
+            'Figure9.png': [1158, 748],
+            'Figure10.png': [1062, 764],
+            'Figure11.png': [864, 606],
+            'Figure12.png': [864, 636],
+            'Figure13.png': [862, 638],
+            'Figure14.png': [862, 606],
+            'Figure15.png': [866, 612],
+            'Figure16.png': [862, 638],
+            'Figure17.png': [860, 588],
+            'Figure18.png': [1094, 648],
+            'Figure19.png': [1171, 779],
+            'Figure20.png': [1142, 598],
+            'Figure21.png': [1092, 574],
+            'Figure22.png': [1104, 658],
+            'Figure23.png': [324, 750],
+            'Figure24.png': [850, 736],
+            'Figure25.png': [1146, 358],
+            'Figure26.png': [1148, 362],
+            'Figure27.png': [1126, 648],
+            'Figure28.png': [1150, 646],
+            'Figure29.png': [1150, 996],
+            'Figure30.png': [1098, 906],
+            'Figure31.png': [1126, 820],
+            'Figure32.png': [1148, 868],
+            'Figure33.png': [1124, 1354],
+            'Figure34.png': [1034, 1338],
+            'Figure35.png': [862, 678],
+            'Figure36.png': [1130, 1352],
+            'Figure37.png': [1112, 974],
+            'Figure38.png': [1366, 1104],
+            'Figure39.png': [838, 724],
+            'Figure40.2.jpeg': [1024, 1536],
+            'Figure40.png': [930, 496],
+            'Figure41.png': [856, 466],
+            'Figure42.png': [916, 520],
+            'Figure43.png': [868, 564],
+            'Figure44.png': [858, 568],
+            'Figure45.png': [1848, 488],
+            'Figure46.png': [862, 872],
+            'Figure47.1.png': [1171, 779],
+            'Figure47.2.png': [1171, 779],
+            'Figure47.3.png': [1171, 779],
+            'Figure47.png': [1286, 618],
+            'Figure48.png': [1264, 1342],
+            'Figure49.png': [770, 508],
+            'Figure50.png': [854, 468],
+            'Table1.png': [1022, 350],
+            'Table2.png': [1728, 258],
+            'Table3.png': [1926, 260],
+            'Table4.png': [1422, 1170],
+            'Table5.png': [1792, 1486],
+            'Table6.png': [1478, 304],
+            'Table7.png': [980, 1268]
+        };
+
         function sanitizeBookHtml(html) {
             const container = document.createElement('div');
             container.innerHTML = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, function(_match, alt, src) {
                 const asset = resolveFigureAsset(src, alt);
-                return '<img src="' + escapeHtml(asset.src) + '" alt="' + escapeHtml(asset.alt) + '" loading="lazy">';
+                return buildFigureImageHtml(asset);
             });
 
             Array.from(container.querySelectorAll('img')).forEach(function(image) {
@@ -3756,7 +3868,15 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                 const asset = resolveFigureAsset(src, alt);
                 image.setAttribute('src', asset.src);
                 image.setAttribute('alt', asset.alt);
+                image.classList.add('book-figure');
                 image.setAttribute('loading', 'lazy');
+                image.setAttribute('decoding', 'async');
+                if (asset.width && asset.height) {
+                    image.setAttribute('width', String(asset.width));
+                    image.setAttribute('height', String(asset.height));
+                    image.dataset.aspectRatio = (asset.width / asset.height).toFixed(4);
+                    image.classList.add(asset.orientationClass);
+                }
             });
 
             Array.from(container.querySelectorAll('p')).forEach(function(paragraph) {
@@ -3764,8 +3884,44 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
             });
 
             applyInlineMarkdown(container);
+            normalizeFigureBlocks(container);
 
             return container.innerHTML;
+        }
+
+        function buildFigureImageHtml(asset) {
+            const attrs = [
+                'class="book-figure ' + escapeHtml(asset.orientationClass) + '"',
+                'src="' + escapeHtml(asset.src) + '"',
+                'alt="' + escapeHtml(asset.alt) + '"',
+                'loading="lazy"',
+                'decoding="async"'
+            ];
+            if (asset.width && asset.height) {
+                attrs.push('width="' + asset.width + '"');
+                attrs.push('height="' + asset.height + '"');
+                attrs.push('data-aspect-ratio="' + (asset.width / asset.height).toFixed(4) + '"');
+            }
+            return '<img ' + attrs.join(' ') + '>';
+        }
+
+        function normalizeFigureBlocks(container) {
+            Array.from(container.querySelectorAll('p')).forEach(function(paragraph) {
+                const images = Array.from(paragraph.children).filter(function(child) {
+                    return child.tagName === 'IMG';
+                });
+                const text = (paragraph.textContent || '').replace(/\s+/g, '').trim();
+                if (images.length === 1 && !text) {
+                    const image = images[0];
+                    paragraph.classList.add('figure-block');
+                    if (image.classList.contains('figure-wide')) {
+                        paragraph.classList.add('figure-wide');
+                    }
+                    if (image.classList.contains('figure-tall')) {
+                        paragraph.classList.add('figure-tall');
+                    }
+                }
+            });
         }
 
         function normalizeMarkdownBlock(paragraph) {
@@ -3857,9 +4013,16 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
 
         function resolveFigureAsset(src, alt) {
             const fileName = normalizeFigureLabel(src);
+            const dimensions = FIGURE_DIMENSIONS[fileName] || [];
+            const width = dimensions[0] || 0;
+            const height = dimensions[1] || 0;
+            const ratio = width && height ? width / height : 1;
             return {
                 src: '../figures/' + fileName,
-                alt: normalizeFigureAlt(alt || fileName)
+                alt: normalizeFigureAlt(alt || fileName),
+                width: width,
+                height: height,
+                orientationClass: ratio >= 2.75 ? 'figure-wide' : (ratio <= 0.95 ? 'figure-tall' : 'figure-standard')
             };
         }
 
