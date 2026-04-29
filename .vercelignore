@@ -1,0 +1,27 @@
+.DS_Store
+.git
+
+# Working drafts and legacy exports that are not needed for the live reader.
+/RCDM-narration-script.txt
+/RCDM-v2.1.md
+/audiobook/
+/chapter-*.txt
+/chat-worker/
+/curriculum/
+/docs/
+/editions/
+/figures-from-legacy/
+/narration/
+/prologue-chunk-*.txt
+/research/
+/scripts/
+/test.js
+/verify-reader.js
+
+# Old standalone reader experiments superseded by reader/.
+/book-content.html
+/book-content.js
+/book-manifest.json
+/fixes.css
+/index-*.html
+/reader.js
