@@ -925,7 +925,7 @@
         .chat-window {
             width: min(27rem, calc(100vw - 1.5rem));
             border-radius: 0.85rem;
-            padding: 1rem;
+            padding: 0 1rem 1rem;
             background: rgba(255, 252, 245, 0.98);
             border-color: rgba(31, 42, 46, 0.14);
             box-shadow: 0 26px 70px rgba(20, 43, 52, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.65);
@@ -1006,11 +1006,19 @@
         }
 
         .chat-window-header {
-            display: flex;
-            justify-content: space-between;
-            gap: 1rem;
-            align-items: flex-start;
-            margin-bottom: 0.9rem;
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 0.85rem;
+            align-items: start;
+            margin: 0 -1rem 0.9rem;
+            padding: 1rem;
+            background:
+                linear-gradient(180deg, rgba(255, 252, 245, 0.99) 0%, rgba(255, 252, 245, 0.96) 76%, rgba(255, 252, 245, 0) 100%);
+            border-radius: 0.85rem 0.85rem 0 0;
+            backdrop-filter: blur(14px);
         }
 
         .chat-window-header .eyebrow {
@@ -1019,7 +1027,9 @@
 
         .chat-title-group {
             display: grid;
-            gap: 0.28rem;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 0.45rem;
+            min-width: 0;
         }
 
         .chat-title-row {
@@ -1053,13 +1063,15 @@
             font-size: 1.08rem;
             line-height: 1.2;
             letter-spacing: -0.02em;
+            min-width: 0;
         }
 
         .chat-window-prompt {
+            grid-column: 1 / -1;
             color: var(--chat-text-subtle);
             font-size: 0.92rem;
             line-height: 1.45;
-            max-width: 26ch;
+            max-width: none;
         }
 
         .chat-close {
@@ -1895,7 +1907,14 @@
             .chat-window {
                 max-height: min(72vh, 38rem);
                 border-radius: 1.45rem;
+                padding: 0 0.9rem 0.9rem;
+            }
+
+            .chat-window-header {
+                margin-right: -0.9rem;
+                margin-left: -0.9rem;
                 padding: 0.9rem;
+                border-radius: 1.45rem 1.45rem 0 0;
             }
 
             .chat-input-row {
