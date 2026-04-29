@@ -25,3 +25,7 @@
 /fixes.css
 /index-*.html
 /reader.js
+
+# Intermediate TTS artifacts; final chapter MP3s are kept.
+/reader/audiobook/*-chunks/
+*.concat.txt

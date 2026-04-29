@@ -1,1 +1,3 @@
 .vercel
+*.concat.txt
+/reader/audiobook/*-chunks/

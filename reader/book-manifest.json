@@ -352,7 +352,10 @@
       "level": 3,
       "approxWordPosition": 47509,
       "approxPage": 96,
-      "audio": null
+      "audio": {
+        "src": "audiobook/31-what-are-tactics.mp3",
+        "id": "what-are-tactics"
+      }
     },
     {
       "id": "tactics-of-connect-the-dots",
@@ -360,7 +363,10 @@
       "level": 3,
       "approxWordPosition": 48598,
       "approxPage": 98,
-      "audio": null
+      "audio": {
+        "src": "audiobook/32-tactics-of-connect-the-dots.mp3",
+        "id": "tactics-of-connect-the-dots"
+      }
     },
     {
       "id": "tactics-of-the-inside-track",
@@ -368,7 +374,10 @@
       "level": 3,
       "approxWordPosition": 49077,
       "approxPage": 99,
-      "audio": null
+      "audio": {
+        "src": "audiobook/33-tactics-of-the-inside-track.mp3",
+        "id": "tactics-of-the-inside-track"
+      }
     },
     {
       "id": "uw-6",
@@ -376,7 +385,10 @@
       "level": 3,
       "approxWordPosition": 49647,
       "approxPage": 100,
-      "audio": null
+      "audio": {
+        "src": "audiobook/34-uw-6.mp3",
+        "id": "uw-6"
+      }
     },
     {
       "id": "uw-7",
@@ -384,7 +396,10 @@
       "level": 3,
       "approxWordPosition": 49939,
       "approxPage": 100,
-      "audio": null
+      "audio": {
+        "src": "audiobook/35-uw-7.mp3",
+        "id": "uw-7"
+      }
     },
     {
       "id": "tactics-of-the-edge-out-strategy",
@@ -392,7 +407,10 @@
       "level": 3,
       "approxWordPosition": 50366,
       "approxPage": 101,
-      "audio": null
+      "audio": {
+        "src": "audiobook/36-tactics-of-the-edge-out-strategy.mp3",
+        "id": "tactics-of-the-edge-out-strategy"
+      }
     },
     {
       "id": "tactics-of-the-outside-track",
@@ -400,7 +418,10 @@
       "level": 3,
       "approxWordPosition": 52141,
       "approxPage": 105,
-      "audio": null
+      "audio": {
+        "src": "audiobook/37-tactics-of-the-outside-track.mp3",
+        "id": "tactics-of-the-outside-track"
+      }
     },
     {
       "id": "tactical-summary",
@@ -408,7 +429,10 @@
       "level": 3,
       "approxWordPosition": 53216,
       "approxPage": 107,
-      "audio": null
+      "audio": {
+        "src": "audiobook/38-tactical-summary.mp3",
+        "id": "tactical-summary"
+      }
     },
     {
       "id": "conclusion-balancing-race-course-philosophy-strategy-and-tactics",
@@ -416,7 +440,10 @@
       "level": 2,
       "approxWordPosition": 53343,
       "approxPage": 107,
-      "audio": null
+      "audio": {
+        "src": "audiobook/39-conclusion-balancing-race-course-philosophy-strategy-and-tactics.mp3",
+        "id": "conclusion-balancing-race-course-philosophy-strategy-and-tactics"
+      }
     },
     {
       "id": "when-the-unconscious-becomes-conscious",
@@ -424,7 +451,10 @@
       "level": 3,
       "approxWordPosition": 53351,
       "approxPage": 107,
-      "audio": null
+      "audio": {
+        "src": "audiobook/40-when-the-unconscious-becomes-conscious.mp3",
+        "id": "when-the-unconscious-becomes-conscious"
+      }
     }
   ]
 }
