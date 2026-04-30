@@ -709,6 +709,85 @@
             margin: 0 auto;
         }
 
+        #content.is-cover-page {
+            max-width: none;
+            width: 100%;
+            height: 100%;
+        }
+
+        .reader-cover-page {
+            position: relative;
+            isolation: isolate;
+            width: 100%;
+            height: 100%;
+            min-height: min(68vh, 48rem);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(1.25rem, 4vw, 3rem);
+            overflow: hidden;
+            border-radius: 1.25rem;
+            background-image: url('splash-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+        }
+
+        .reader-cover-page::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0.55));
+        }
+
+        .reader-cover-card {
+            width: min(100%, 34rem);
+            padding: clamp(2rem, 5vw, 3.35rem);
+            border-radius: 1.5rem;
+            background: rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.32);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            text-align: center;
+            color: #fff;
+        }
+
+        .reader-cover-kicker {
+            margin: 0 0 1rem;
+            color: rgba(255, 255, 255, 0.82);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        #content .reader-cover-title {
+            margin: 0;
+            color: #fff;
+            font-size: clamp(2.2rem, 5.8vw, 4.4rem);
+            line-height: 0.98;
+            text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5);
+        }
+
+        .reader-cover-edition {
+            margin: 1.25rem 0 0;
+            color: rgba(255, 255, 255, 0.82);
+            font-size: 0.86rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .reader-cover-author {
+            margin: 0.7rem 0 0;
+            color: rgba(255, 255, 255, 0.94);
+            font-size: clamp(1.08rem, 2.5vw, 1.45rem);
+            font-style: italic;
+            text-shadow: 0 1px 8px rgba(0, 0, 0, 0.42);
+        }
+
         #content h1,
         #content h2,
         #content h3 {
@@ -2681,6 +2760,16 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                     const blockWords = countWords(block.textContent);
                     const isHeading = block.tagName === 'H2' || block.tagName === 'H3';
                     const isFigure = isFigureBlock(block);
+                    const isCover = isCoverBlock(block);
+                    if (isCover) {
+                        if (index > startIndex) {
+                            finalizePage(index - 1);
+                        }
+                        finalizePage(index);
+                        startIndex = index + 1;
+                        wordCount = 0;
+                        return;
+                    }
                     /* Force page break before chapter headings */
                     if (isHeading && index > startIndex && wordCount > 0) {
                         finalizePage(index - 1);
@@ -2750,6 +2839,10 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                 return block.classList && block.classList.contains('figure-block');
             }
 
+            function isCoverBlock(block) {
+                return Boolean(block && block.classList && block.classList.contains('reader-cover-page'));
+            }
+
             function buildChapters(allBlocks, pages, manifest) {
                 const manifestChapters = manifest && Array.isArray(manifest.chapters) ? manifest.chapters : [];
                 const headings = allBlocks.filter(function(block) {
@@ -2790,7 +2883,7 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                     const chapterStart = chapters.find(function(chapter) {
                         return chapter.page === page.number;
                     }) || null;
-                    page.sectionTitle = activeSection ? activeSection.title : 'Front Matter';
+                    page.sectionTitle = isCoverBlock(allBlocks[page.startIndex]) ? 'Cover' : (activeSection ? activeSection.title : 'Front Matter');
                     page.chapterTitle = activeHeading ? activeHeading.title : page.sectionTitle;
                     page.chapter = activeHeading;
                     page.chapterStart = chapterStart;
@@ -2899,6 +2992,8 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
             function showPage(pageNumber) {
                 const page = state.pages[pageNumber - 1];
                 if (!page) return;
+                const coverPage = blocks[page.startIndex] && blocks[page.startIndex].classList.contains('reader-cover-page');
+                ui.content.classList.toggle('is-cover-page', Boolean(coverPage));
                 /* Hide all blocks */
                 blocks.forEach(function(block) {
                     block.style.display = 'none';
@@ -3914,6 +4009,8 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                 return buildFigureImageHtml(asset);
             });
 
+            normalizeReaderFrontMatter(container);
+
             Array.from(container.querySelectorAll('img')).forEach(function(image) {
                 const src = image.getAttribute('src') || '';
                 const alt = image.getAttribute('alt') || '';
@@ -3939,6 +4036,42 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
             normalizeFigureBlocks(container);
 
             return container.innerHTML;
+        }
+
+        function normalizeReaderFrontMatter(container) {
+            const elements = Array.from(container.children);
+            const titleEl = elements[0] && elements[0].tagName === 'H1' ? elements[0] : null;
+            if (!titleEl) {
+                return;
+            }
+            const editionEl = elements[1] && elements[1].tagName === 'H2' && /edition/i.test(elements[1].textContent || '')
+                ? elements[1]
+                : null;
+            const authorEl = elements[2] && elements[2].tagName === 'H3' && /^by\s+/i.test((elements[2].textContent || '').trim())
+                ? elements[2]
+                : null;
+            const contentsEl = elements[3] && elements[3].tagName === 'H2' && /^contents$/i.test((elements[3].textContent || '').trim())
+                ? elements[3]
+                : null;
+            const title = (titleEl.textContent || 'Race Course Decision Making').trim();
+            const edition = editionEl ? (editionEl.textContent || '2025 Edition').trim() : '2025 Edition';
+            const author = authorEl ? (authorEl.textContent || 'By William McBride').replace(/^by\s+/i, '').trim() : 'William McBride';
+            const cover = document.createElement('section');
+            cover.className = 'reader-cover-page';
+            cover.setAttribute('aria-label', 'Book cover');
+            cover.innerHTML =
+                '<div class="reader-cover-card">' +
+                    '<p class="reader-cover-kicker">Interactive Reader</p>' +
+                    '<h1 class="reader-cover-title">' + escapeHtml(title) + '</h1>' +
+                    '<p class="reader-cover-edition">' + escapeHtml(edition) + '</p>' +
+                    '<p class="reader-cover-author">By ' + escapeHtml(author) + '</p>' +
+                '</div>';
+            titleEl.before(cover);
+            [titleEl, editionEl, authorEl, contentsEl].forEach(function(element) {
+                if (element) {
+                    element.remove();
+                }
+            });
         }
 
         function buildFigureImageHtml(asset) {
