@@ -11,16 +11,19 @@
     <title>Race Course Decision Making</title>
     <style>
         :root {
-            --bg: #f4efe4;
-            --panel: rgba(255, 252, 245, 0.92);
-            --panel-strong: #fffaf1;
-            --panel-soft: rgba(255, 250, 241, 0.74);
-            --ink: #1f2a2e;
-            --muted: #5a6a70;
-            --line: rgba(31, 42, 46, 0.14);
-            --accent: #0b7285;
-            --accent-soft: rgba(11, 114, 133, 0.12);
-            --shadow: 0 18px 40px rgba(36, 48, 53, 0.12);
+            --bg: #f7f3eb;
+            --panel: rgba(255, 253, 247, 0.94);
+            --panel-strong: #fffdf7;
+            --panel-soft: rgba(255, 253, 247, 0.76);
+            --ink: #132426;
+            --muted: #5f7074;
+            --line: rgba(19, 36, 38, 0.14);
+            --accent: #0d7788;
+            --accent-dark: #075362;
+            --accent-soft: rgba(13, 119, 136, 0.12);
+            --gold: #d7aa5d;
+            --sea: #dce8e6;
+            --shadow: 0 22px 70px rgba(15, 38, 44, 0.16);
             --chat-shell: rgba(249, 252, 250, 0.74);
             --chat-shell-strong: rgba(255, 255, 255, 0.78);
             --chat-line: rgba(86, 111, 120, 0.18);
@@ -49,13 +52,13 @@
             margin: 0;
             min-height: 100vh;
             min-height: 100dvh;
-            font-family: Georgia, serif;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             line-height: 1.8;
             color: var(--ink);
             overflow: hidden;
             background:
-                radial-gradient(circle at top left, rgba(11, 114, 133, 0.12), transparent 24rem),
-                linear-gradient(180deg, #f8f3e9 0%, var(--bg) 40%, #efe7d6 100%);
+                radial-gradient(circle at top left, rgba(13, 119, 136, 0.12), transparent 24rem),
+                linear-gradient(180deg, #fbf7ef 0%, var(--bg) 42%, #eee6d7 100%);
         }
 
         body.splash-active {
@@ -89,7 +92,7 @@
 
         button:focus-visible,
         select:focus-visible {
-            border-color: rgba(11, 114, 133, 0.35);
+            border-color: rgba(13, 119, 136, 0.35);
             outline: none;
         }
 
@@ -168,6 +171,52 @@
             text-align: center;
         }
 
+        .reader-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            color: var(--ink);
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-weight: 850;
+            letter-spacing: 0;
+            text-decoration: none;
+        }
+
+        .reader-brand-mark {
+            display: grid;
+            place-items: center;
+            width: 2.65rem;
+            height: 2.65rem;
+            flex: 0 0 auto;
+            border-radius: 50%;
+            color: #fffdf7;
+            background: var(--accent);
+            font-size: 0.76rem;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            box-shadow: 0 12px 28px rgba(7, 83, 98, 0.22);
+        }
+
+        .reader-brand-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.05;
+        }
+
+        .reader-brand-name {
+            font-size: 1rem;
+        }
+
+        .reader-brand-subtitle {
+            margin-top: 0.25rem;
+            color: var(--muted);
+            font-size: 0.68rem;
+            font-weight: 900;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
         .cover-splash-frame {
             display: block;
             position: relative;
@@ -219,6 +268,21 @@
             padding: 0;
         }
 
+        .cover-splash-copy .reader-brand {
+            justify-self: center;
+            margin-bottom: 0;
+            color: #fffdf7;
+        }
+
+        .cover-splash-copy .reader-brand-mark {
+            background: rgba(13, 119, 136, 0.92);
+            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.28);
+        }
+
+        .cover-splash-copy .reader-brand-subtitle {
+            color: rgba(255, 253, 247, 0.72);
+        }
+
         .cover-splash-copy .eyebrow {
             margin-bottom: 0;
             color: rgba(255, 255, 255, 0.85);
@@ -226,6 +290,7 @@
 
         .cover-splash-title {
             margin: 0;
+            font-family: Georgia, "Times New Roman", serif;
             font-size: clamp(2rem, 5vw, 3rem);
             line-height: 1.1;
             color: #fff;
@@ -305,8 +370,8 @@
 
         .eyebrow {
             margin: 0 0 0.35rem;
-            font-family: "Trebuchet MS", "Gill Sans", sans-serif;
             font-size: 0.78rem;
+            font-weight: 900;
             letter-spacing: 0.14em;
             text-transform: uppercase;
             color: var(--muted);
@@ -314,6 +379,7 @@
 
         .sidebar-card h1 {
             margin: 0;
+            font-family: Georgia, "Times New Roman", serif;
             font-size: clamp(1.6rem, 2.6vw, 2.25rem);
             line-height: 1.1;
             color: var(--ink);
@@ -336,7 +402,6 @@
             border-radius: 999px;
             color: var(--accent);
             background: rgba(255, 255, 255, 0.66);
-            font-family: "Trebuchet MS", "Gill Sans", sans-serif;
             font-size: 0.78rem;
             font-weight: 800;
             letter-spacing: 0.08em;
@@ -463,6 +528,7 @@
             padding: 0.75rem 0.9rem;
             margin-bottom: 0;
             border-radius: 1.25rem;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         }
 
         .page-nav,
@@ -510,7 +576,7 @@
 
         .footer-progress-bar {
             height: 100%;
-            background: linear-gradient(90deg, #0b7285 0%, #74c0fc 100%);
+            background: linear-gradient(90deg, var(--accent) 0%, var(--gold) 100%);
             border-radius: 2px;
             width: 0%;
             transition: width 300ms ease;
@@ -628,11 +694,11 @@
             padding: 0;
             font-size: 1.2rem;
             font-weight: 400;
-            background: linear-gradient(135deg, var(--accent), #1991a8);
+            background: linear-gradient(135deg, var(--accent-dark), var(--accent));
             color: #fff;
             border-color: transparent;
             border-radius: 50%;
-            box-shadow: 0 4px 12px rgba(11, 114, 133, 0.25);
+            box-shadow: 0 12px 28px rgba(7, 83, 98, 0.22);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -641,7 +707,7 @@
 
         .audio-play-btn:hover {
             transform: scale(1.05);
-            box-shadow: 0 6px 16px rgba(11, 114, 133, 0.35);
+            box-shadow: 0 16px 32px rgba(7, 83, 98, 0.3);
         }
 
         .audio-play-btn:active {
@@ -749,6 +815,7 @@
         #content {
             max-width: 860px;
             margin: 0 auto;
+            font-family: Georgia, "Times New Roman", serif;
         }
 
         #content.is-cover-page {
@@ -2120,9 +2187,15 @@
 <body class="splash-active" data-cover-url="cover-desktop.jpg" data-book-title="Race Course Decision Making" data-book-author="William McBride">
     <div id="coverSplash" class="cover-splash" aria-hidden="false">
         <div class="cover-splash-card">
-            <div id="coverSplashFrame" class="cover-splash-frame">
+                <div id="coverSplashFrame" class="cover-splash-frame">
                 <div class="cover-splash-copy">
-                    <p class="eyebrow">Interactive Reader</p>
+                    <a class="reader-brand" href="/" aria-label="McBride Racing home">
+                        <span class="reader-brand-mark">MR</span>
+                        <span class="reader-brand-text">
+                            <span class="reader-brand-name">McBride Racing</span>
+                            <span class="reader-brand-subtitle">Interactive Reader</span>
+                        </span>
+                    </a>
                     <h1 id="coverSplashTitle" class="cover-splash-title">Race Course Decision Making</h1>
                     <p id="coverSplashAuthor" class="cover-splash-author">By Willie McBride</p>
                 </div>
@@ -2134,7 +2207,13 @@
     <div class="app-shell">
         <aside class="sidebar">
             <div class="sidebar-card">
-                <p class="eyebrow">Interactive Reader</p>
+                <a class="reader-brand" href="/" aria-label="McBride Racing home">
+                    <span class="reader-brand-mark">MR</span>
+                    <span class="reader-brand-text">
+                        <span class="reader-brand-name">McBride Racing</span>
+                        <span class="reader-brand-subtitle">Interactive Reader</span>
+                    </span>
+                </a>
                 <h1>Race Course Decision Making</h1>
                 <p class="byline">By William McBride</p>
                 <a class="site-home-link" href="/" aria-label="Back to McBride Racing">McBride Racing home</a>
