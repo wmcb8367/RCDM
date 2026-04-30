@@ -2742,11 +2742,11 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
             const initialPage = clampPage(state.savedPage, state.pages.length);
             goToPage(initialPage, false, { forceRefresh: true });
 
-            const initialTrack = findTrackForPage(audioTracks, initialPage) || trackLookup[state.savedTrackId] || audioTracks[0];
+            const initialTrack = findTrackForPage(audioTracks, initialPage) || (state.savedTrackId ? trackLookup[state.savedTrackId] : null);
             if (initialTrack) {
                 loadTrack(initialTrack.id, false, false);
             } else {
-                updateAudioStatus('Audio chapters are unavailable.');
+                updateAudioStatus('No synced audio for this page.');
             }
             configureMediaSession();
             updateChatPrompt();
