@@ -325,6 +325,46 @@
             font-style: italic;
         }
 
+        .site-home-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 2.5rem;
+            margin: -0.25rem 0 1rem;
+            padding: 0.62rem 0.8rem;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            color: var(--accent);
+            background: rgba(255, 255, 255, 0.66);
+            font-family: "Trebuchet MS", "Gill Sans", sans-serif;
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        .site-home-link:hover {
+            color: var(--ink);
+            background: var(--accent-soft);
+        }
+
+        .reader-home-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 2.6rem;
+            padding: 0.52rem 0.8rem;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            color: var(--accent);
+            background: rgba(255, 255, 255, 0.72);
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
         .resume-notice {
             display: flex;
             align-items: center;
@@ -2097,6 +2137,7 @@
                 <p class="eyebrow">Interactive Reader</p>
                 <h1>Race Course Decision Making</h1>
                 <p class="byline">By William McBride</p>
+                <a class="site-home-link" href="/" aria-label="Back to McBride Racing">McBride Racing home</a>
                 <div id="resumeNotice" class="resume-notice" hidden>
                     <div class="resume-copy" id="resumeText"></div>
                     <button id="resumeButton" type="button">Resume Reading</button>
@@ -2109,6 +2150,7 @@
             <section class="reader-toolbar" id="readerToolbar">
                 <div class="page-nav">
                     <button id="sidebarToggle" class="mobile-toolbar-button mobile-sidebar-toggle" type="button" aria-label="Open chapter navigation" aria-controls="chapterNav" aria-expanded="false">☰</button>
+                    <a class="reader-home-button" href="/" aria-label="Back to McBride Racing">Home</a>
                     <div class="page-actions">
                         <button id="prevPage" type="button" aria-label="Previous page">Previous</button>
                         <button id="nextPage" type="button" aria-label="Next page">Next</button>
