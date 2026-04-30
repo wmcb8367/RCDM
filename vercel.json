@@ -1,10 +1,5 @@
 {
-  "rewrites": [
-    {
-      "source": "/",
-      "destination": "/reader/"
-    }
-  ],
+  "rewrites": [],
   "headers": [
     {
       "source": "/reader/audiobook/(.*)",
