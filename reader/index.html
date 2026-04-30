@@ -2296,7 +2296,8 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                     throw new Error('Manifest request failed with ' + manifestResponse.status);
                 }
                 const manifest = await manifestResponse.json();
-                initializeReader(manifest);
+                const coachConfig = await loadCoachConfig(manifest);
+                initializeReader(manifest, coachConfig);
             } catch (error) {
                 console.error('Failed to load book manifest', error);
                 content.innerHTML = '<p style="color: #b42318;">Error: Book manifest could not be loaded.</p>';
@@ -2305,7 +2306,24 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
             }
         });
 
-        function initializeReader(manifest) {
+        async function loadCoachConfig(manifest) {
+            const textVersion = manifest && manifest.textVersion ? String(manifest.textVersion).trim() : '';
+            if (!textVersion) {
+                return {};
+            }
+            try {
+                const response = await fetch('content/' + encodeURIComponent(textVersion) + '/ai-coach.json');
+                if (!response.ok) {
+                    return {};
+                }
+                return await response.json();
+            } catch (error) {
+                console.warn('AI Coach metadata unavailable', error);
+                return {};
+            }
+        }
+
+        function initializeReader(manifest, coachConfig) {
             const ui = {
                 content: document.getElementById('content'),
                 toolbar: document.getElementById('readerToolbar'),
@@ -2911,7 +2929,10 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                         .filter(Boolean)
                         .join('\n\n');
                     chapter.keyConcepts = extractKeyConcepts(chapter.title, chapter.contextText);
-                    chapter.suggestedQuestions = generateSuggestedQuestions(chapter.title, chapter.keyConcepts);
+                    chapter.coach = getChapterCoachConfig(chapter, coachConfig);
+                    chapter.suggestedQuestions = Array.isArray(chapter.coach.suggestedQuestions) && chapter.coach.suggestedQuestions.length > 0
+                        ? chapter.coach.suggestedQuestions
+                        : generateSuggestedQuestions(chapter.title, chapter.keyConcepts);
                 });
             }
 
@@ -3345,11 +3366,11 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                 }
                 const endOfChapter = state.currentPage >= chapter.endPage;
                 const message = endOfChapter
-                    ? 'You finished ' + chapter.title + '. Ask a follow-up anytime.'
-                    : 'Ask about ' + chapter.title + ' anytime.';
+                    ? (chapter.coach.endPrompt || 'You finished ' + chapter.title + '. Ask a follow-up anytime.')
+                    : (chapter.coach.activePrompt || 'Ask about ' + chapter.title + ' anytime.');
                 ui.chatTitle.textContent = chapter.title;
                 ui.chatPrompt.textContent = message;
-                ui.chatBubbleText.textContent = message;
+                ui.chatBubbleText.textContent = chapter.coach.bubbleText || message;
                 state.activeSuggestedQuestions = chapter.suggestedQuestions || [];
                 renderSuggestedQuestions(state.activeSuggestedQuestions);
 
@@ -3660,6 +3681,11 @@ window.BOOK_HTML = "<h1>Race Course Decision Making</h1><h2>2025 Edition</h2><h3
                 }
 
                 return Array.from(new Set(questions)).slice(0, 5);
+            }
+
+            function getChapterCoachConfig(chapter, config) {
+                const chapters = config && config.chapters ? config.chapters : {};
+                return chapters[chapter.id] || {};
             }
 
             function formatConceptLabel(value) {
