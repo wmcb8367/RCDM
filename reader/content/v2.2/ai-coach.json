@@ -3,7 +3,13 @@
   "chapters": {
     "preface": {
       "endPrompt": "Welcome to Race Course Decision Making! I'm the AI version of Coach Willie. If you ever have questions about the text or the ideas that we're discussing, you can open this window to ask me to explain something differently, brainstorm with you about how to implement these ideas on a real race course, apply the ideas to a situation you've experienced recently, or summarize the reading. At the end of each chapter I'll check in to see if you have any questions. Looking forward to working with you!",
-      "bubbleText": "Welcome to Race Course Decision Making!"
+      "bubbleText": "Welcome to Race Course Decision Making!",
+      "suggestedQuestions": [
+        "Tell me more about yourself",
+        "How can I learn more about Race Course Decision Making?",
+        "What sailors and teams have you worked with?",
+        "What's the best way to improve my tactics and strategy?"
+      ]
     }
   }
 }
