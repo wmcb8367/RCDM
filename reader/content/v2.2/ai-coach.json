@@ -66,6 +66,238 @@
         "What starting line mistakes cost the most distance?",
         "How do I balance a strong start with the bigger race course plan?"
       ]
+    },
+    "first-beat-fundamentals": {
+      "suggestedQuestions": [
+        "What are the core fundamentals I should focus on during the first beat?",
+        "How do I balance lane protection with staying open to shifts on the first beat?",
+        "What first-beat mistakes usually cost the most boats?",
+        "Can you walk me through what a strong first-beat decision sequence looks like after the start?"
+      ]
+    },
+    "weather-mark-layline-management": {
+      "suggestedQuestions": [
+        "How should I think about laylines as I approach the weather mark?",
+        "What cues tell me to extend versus tack onto the layline?",
+        "What are the biggest layline-management mistakes near the top mark?",
+        "How does fleet position change the right weather-mark approach?"
+      ]
+    },
+    "9-ways-to-pass-boats-downwind": {
+      "suggestedQuestions": [
+        "Which downwind passing opportunities happen most often in real racing?",
+        "How do I choose the best way to attack a boat in front of me downwind?",
+        "What downwind habits make it too easy for other boats to roll or pass me?",
+        "Can you give me a simple framework for setting up passes on a run?"
+      ]
+    },
+    "the-downwind-decision-diamond": {
+      "suggestedQuestions": [
+        "What is the downwind decision diamond and how should I use it?",
+        "How do I decide when to press for speed versus positioning downwind?",
+        "How does the decision diamond help in shifty or tactical downwind legs?",
+        "Can you apply the downwind decision diamond to a real race example?"
+      ]
+    },
+    "downwind-philosophy-of-symmetrical-spinnaker-boats": {
+      "suggestedQuestions": [
+        "How is downwind philosophy different in symmetrical-spinnaker boats?",
+        "What should I prioritize most when sailing deep versus hot angles with a symmetrical kite?",
+        "How do fleet position and pressure affect downwind choices in these boats?",
+        "What are the most common tactical errors in symmetrical-spinnaker downwind sailing?"
+      ]
+    },
+    "the-evolution-of-race-course-philosophy": {
+      "suggestedQuestions": [
+        "How should my race course philosophy evolve as I gain more experience?",
+        "What parts of race course philosophy are timeless and what parts are situational?",
+        "How do I know when my old habits or assumptions are holding me back?",
+        "Can you help me compare an older style of racing philosophy with a more modern one?"
+      ]
+    },
+    "what-is-strategy": {
+      "suggestedQuestions": [
+        "What exactly makes something a strategic decision rather than tactical or philosophical?",
+        "How should I build a strategy before the race starts?",
+        "What information matters most when I am choosing a strategy for the day?",
+        "How often should I update my strategy once the race is underway?"
+      ]
+    },
+    "making-your-bet-the-game-of-odds": {
+      "suggestedQuestions": [
+        "What does it mean to think about strategy as a game of odds?",
+        "How do I weigh probabilities without getting stuck overthinking?",
+        "How should fleet position affect the kind of strategic bet I make?",
+        "Can you walk me through a race where the right play is a lower-risk versus higher-risk bet?"
+      ]
+    },
+    "making-your-bet-venue-research": {
+      "suggestedQuestions": [
+        "What kind of venue research is most useful before a regatta?",
+        "How do I turn venue knowledge into an actual race-day strategic edge?",
+        "What should I look for in old results, charts, and local knowledge?",
+        "How do I avoid overvaluing venue history when the conditions are changing?"
+      ]
+    },
+    "making-your-bet-incorporating-forecasts": {
+      "suggestedQuestions": [
+        "How should I use forecasts without becoming too dependent on them?",
+        "Which forecast patterns matter most when making race course decisions?",
+        "How do I blend forecast information with what I am seeing on the water?",
+        "What forecast-related mistakes lead teams into bad strategic bets?"
+      ]
+    },
+    "making-your-bet-master-the-compass": {
+      "suggestedQuestions": [
+        "How do I use the compass well enough for it to improve my strategy?",
+        "What numbers should I actually be tracking during a race day?",
+        "How does compass data help me distinguish a real shift from noise?",
+        "Can you give me a simple system for using the compass before the start and on the first beat?"
+      ]
+    },
+    "making-your-bet-course-geometry": {
+      "suggestedQuestions": [
+        "How does course geometry influence the strategic bet I should make?",
+        "What mark angles or line setups change the value of each side of the course?",
+        "How should I adjust when the course is skewed or unstable?",
+        "Can you give me an example of course geometry changing the best strategy?"
+      ]
+    },
+    "making-your-bet-hedging-your-bets": {
+      "suggestedQuestions": [
+        "What does it mean to hedge my bets strategically on the race course?",
+        "When is it smarter to hedge instead of fully committing to one side?",
+        "How does fleet position change the amount of hedging I should do?",
+        "What are the risks of hedging too much or too little?"
+      ]
+    },
+    "5-types-of-day": {
+      "suggestedQuestions": [
+        "What are the five types of day and why are they useful?",
+        "How do I identify which type of day I am in before or during a race?",
+        "What strategic habits should change between different types of day?",
+        "Which type of day do sailors misread most often?"
+      ]
+    },
+    "type-1-connect-the-dots": {
+      "suggestedQuestions": [
+        "What defines a Connect the Dots type of day?",
+        "How should I race differently when the course rewards linking the obvious shifts and pressure?",
+        "What mistakes keep sailors from taking full advantage of a Connect the Dots day?",
+        "Can you walk me through a beat on a classic Connect the Dots day?"
+      ]
+    },
+    "type-2-inside-track": {
+      "suggestedQuestions": [
+        "What defines an Inside Track type of day?",
+        "How do I recognize when the middle or inside lane has the highest value?",
+        "How should I protect positioning on an Inside Track day without getting trapped?",
+        "What tactical choices usually support the best strategy on this type of day?"
+      ]
+    },
+    "type-3-outside-track": {
+      "suggestedQuestions": [
+        "What defines an Outside Track type of day?",
+        "How do I decide when it is worth extending farther than the fleet?",
+        "What signs tell me that the outside track is paying reliably enough to commit?",
+        "How do I avoid overstanding or getting stranded when I play the outside track?"
+      ]
+    },
+    "type-4-edge-out": {
+      "suggestedQuestions": [
+        "What defines an Edge Out type of day?",
+        "How should I think about slowly building gains rather than making one huge move?",
+        "What race-course cues tell me to keep edging versus reset and consolidate?",
+        "How do I protect a gain once I have edged out on the fleet?"
+      ]
+    },
+    "type-5-uncertain": {
+      "suggestedQuestions": [
+        "What defines an Uncertain type of day?",
+        "How should I race when the information is messy or contradictory?",
+        "What is the right balance between patience and decisiveness on an uncertain day?",
+        "How can I reduce risk without becoming too passive when I am unsure of the pattern?"
+      ]
+    },
+    "spirit-animals-of-the-five-types-of-day": {
+      "suggestedQuestions": [
+        "Why use spirit animals to think about the five types of day?",
+        "How can these metaphors help me remember the right mindset on the water?",
+        "Which spirit animal best matches the way I tend to sail now?",
+        "How do I train myself to shift mindsets as the type of day changes?"
+      ]
+    },
+    "what-are-tactics": {
+      "suggestedQuestions": [
+        "What makes a decision tactical rather than strategic?",
+        "How should I think about tactics without losing sight of the bigger race plan?",
+        "What tactical skills matter most at a high level?",
+        "Can you give me a simple example of a good tactical decision that supports strategy?"
+      ]
+    },
+    "tactics-of-connect-the-dots": {
+      "suggestedQuestions": [
+        "What tactical priorities fit best on a Connect the Dots day?",
+        "How do I stay in phase with the course while still managing nearby boats?",
+        "When should I prioritize clear air versus leverage on this kind of day?",
+        "What tactical mistakes break the rhythm of a Connect the Dots race?"
+      ]
+    },
+    "tactics-of-the-inside-track": {
+      "suggestedQuestions": [
+        "What tactical priorities matter most on an Inside Track day?",
+        "How do I protect the inside lane without giving away too much flexibility?",
+        "When do I need to fight harder for position versus keep the race simple?",
+        "How should I manage nearby boats when the inside route is favored?"
+      ]
+    },
+    "uw-6": {
+      "suggestedQuestions": [
+        "What is the main tactical lesson of this chapter?",
+        "How should I apply this idea the next time I am in a tight upwind battle?",
+        "What common mistakes does this chapter warn against?",
+        "Can you turn this chapter into a simple rule of thumb I can remember on the water?"
+      ]
+    },
+    "uw-7": {
+      "suggestedQuestions": [
+        "What is the main tactical lesson of this chapter?",
+        "How does this chapter change the way I should think about my next upwind decision?",
+        "What situations make this concept especially important?",
+        "Can you give me a race example where this idea would clearly matter?"
+      ]
+    },
+    "tactics-of-the-edge-out-strategy": {
+      "suggestedQuestions": [
+        "What tactical priorities support an Edge Out strategy?",
+        "How do I build small gains without creating unnecessary risk?",
+        "When should I press an edge and when should I consolidate?",
+        "How do nearby boats change the right tactical play on an Edge Out day?"
+      ]
+    },
+    "tactics-of-the-outside-track": {
+      "suggestedQuestions": [
+        "What tactical priorities matter most when I am playing the outside track?",
+        "How do I stay committed to the outside without getting isolated too early?",
+        "When is it worth sacrificing short-term position to preserve the outside option?",
+        "What tactical errors usually ruin an Outside Track strategy?"
+      ]
+    },
+    "tactical-summary": {
+      "suggestedQuestions": [
+        "What are the biggest tactical takeaways from this whole section?",
+        "How should I organize all of these tactical ideas so I can use them under pressure?",
+        "Which tactical concepts should I focus on first in training?",
+        "Can you help me build a simple tactical checklist from this section?"
+      ]
+    },
+    "when-the-unconscious-becomes-conscious": {
+      "suggestedQuestions": [
+        "What does it mean for good decision making to become unconscious?",
+        "How do I move from studying these ideas to trusting them under pressure?",
+        "What training habits help turn conscious analysis into instinct?",
+        "How do I know whether I am overthinking versus making a disciplined decision?"
+      ]
     }
   }
 }
