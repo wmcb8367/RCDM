@@ -1768,8 +1768,26 @@
             .page-nav {
                 display: grid;
                 grid-template-columns: auto minmax(0, 1fr) auto;
+                grid-template-areas:
+                    "menu home actions"
+                    "status status status";
                 align-items: center;
+                row-gap: 0.5rem;
                 gap: 0.6rem;
+            }
+
+            #sidebarToggle {
+                grid-area: menu;
+            }
+
+            .reader-home-button {
+                grid-area: home;
+                min-width: 0;
+                padding: 0.55rem 0.8rem;
+                justify-content: flex-start;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                font-size: 0.82rem;
             }
 
             /* Audio scrubber sits between page-nav and mini-player */
@@ -1788,11 +1806,17 @@
 
             .page-actions {
                 display: inline-flex;
+                align-items: center;
                 justify-content: flex-end;
+                justify-self: end;
+                grid-area: actions;
                 gap: 0.35rem;
             }
 
             .page-actions button {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
                 min-width: 2.75rem;
                 padding: 0.55rem 0.7rem;
                 font-size: 0;
@@ -1812,11 +1836,14 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                grid-area: status;
+                width: 100%;
                 min-width: 0;
             }
 
             .page-indicator {
                 text-align: center;
+                font-size: 0.88rem;
             }
 
             .page-status .pill-label {
@@ -2029,6 +2056,28 @@
 
             .reader-toolbar {
                 padding: 0.6rem 0.75rem;
+            }
+
+            .page-nav {
+                gap: 0.45rem;
+                row-gap: 0.45rem;
+            }
+
+            .reader-home-button {
+                padding: 0.5rem 0.65rem;
+                font-size: 0.78rem;
+            }
+
+            .page-actions {
+                gap: 0.3rem;
+            }
+
+            .page-actions button,
+            .mobile-toolbar-button {
+                min-width: 2.5rem;
+                min-height: 2.5rem;
+                width: 2.5rem;
+                height: 2.5rem;
             }
 
             .book-surface {
