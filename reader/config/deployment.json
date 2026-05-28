@@ -1,5 +1,5 @@
 {
-  "deploymentMode": "mixed",
+  "deploymentMode": "version-locked",
   "text": {
     "activeVersion": "v2.2",
     "manifestPath": "book-manifest.json",
@@ -7,16 +7,14 @@
     "sourcePath": "../editions/markdown/RCDM-v2.2.md"
   },
   "audio": {
-    "activeVersion": "coach-willie-2026-04-29-full-audio-mixed-v2.2-v2.1",
-    "manifestPath": "audio-manifests/coach-willie-2026-04-29-full-audio-mixed-v2.2-v2.1.json"
+    "activeVersion": "coach-willie-2026-05-27-full-v2.2",
+    "manifestPath": "audio-manifests/coach-willie-2026-05-27-full-v2.2.json"
   },
-  "warning": "Preface, Prologue, Introduction, Part 1, Tactics, and Conclusion audio are aligned to v2.2. Strategy audio is generated from v2.1 and wired into the v2.2 reader as a mixed-provenance deployment.",
+  "warning": "",
   "notes": [
     "Approved Puter+splash player shell preserved.",
     "Reader text remains v2.2.",
-    "Preface, Prologue, Introduction, and Part 1 audio are version-locked to v2.2.",
-    "Strategy audio uses Coach Willie tracks generated from v2.1 on 2026-04-29.",
-    "Tactics and conclusion audio uses Coach Willie tracks generated from v2.2 on 2026-04-29.",
+    "All active audiobook tracks were regenerated from RCDM v2.2 on 2026-05-27 using one standardized ElevenLabs pipeline.",
     "Top-level section divider headings remain text-only where they contain no substantive body content."
   ]
 }
